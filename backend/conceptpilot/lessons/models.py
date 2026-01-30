@@ -15,6 +15,9 @@ class Lesson(models.Model):
     audio_url = models.URLField(blank=True, null=True)
     duration = models.FloatField(validators=[MinValueValidator(0.0)])
     created_at = models.DateTimeField(auto_now_add=True)
+
+    raw_llm_output = models.JSONField(blank=True, null=True) 
+
     
     class Meta:
         ordering = ['-created_at']

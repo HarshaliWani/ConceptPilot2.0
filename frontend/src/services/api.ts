@@ -18,6 +18,7 @@ export interface LessonData {
   duration: number;
   created_at: string;
   tailored_to_interest: string;
+  raw_llm_output: string;
 }
 
 export async function fetchTestLesson(): Promise<LessonData> {

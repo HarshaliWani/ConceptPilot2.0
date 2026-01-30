@@ -86,36 +86,29 @@ def generate_ai_lesson(request):
         )
 
     try:
-        # Generate lesson content using the LangChain utility
-        generated_data = generate_lesson(topic, user_interest, proficiency_level)
+        # Get both parsed data and the raw string from the generator
+        generation_output = generate_lesson(topic, user_interest, proficiency_level)
+        generated_data = generation_output['parsed_data']
+        raw_llm_output_str = generation_output['raw_response_string']
 
-        # Create and save a new Lesson object in the database
+        # Create and save a new Lesson object
         lesson = Lesson(
             topic=generated_data['topic'],
-            # Use user_interest from the request as tailored_to_interest
             tailored_to_interest=user_interest,
             title=generated_data['title'],
             narration_script=generated_data['narration_script'],
             board_actions=generated_data['board_actions'],
-            audio_url=None, # As per requirement, will be handled by TTS later
+            audio_url=None,
             duration=generated_data['duration'],
-            # 'created_at' will be automatically set by auto_now_add=True in the model
+            raw_llm_output=raw_llm_output_str, # SAVE THE RAW OUTPUT
         )
         lesson.save()
 
         # Return the newly created lesson's data.
         # You might want to use a serializer (like LessonSerializer) here for consistency.
-        return Response({
-            "id": lesson.id,
-            "topic": lesson.topic,
-            "tailored_to_interest": lesson.tailored_to_interest,
-            "title": lesson.title,
-            "narration_script": lesson.narration_script,
-            "board_actions": lesson.board_actions,
-            "audio_url": lesson.audio_url,
-            "duration": lesson.duration,
-            "created_at": lesson.created_at # Includes auto-generated timestamp
-        }, status=status.HTTP_201_CREATED)
+        serializer = LessonSerializer(lesson)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
     except ValueError as e:
         # Catch specific errors from lesson_generator (e.g., OPENAI_API_KEY not set)
