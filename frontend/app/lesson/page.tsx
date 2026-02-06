@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation'; // NEW IMPORT
 import { useLessonStore } from '@/src/store/lessonStore';
-import { fetchTestLesson, fetchLesson } from '@/src/services/api'; // UPDATED IMPORT
+import { fetchTestLesson, fetchLesson, LessonData } from '@/src/services/api';
 import LessonCanvas from '@/src/components/LessonCanvas';
 import AudioController from '@/src/components/AudioController';
 
@@ -22,10 +22,10 @@ const LessonPlayer: React.FC = () => {
         setLoading(true);
         setError(null);
 
-        let data;
+        let data: LessonData;
         if (lessonId) {
           // If lessonId exists, fetch the specific lesson
-          data = await fetchLesson(lessonId); // Use the new fetchLesson function
+          data = await fetchLesson(lessonId);
         } else {
           // Otherwise, fall back to the test lesson
           data = await fetchTestLesson();

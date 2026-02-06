@@ -1,15 +1,16 @@
 // frontend/src/services/api.ts
 import axios from 'axios';
 
-const baseURL = 'http://localhost:8000/api';
+const baseURL = 'http://localhost:8000/api/v1';
 
 const apiClient = axios.create({
   baseURL,
   timeout: 10000,
 });
 
+
 export interface LessonData {
-  id: string;
+  _id: string;
   topic: string;
   title: string;
   narration_script: string;
@@ -18,12 +19,14 @@ export interface LessonData {
   duration: number;
   created_at: string;
   tailored_to_interest: string;
-  raw_llm_output: string;
+  raw_llm_output: Record<string, any>;
 }
 
+
+// Fetch a test lesson (if needed)
 export async function fetchTestLesson(): Promise<LessonData> {
   try {
-    const response = await apiClient.get<LessonData>('/lessons/svg-test-lesson/');
+    const response = await apiClient.get<LessonData>('/lessons/svg-test-lesson');
     return response.data;
   } catch (error) {
     console.error('Error fetching test lesson:', error);
@@ -31,12 +34,30 @@ export async function fetchTestLesson(): Promise<LessonData> {
   }
 }
 
+
 export async function fetchLesson(lessonId: string): Promise<LessonData> {
   try {
-    const response = await apiClient.get<LessonData>(`/lessons/${lessonId}/`);
+    const response = await apiClient.get<LessonData>(`/lessons/${lessonId}`);
     return response.data;
   } catch (error) {
     console.error(`Error fetching lesson with ID ${lessonId}:`, error);
+    throw error;
+  }
+}
+
+// Generate a new lesson
+export interface GenerateLessonPayload {
+  topic: string;
+  user_interest: string;
+  proficiency_level: string;
+}
+
+export async function generateLesson(payload: GenerateLessonPayload): Promise<LessonData> {
+  try {
+    const response = await apiClient.post<LessonData>('/lessons/generate', payload);
+    return response.data;
+  } catch (error) {
+    console.error('Error generating lesson:', error);
     throw error;
   }
 }

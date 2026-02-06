@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import axios from 'axios';
+import { generateLesson } from '@/src/services/api';
 
 const GenerateLesson: React.FC = () => {
   const router = useRouter();
@@ -18,24 +18,16 @@ const GenerateLesson: React.FC = () => {
     setError(null);
 
     try {
-      const response = await axios.post('http://localhost:8000/api/lessons/generate/', {
+      const lesson = await generateLesson({
         topic,
         user_interest: userInterest,
         proficiency_level: proficiencyLevel,
       });
-
-      const lessonId = response.data.id;
       // Redirect to the lesson page with the generated lesson ID
-      // NOTE: The /lesson page needs to be updated to accept and fetch a lesson by ID.
-      router.push(`/lesson?id=${lessonId}`);
-
-    } catch (err) {
+      router.push(`/lesson?id=${lesson._id}`);
+    } catch (err: any) {
       console.error('Error generating lesson:', err);
-      if (axios.isAxiosError(err) && err.response) {
-        setError(err.response.data.error || 'Failed to generate lesson. Please try again.');
-      } else {
-        setError('An unexpected error occurred. Please try again.');
-      }
+      setError(err?.response?.data?.error || 'Failed to generate lesson. Please try again.');
     } finally {
       setLoading(false);
     }
