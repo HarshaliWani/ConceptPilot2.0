@@ -44,6 +44,7 @@ class LessonGenerateSchema(BaseModel):
     topic: str
     user_interest: str
     proficiency_level: str = "beginner"
+    grade_level: str = "middle school"
 
 
 class LessonResponseSchema(BaseModel):

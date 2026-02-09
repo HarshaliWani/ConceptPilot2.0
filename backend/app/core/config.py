@@ -2,7 +2,7 @@
 
 from functools import lru_cache
 from pydantic_settings import BaseSettings
-from typing import List
+from typing import List, Optional
 
 
 class Settings(BaseSettings):
@@ -30,6 +30,7 @@ class Settings(BaseSettings):
     # LLM Configuration
     groq_api_key: str = ""
     openai_api_key: str = ""
+    deepgram_api_key: Optional[str] = None
 
     # CORS Configuration
     cors_origins: List[str] = [

@@ -13,9 +13,23 @@ const LessonCanvas: React.FC = () => {
     }
 
     // Filter actions where timestamp <= currentTime
-    const filtered = lessonData.board_actions.filter(
+    let filtered = lessonData.board_actions.filter(
       (action: any) => action.timestamp !== undefined && action.timestamp <= currentTime
     );
+
+    // Handle "clear" actions - remove all previous actions after the most recent clear
+    const clearActions = filtered.filter((action: any) => action.type === 'clear');
+    if (clearActions.length > 0) {
+      // Find the most recent clear action
+      const lastClear = clearActions[clearActions.length - 1];
+      // Only show actions after the most recent clear (and exclude clear actions themselves)
+      filtered = filtered.filter(
+        (action: any) => action.timestamp > lastClear.timestamp && action.type !== 'clear'
+      );
+    } else {
+      // No clear actions, just exclude any clear actions that might exist
+      filtered = filtered.filter((action: any) => action.type !== 'clear');
+    }
 
     setVisibleActions(filtered);
   }, [currentTime, lessonData]);

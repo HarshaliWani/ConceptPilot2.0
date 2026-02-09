@@ -1,6 +1,8 @@
 """FastAPI application entry for ConceptPilot."""
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+import os
 
 from app.core.database import MongoDB
 from app.api.v1.api import api_router
@@ -15,6 +17,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Mount static files for TTS audio
+static_dir = os.path.join(os.path.dirname(__file__), "static")
+if not os.path.exists(static_dir):
+    os.makedirs(static_dir, exist_ok=True)
+
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
 
 @app.on_event("startup")

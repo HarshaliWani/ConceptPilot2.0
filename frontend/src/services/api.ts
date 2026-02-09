@@ -5,7 +5,7 @@ const baseURL = 'http://localhost:8000/api/v1';
 
 const apiClient = axios.create({
   baseURL,
-  timeout: 10000,
+  timeout: 200000, // Increased to 200 seconds for lesson generation + TTS
 });
 
 

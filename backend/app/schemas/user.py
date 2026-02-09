@@ -26,6 +26,7 @@ class UserRegisterSchema(BaseModel):
     name: str
     username: str
     password: str
+    grade_level: Optional[str] = Field(default="middle school")
 
 
 class UserLoginSchema(BaseModel):
@@ -39,6 +40,7 @@ class UserUpdateSchema(BaseModel):
     name: Optional[str] = None
     username: Optional[str] = None
     email: Optional[EmailStr] = None
+    grade_level: Optional[str] = None
 
 
 class UserResponseSchema(BaseModel):
@@ -47,6 +49,7 @@ class UserResponseSchema(BaseModel):
     email: str
     name: str
     username: str
+    grade_level: Optional[str] = Field(default="middle school")
     interests: List[UserInterestResponseSchema] = Field(default_factory=list)
 
     class Config:

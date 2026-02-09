@@ -51,6 +51,7 @@ class CustomUserBase(BaseModel):
     email: EmailStr
     name: str
     username: str
+    grade_level: Optional[str] = Field(default="middle school")
 
 
 class CustomUserCreate(CustomUserBase):

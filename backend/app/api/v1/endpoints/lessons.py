@@ -29,7 +29,7 @@ def _normalize_doc(doc: dict) -> dict:
 @router.post("/generate", response_model=LessonResponseSchema, status_code=status.HTTP_201_CREATED)
 async def generate_and_save_lesson(payload: LessonGenerateSchema, db=Depends(get_database)):
     """Generate a lesson via LLM (or fallback) and save to DB."""
-    generated = await generate_lesson(payload.topic, payload.user_interest, payload.proficiency_level)
+    generated = await generate_lesson(payload.topic, payload.user_interest, payload.proficiency_level, payload.grade_level)
 
     # Ensure metadata
     if "created_at" not in generated:

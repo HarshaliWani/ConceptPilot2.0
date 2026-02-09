@@ -52,6 +52,7 @@ async def register(payload: UserRegisterSchema, db=Depends(get_database)):
         "name": payload.name,
         "username": payload.username,
         "password_hash": password_hash,
+        "grade_level": payload.grade_level,
         "interests": [],
         "created_at": datetime.utcnow(),
     }
