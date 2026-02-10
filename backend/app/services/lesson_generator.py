@@ -121,6 +121,34 @@ def _validate_and_fix_board_actions(board_actions):
     return fixed_actions
 
 
+def _clean_narration_for_tts(narration: str) -> str:
+    """Remove diagram/drawing instructions from narration before sending to TTS."""
+    import re
+    lines = narration.split('\n')
+    cleaned = []
+    # Patterns that indicate diagram/board instructions rather than spoken content
+    skip_patterns = [
+        r'\b(draw|sketch|write on|put on|place on|add to)\s+(a |the )?(board|canvas|whiteboard|diagram)',
+        r'\b(drawing|writing|placing|adding)\s+(a |the )?(rectangle|circle|line|arrow|box|shape|text)',
+        r'^\s*\[.*\]\s*$',  # Lines that are just [bracketed stage directions]
+        r'^\s*\(.*\)\s*$',  # Lines that are just (parenthetical stage directions)
+        r'\blet me (draw|write|sketch|illustrate|show you on)',
+        r'\bas (I |we )?(draw|write|sketch|illustrate)',
+        r"\bon the (board|canvas|whiteboard|screen)",
+        r'\btimestamp\b.*\btype\b',  # JSON-like board action descriptions
+    ]
+    combined = re.compile('|'.join(skip_patterns), re.IGNORECASE)
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            continue
+        if combined.search(stripped):
+            continue
+        cleaned.append(line)
+    result = '\n'.join(cleaned).strip()
+    return result if result else narration  # Fallback to original if everything stripped
+
+
 def _build_mock_lesson(topic: str, user_interest: str, source: str) -> Dict[str, Any]:
     """Create a deterministic mock lesson for fallback scenarios."""
     now = datetime.utcnow().isoformat()
@@ -280,7 +308,17 @@ OUTPUT FORMAT:
   "grade_level": "..."
 }}
 
+=== NARRATION SCRIPT RULES ===
+CRITICAL: The narration_script is SPOKEN ALOUD by a text-to-speech engine.
+- Write ONLY what should be spoken aloud by a teacher/narrator
+- Do NOT include stage directions like "Now I'll draw a rectangle" or "Let me write this on the board"
+- Do NOT describe visual actions (drawing, writing, pointing)
+- Do NOT say things like "as you can see on the board" — just explain the concept
+- Keep it conversational and educational, as if explaining on a podcast
+- The board_actions handle ALL visuals separately — the narration just teaches the concepts
+
 === QUALITY CHECKLIST ===
+✅ narration_script contains ONLY spoken educational content (no diagram descriptions)
 ✅ Every action has meaningful timestamps matching narration
 ✅ Multiple colors used strategically (not just black)
 ✅ Varied shapes create visual interest
@@ -357,9 +395,10 @@ using examples from {user_interest}."""),
             if "raw_llm_output" in content and isinstance(content["raw_llm_output"], str):
                 content["raw_llm_output"] = {"raw": content["raw_llm_output"], "source": f"{llm_name}_string"}
             
-            # Generate audio for lesson
+            # Generate audio for lesson (clean narration first)
             lesson_id = f"{topic.replace(' ', '')}{int(datetime.utcnow().timestamp())}"
-            audio_result = await generate_audio(content["narration_script"], lesson_id)
+            clean_text = _clean_narration_for_tts(content["narration_script"])
+            audio_result = await generate_audio(clean_text, lesson_id)
             if audio_result is not None:
                 audio_url, actual_duration = audio_result
                 content["audio_url"] = audio_url
@@ -408,7 +447,8 @@ using examples from {user_interest}."""),
                     
                     # Generate audio for lesson
                     lesson_id = f"{topic.replace(' ', '')}{int(datetime.utcnow().timestamp())}"
-                    audio_result = await generate_audio(parsed["narration_script"], lesson_id)
+                    clean_text = _clean_narration_for_tts(parsed["narration_script"])
+                    audio_result = await generate_audio(clean_text, lesson_id)
                     if audio_result is not None:
                         audio_url, actual_duration = audio_result
                         parsed["audio_url"] = audio_url
@@ -432,7 +472,8 @@ using examples from {user_interest}."""),
                     
                     # Generate audio for lesson
                     lesson_id = f"{topic.replace(' ', '')}{int(datetime.utcnow().timestamp())}"
-                    audio_result = await generate_audio(lesson["narration_script"], lesson_id)
+                    clean_text = _clean_narration_for_tts(lesson["narration_script"])
+                    audio_result = await generate_audio(clean_text, lesson_id)
                     if audio_result is not None:
                         audio_url, actual_duration = audio_result
                         lesson["audio_url"] = audio_url
@@ -477,7 +518,8 @@ using examples from {user_interest}."""),
                             
                             # Generate audio for lesson
                             lesson_id = f"{topic.replace(' ', '')}{int(datetime.utcnow().timestamp())}"
-                            audio_result = await generate_audio(inner["narration_script"], lesson_id)
+                            clean_text = _clean_narration_for_tts(inner["narration_script"])
+                            audio_result = await generate_audio(clean_text, lesson_id)
                             if audio_result is not None:
                                 audio_url, actual_duration = audio_result
                                 inner["audio_url"] = audio_url

@@ -1,7 +1,7 @@
 """Authentication endpoints: register and login."""
 from datetime import datetime
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Header
 from bson import ObjectId
 
 from app.schemas.user import (
@@ -10,7 +10,7 @@ from app.schemas.user import (
     UserResponseSchema,
     TokenSchema,
 )
-from app.core.security import get_password_hash, verify_password, create_access_token
+from app.core.security import get_password_hash, verify_password, create_access_token, decode_access_token
 from app.db.mongodb import MongoDBOperations
 from app.core.database import get_database
 
@@ -79,6 +79,33 @@ async def login(payload: UserLoginSchema, db=Depends(get_database)):
         raise HTTPException(status_code=401, detail="Invalid credentials")
 
     # Create JWT token
-    access_token = create_access_token(data={"sub": payload.email})
+    access_token = create_access_token(subject=payload.email)
 
-    return {"access_token": access_token, "token_type": "bearer"}
+    # Return token + user info
+    user_doc = _normalize_user(user_doc)
+    return {
+        "access_token": access_token,
+        "token_type": "bearer",
+        "user": user_doc,
+    }
+
+
+@router.get("/me", response_model=UserResponseSchema)
+async def get_current_user(authorization: str = Header(...), db=Depends(get_database)):
+    """Get current user from JWT token."""
+    # Extract token from "Bearer <token>"
+    if authorization.startswith("Bearer "):
+        token = authorization[7:]
+    else:
+        token = authorization
+
+    payload = decode_access_token(token)
+    if not payload or "sub" not in payload:
+        raise HTTPException(status_code=401, detail="Invalid or expired token")
+
+    ops = MongoDBOperations(db, "users")
+    user_doc = await ops.find_one({"email": payload["sub"]})
+    if not user_doc:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    return _normalize_user(user_doc)

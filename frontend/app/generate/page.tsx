@@ -27,7 +27,9 @@ const GenerateLesson: React.FC = () => {
       router.push(`/lesson?id=${lesson._id}`);
     } catch (err: any) {
       console.error('Error generating lesson:', err);
-      setError(err?.response?.data?.error || 'Failed to generate lesson. Please try again.');
+      const detail = err?.response?.data?.detail ?? err?.response?.data?.error
+      const msg = typeof detail === 'string' ? detail : Array.isArray(detail) ? detail.map((d: any) => d.msg).join(', ') : 'Failed to generate lesson. Please try again.'
+      setError(msg);
     } finally {
       setLoading(false);
     }

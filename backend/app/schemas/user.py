@@ -51,6 +51,7 @@ class UserResponseSchema(BaseModel):
     username: str
     grade_level: Optional[str] = Field(default="middle school")
     interests: List[UserInterestResponseSchema] = Field(default_factory=list)
+    topic_proficiency: Optional[dict] = Field(default_factory=dict)
 
     class Config:
         """Pydantic config."""
@@ -61,6 +62,7 @@ class TokenSchema(BaseModel):
     """JWT token response."""
     access_token: str
     token_type: str = "bearer"
+    user: Optional[UserResponseSchema] = None
 
 
 class TokenDataSchema(BaseModel):

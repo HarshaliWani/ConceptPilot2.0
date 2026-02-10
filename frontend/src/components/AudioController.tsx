@@ -1,6 +1,8 @@
 // frontend/src/components/AudioController.tsx
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import { useLessonStore } from '../store/lessonStore';
+
+const BACKEND_URL = 'http://localhost:8000';
 
 const AudioController: React.FC = () => {
   const { lessonData, isPlaying, currentTime, duration, setCurrentTime, setDuration, setIsPlaying } = useLessonStore();
@@ -10,6 +12,14 @@ const AudioController: React.FC = () => {
   // Refs to hold the latest state values for the interval callback
   const currentTimeRef = useRef(currentTime);
   const isPlayingRef = useRef(isPlaying);
+
+  // Resolve the full audio URL (backend serves static files)
+  const audioSrc = useMemo(() => {
+    if (!lessonData?.audio_url) return null;
+    // If already a full URL, use as-is; otherwise prepend backend URL
+    if (lessonData.audio_url.startsWith('http')) return lessonData.audio_url;
+    return `${BACKEND_URL}${lessonData.audio_url}`;
+  }, [lessonData?.audio_url]);
 
   // Update refs whenever currentTime or isPlaying changes
   useEffect(() => {
@@ -61,7 +71,7 @@ const AudioController: React.FC = () => {
 
   // Mock audio playback simulation when audio_url is null
   useEffect(() => {
-    if (!lessonData || lessonData.audio_url) {
+    if (!lessonData || audioSrc) {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
@@ -105,7 +115,7 @@ const AudioController: React.FC = () => {
         clearInterval(intervalRef.current);
       }
     };
-  }, [isPlaying, lessonData, duration, setCurrentTime, setIsPlaying]); // currentTime is removed from dependencies here
+  }, [isPlaying, lessonData, audioSrc, duration, setCurrentTime, setIsPlaying]); // currentTime is removed from dependencies here
 
   // Initialize duration from lessonData (only if not already set)
   useEffect(() => {
@@ -140,8 +150,8 @@ const AudioController: React.FC = () => {
   return (
     <div className="flex gap-4 items-center p-4 bg-gray-100 rounded">
       {/* Hidden audio element */}
-      {lessonData?.audio_url && (
-        <audio ref={audioRef} src={lessonData.audio_url} />
+      {audioSrc && (
+        <audio ref={audioRef} src={audioSrc} preload="auto" />
       )}
 
       {/* Play/Pause Button */}
@@ -171,9 +181,10 @@ const AudioController: React.FC = () => {
         type="range"
         min={0}
         max={isNaN(duration) ? 0 : duration}
+        step={0.1}
         value={isNaN(currentTime) ? 0 : currentTime}
         onChange={handleSeek}
-        className="flex-1"
+        className="flex-1 cursor-pointer"
       />
     </div>
   );
