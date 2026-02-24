@@ -15,7 +15,9 @@ out/
 .DS_Store
 
 # IDE
-.vscode/
 .idea/
 *.swp
 *.swo
+
+*.mp3
+*venv

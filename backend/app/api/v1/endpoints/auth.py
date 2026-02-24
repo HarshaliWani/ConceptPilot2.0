@@ -1,6 +1,7 @@
 """Authentication endpoints: register and login."""
 from datetime import datetime
 
+from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, status, Header
 from bson import ObjectId
 
@@ -8,6 +9,7 @@ from app.schemas.user import (
     UserRegisterSchema,
     UserLoginSchema,
     UserResponseSchema,
+    UserUpdateSchema,
     TokenSchema,
 )
 from app.core.security import get_password_hash, verify_password, create_access_token, decode_access_token
@@ -91,8 +93,10 @@ async def login(payload: UserLoginSchema, db=Depends(get_database)):
 
 
 @router.get("/me", response_model=UserResponseSchema)
-async def get_current_user(authorization: str = Header(...), db=Depends(get_database)):
+async def get_current_user(authorization: Optional[str] = Header(None), db=Depends(get_database)):
     """Get current user from JWT token."""
+    if not authorization:
+        raise HTTPException(status_code=401, detail="Authorization header missing")
     # Extract token from "Bearer <token>"
     if authorization.startswith("Bearer "):
         token = authorization[7:]
@@ -109,3 +113,52 @@ async def get_current_user(authorization: str = Header(...), db=Depends(get_data
         raise HTTPException(status_code=404, detail="User not found")
 
     return _normalize_user(user_doc)
+
+
+@router.put("/me", response_model=UserResponseSchema)
+async def update_current_user(
+    update_data: UserUpdateSchema,
+    authorization: Optional[str] = Header(None),
+    db=Depends(get_database),
+):
+    """Update current user's profile."""
+    if not authorization:
+        raise HTTPException(status_code=401, detail="Authorization header missing")
+    # Extract token
+    if authorization.startswith("Bearer "):
+        token = authorization[7:]
+    else:
+        token = authorization
+
+    payload = decode_access_token(token)
+    if not payload or "sub" not in payload:
+        raise HTTPException(status_code=401, detail="Invalid or expired token")
+
+    ops = MongoDBOperations(db, "users")
+    user_doc = await ops.find_one({"email": payload["sub"]})
+    if not user_doc:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    # Build update dict from non-None fields
+    updates = {k: v for k, v in update_data.model_dump().items() if v is not None}
+    if not updates:
+        return _normalize_user(user_doc)
+
+    # If email is changing, check uniqueness
+    if "email" in updates and updates["email"] != user_doc["email"]:
+        existing = await ops.find_one({"email": updates["email"]})
+        if existing:
+            raise HTTPException(status_code=400, detail="Email already in use")
+
+    # If username is changing, check uniqueness
+    if "username" in updates and updates["username"] != user_doc["username"]:
+        existing = await ops.find_one({"username": updates["username"]})
+        if existing:
+            raise HTTPException(status_code=400, detail="Username already taken")
+
+    user_id = str(user_doc["_id"])
+    await ops.update(user_id, updates)
+
+    # Return updated user
+    updated = await ops.find_one({"email": updates.get("email", payload["sub"])})
+    return _normalize_user(updated)

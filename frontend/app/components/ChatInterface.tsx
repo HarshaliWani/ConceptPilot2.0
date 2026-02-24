@@ -30,68 +30,70 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onLessonGenerated }) => {
         timestamp: new Date()
       }
     ])
+
+    // Auto-trigger if a topic was pre-filled from the syllabus
+    const prefilledTopic = sessionStorage.getItem('prefilled_topic')
+    if (prefilledTopic) {
+      sessionStorage.removeItem('prefilled_topic')
+      setInputValue(prefilledTopic)
+      // Slight delay to let messages state settle before triggering
+      setTimeout(() => {
+        triggerGeneration(prefilledTopic)
+      }, 100)
+    }
   }, [])
 
-  const handleSendMessage = async () => {
-    if (!inputValue.trim() || isGenerating) return
+  const triggerGeneration = async (topic: string) => {
+    if (!topic.trim()) return
+    setIsGenerating(true)
 
     const userMessage: Message = {
       id: Date.now().toString(),
       type: 'user',
-      content: inputValue,
+      content: topic,
       timestamp: new Date()
     }
-
-    setMessages(prev => [...prev, userMessage])
-    const topic = inputValue.trim()
-    setInputValue('')
-    setIsGenerating(true)
-
-    // Add a "generating" message
     const loadingMsg: Message = {
       id: (Date.now() + 1).toString(),
       type: 'ai',
       content: `Generating a lesson on "${topic}"... This may take up to a minute while the AI creates your personalized content with animations and narration.`,
       timestamp: new Date()
     }
-    setMessages(prev => [...prev, loadingMsg])
+
+    setMessages(prev => [...prev, userMessage, loadingMsg])
+    setInputValue('')
 
     try {
       const lesson = await generateLesson({
         topic,
-        user_interest: topic, // Use topic as interest for now
+        user_interest: topic,
         proficiency_level: 'beginner',
       })
-
-      // Replace loading message with success
       const successMsg: Message = {
         id: (Date.now() + 2).toString(),
         type: 'ai',
-        content: `Your lesson "${lesson.title}" is ready! It covers ${lesson.topic} with ${lesson.board_actions?.length || 0} animated board actions. Click the Play button on the teaching board to start learning!`,
+        content: `Your lesson "${lesson.title}" is ready! Click the Play button on the teaching board to start learning!`,
         timestamp: new Date()
       }
-      setMessages(prev => {
-        const filtered = prev.filter(m => m.id !== loadingMsg.id)
-        return [...filtered, successMsg]
-      })
-
+      setMessages(prev => [...prev.filter(m => m.id !== loadingMsg.id), successMsg])
       onLessonGenerated(lesson)
     } catch (err: any) {
       const detail = err?.response?.data?.detail
       const errText = typeof detail === 'string' ? detail : Array.isArray(detail) ? detail.map((d: any) => d.msg).join(', ') : (err?.message || 'Please try again.')
-      const errorMsg: Message = {
+      setMessages(prev => [...prev.filter(m => m.id !== loadingMsg.id), {
         id: (Date.now() + 3).toString(),
         type: 'ai',
-        content: `Sorry, I couldn't generate that lesson. ${errText}\n\nTip: Make sure the backend server is running on port 8000.`,
+        content: `Sorry, I couldn't generate that lesson. ${errText}`,
         timestamp: new Date()
-      }
-      setMessages(prev => {
-        const filtered = prev.filter(m => m.id !== loadingMsg.id)
-        return [...filtered, errorMsg]
-      })
+      }])
     } finally {
       setIsGenerating(false)
     }
+  }
+
+  const handleSendMessage = async () => {
+    if (!inputValue.trim() || isGenerating) return
+    await triggerGeneration(inputValue.trim())
   }
 
   const handleKeyPress = (e: React.KeyboardEvent) => {

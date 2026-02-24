@@ -1,0 +1,455 @@
+[
+  {
+    "courseCode": "BSC101",
+    "subjectName": "Applied Mathematics-I",
+    "modules": [
+      {
+        "moduleName": "Complex Numbers",
+        "subTopics": [
+          "Pre-requisite: Review of Complex Numbers-Algebra of Complex Numbers, Cartesian, polar and exponential form of complex number, Statement of D'Moivre's Theorem.",
+          "Expansion of sin^n theta, cos^n theta in terms of sines and cosines of multiples of theta and Expansion of sin(n*theta), cos(n*theta) in powers of sine, cosine.",
+          "Powers and Roots of a complex number."
+        ]
+      },
+      {
+        "moduleName": "Hyperbolic Functions & Logarithms of Complex Numbers",
+        "subTopics": [
+          "Circular functions of complex number and Hyperbolic functions.",
+          "Inverse Circular and Inverse Hyperbolic Functions.",
+          "Separation of real and imaginary parts of all types of Functions.",
+          "Logarithm of Complex Number."
+        ]
+      },
+      {
+        "moduleName": "Partial Differentiation",
+        "subTopics": [
+          "Partial Differentiation: Function of two and three variables, Partial derivatives of first and higher order.",
+          "Differentiation of composite function.",
+          "Euler's Theorem on Homogeneous functions with two independent variables (with proof).",
+          "Deductions from Euler's Theorem (without proof)."
+        ]
+      },
+      {
+        "moduleName": "Maxima and Minima and Successive differentiation",
+        "subTopics": [
+          "Maxima and Minima of a function of two independent variables.",
+          "Successive differentiation: nth derivative of standard functions.",
+          "Leibnitz's Theorem (without proof) and simple examples."
+        ]
+      },
+      {
+        "moduleName": "Matrices",
+        "subTopics": [
+          "Types of Matrices (Hermitian, Skew Hermitian, Unitary, Orthogonal Matrices and properties of Matrices).",
+          "The rank of a Matrix using Echelon form, reduction to normal form, and PAQ form (Only 3X3 Matrix).",
+          "System of homogeneous and non-homogeneous equations, their consistency, and solutions."
+        ]
+      },
+      {
+        "moduleName": "Numerical Solutions of Transcendental Equations and System of Linear Equations and Expansion of Function",
+        "subTopics": [
+          "Solution of Transcendental Equations: Solution by Newton Raphson method and Regula-Falsi method.",
+          "Solution of a system of linear algebraic equations by (1) Gauss Jacobi Iteration Method, (2) Gauss Seidel Iteration Method."
+        ]
+      }
+    ]
+  },
+  {
+    "courseCode": "BSC102",
+    "subjectName": "Applied Physics",
+    "modules": [
+      {
+        "moduleName": "Lasers",
+        "subTopics": [
+          "Spontaneous and stimulated emission, population inversion, pumping, active medium & active center, resonant cavity, coherence length and coherence time.",
+          "Characteristics of lasers.",
+          "He-Ne laser: construction and working.",
+          "Applications: Elementary knowledge of LiDAR, Barcode reader, Application of laser in metal work."
+        ]
+      },
+      {
+        "moduleName": "Fibre Optics",
+        "subTopics": [
+          "Critical angle, acceptance angle, acceptance cone, numerical aperture.",
+          "Total internal reflection and propagation of light.",
+          "Types of optical fibers: Single mode & multimode, step index & graded index.",
+          "Attenuation, attenuation coefficient, factors affecting attenuation.",
+          "Fibre Optic Communication System, Advantages of optical fiber communication."
+        ]
+      },
+      {
+        "moduleName": "Interference In Thin Films",
+        "subTopics": [
+          "Interference in thin film of uniform thickness, conditions of maxima and minima for reflected system.",
+          "Conditions for maxima and minima for wedge shaped film (qualitative).",
+          "Engineering applications: Newton's rings for determination of unknown monochromatic wavelength and refractive Index of transparent liquid, Anti-Reflecting Coating."
+        ]
+      },
+      {
+        "moduleName": "Electrodynamics",
+        "subTopics": [
+          "Vector Calculus: Gradient, Divergence, Curl.",
+          "Gauss's law, Amperes' circuital Law, Faraday's law, Divergence theorem, Stokes theorem.",
+          "Maxwell's equations in point form, Integral form and their significance (Cartesian coordinate only)."
+        ]
+      },
+      {
+        "moduleName": "Quantum Physics",
+        "subTopics": [
+          "de Broglie hypothesis of matter waves, de Broglie wavelength for electron, Properties of matter waves.",
+          "Wave function and probability density, mathematical conditions for wave function.",
+          "Need and significance of Schrödinger's equations, Schrödinger's time independent and time dependent equations.",
+          "Energy of a particle enclosed in a rigid box and related numerical problems.",
+          "Quantum mechanical tunneling.",
+          "Principles of quantum computing: concept of Qubit."
+        ]
+      },
+      {
+        "moduleName": "Basics Of Semiconductor Physics",
+        "subTopics": [
+          "Direct and Indirect Band Gap Semiconductors.",
+          "Electrical Conductivity of Semiconductors, Drift Velocity, Mobility and Conductivity in Conductors.",
+          "Fermi-Dirac distribution function.",
+          "Position of Fermi Level in Intrinsic and Extrinsic Semiconductors."
+        ]
+      }
+    ]
+  },
+  {
+    "courseCode": "BSC103",
+    "subjectName": "Applied Chemistry",
+    "modules": [
+      {
+        "moduleName": "Fuels and Combustion",
+        "subTopics": [
+          "Fuel: Definition, Characteristics of good fuel. Calorific value (Definition, Types, Determination, Dulong's formula, Numerical).",
+          "Coal: Analysis of coal - Proximate analysis, Ultimate analysis, Numerical.",
+          "Combustion of coal - Numerical."
+        ]
+      },
+      {
+        "moduleName": "Corrosion",
+        "subTopics": [
+          "Introduction: Definition, Types of Corrosion (Dry/Atmospheric Corrosion, Wet/Electrochemical corrosion in Acidic and Neutral medium).",
+          "Factors affecting rate of corrosion (Position of metal in galvanic series, Purity of Metal, Nature of Corrosion product, Temperature, pH of medium, concentration of medium, moisture, Relative Cathodic and Anodic area, overvoltage).",
+          "Methods to control corrosion (Selection of metal, Proper Designing, Cathodic protection, Use of Corrosion Inhibitors, Metallic Coating).",
+          "Corrosion in Electronic devices."
+        ]
+      },
+      {
+        "moduleName": "Alloys",
+        "subTopics": [
+          "Purpose of making alloys.",
+          "Gibbs Phase rule Statement, Terms involved with examples.",
+          "Reduced phase rule, Two-component system (Pb-Ag) & Numerical.",
+          "Merits and Limitations of Phase rule."
+        ]
+      },
+      {
+        "moduleName": "Introduction to Polymers",
+        "subTopics": [
+          "Macro-molecular science, basic concept of polymers, Chemical bonding in polymers, Classification of Polymers.",
+          "Molecular weight - Number average molecular weight, Weight average molecular weight, Numerical.",
+          "Crystallinity - Crystalline and amorphous polymers - Glass transition temperature.",
+          "Mechanical Properties: Hardness, tensile strength, creep, fatigue, impact resistance.",
+          "Electrical properties: dielectric strength, insulation resistance, surface resistivity.",
+          "Optical properties: refractive index, transmittance, photoelectric property, colour."
+        ]
+      },
+      {
+        "moduleName": "Introduction to Composites",
+        "subTopics": [
+          "Definition, Characteristics of Composites.",
+          "Constituents of Composites - Matrix Phase and Dispersed Phase (Definition and Functions).",
+          "Classification of Composites."
+        ]
+      },
+      {
+        "moduleName": "Green Chemistry for sustainable development",
+        "subTopics": [
+          "Comparative study of synthesis of following industrially important molecules by conventional and green route: Indigo dye, Adipic acid, Carbaryl.",
+          "Green Solvents: characteristics and applications of Supercritical solvents and ionic liquids.",
+          "Green Fuels: Synthesis and Advantages of Biodiesel and Ethanol."
+        ]
+      }
+    ]
+  },
+  {
+    "courseCode": "ESC101",
+    "subjectName": "Engineering Mechanics",
+    "modules": [
+      {
+        "moduleName": "System of Forces",
+        "subTopics": [
+          "Classification of force systems, Principle of transmissibility, composition and resolution of forces.",
+          "Resultant of coplanar force system (Concurrent forces, parallel forces and general system of forces).",
+          "Moment of force about a point, Couples, Varignon's Theorem.",
+          "Resultant of Non-Coplanar (Space Force): Concurrent force system."
+        ]
+      },
+      {
+        "moduleName": "Centroid",
+        "subTopics": [
+          "Centroids of plane laminas: Plane lamina consisting of primitive geometrical shapes."
+        ]
+      },
+      {
+        "moduleName": "Equilibrium of Force system and Friction",
+        "subTopics": [
+          "Equilibrium: Conditions of equilibrium for concurrent forces, parallel forces and general forces, Couples. Equilibrium of rigid bodies, free body diagrams.",
+          "Equilibrium of Beams: Types of beams, simple and compound beams, type of supports and reaction. Determination of reactions at supports for various types of loads on beams.",
+          "Friction: Laws of friction. Cone of friction. angle of repose, angle of friction, equilibrium of bodies on a horizontal and inclined plane."
+        ]
+      },
+      {
+        "moduleName": "Kinematics of particle and rigid bodies",
+        "subTopics": [
+          "Motion of particle with variable acceleration. Motion along plane curved path.",
+          "Velocity and acceleration in terms of rectangular components, tangential and normal component of acceleration.",
+          "Introduction to general plane motion, problem based on Instantaneous center (ICR) method for general plane motion."
+        ]
+      },
+      {
+        "moduleName": "Kinetics of particle",
+        "subTopics": [
+          "Force and Acceleration: Introduction to basic concepts, D'Alembert's Principle, concept of Inertia force, Equations of dynamic equilibrium.",
+          "Principle of linear impulse and momentum.",
+          "Impact and collision: Law of conservation of momentum, Coefficient of Restitution. Direct Central Impact and Oblique Central Impact.",
+          "Loss of Kinetic Energy in collision of inelastic bodies."
+        ]
+      },
+      {
+        "moduleName": "Introduction to Robot Kinematics",
+        "subTopics": [
+          "Fundamental of Robot Mechanics, Degree of Freedom.",
+          "D-H Parameters, robot kinematics (Forward).",
+          "Homogeneous transformation (limited to 2 DOF Serial robot)."
+        ]
+      }
+    ]
+  },
+  {
+    "courseCode": "ESC102",
+    "subjectName": "Basic Electrical and Electronics Engineering",
+    "modules": [
+      {
+        "moduleName": "DC Circuits",
+        "subTopics": [
+          "Resistance, inductance, capacitance, series and parallel connections of resistance, concepts of voltage, current, power and energy and its units.",
+          "Magnetic circuits, MMF, Magnetic field strength, reluctance.",
+          "Kirchhoff's Laws, Ideal and Practical Voltage and Current Sources, Source Transformation.",
+          "Mesh and Nodal Analysis (no super node and super mesh).",
+          "Star-Delta / Delta-Star Transformations.",
+          "Superposition Theorem, Thevenin's Theorem, Norton's Theorem and Maximum Power Transfer Theorem."
+        ]
+      },
+      {
+        "moduleName": "AC Circuits",
+        "subTopics": [
+          "Generation of alternating voltage, basic definitions, average and RMS values, phasor and phase difference, sums on phasors.",
+          "Single-phase ac series and parallel circuits consisting of R, L, C, RL, RC, RLC combinations.",
+          "Definitions - real, reactive and apparent power, admittance (Y).",
+          "Series and parallel resonance (only theory).",
+          "Generation of Three-Phase Voltages, voltage & current relationships in Star and Delta Connections."
+        ]
+      },
+      {
+        "moduleName": "Single Phase Transformer",
+        "subTopics": [
+          "Working principle of single-phase transformer, types of single-phase transformer.",
+          "Transformation ratio, actual (practical) and ideal transformer.",
+          "Transformer losses, efficiency, applications of transformer."
+        ]
+      },
+      {
+        "moduleName": "Electrical Machines",
+        "subTopics": [
+          "Principle of operation, constructional details, classification and applications of DC Motor.",
+          "Three-phase induction motor, Single-Phase induction motors and BLDC motor."
+        ]
+      },
+      {
+        "moduleName": "Special Purpose Diodes",
+        "subTopics": [
+          "Characteristics and operation of Zener Diode and application as a voltage regulator.",
+          "Basic and structure of LED.",
+          "Application of LED in indicative and lighting displays."
+        ]
+      },
+      {
+        "moduleName": "Introduction to Transistors",
+        "subTopics": [
+          "Structure and operation of BJT. BJT configurations (only common emitter).",
+          "FET structure and operation.",
+          "Application of BJT and FET in amplification, switching and oscillators."
+        ]
+      }
+    ]
+  },
+  {
+    "courseCode": "AEC101",
+    "subjectName": "Professional Communication and Ethics",
+    "modules": [
+      {
+        "moduleName": "Fundamentals of Communication",
+        "subTopics": [
+          "Basic Concepts of Communication: Definition, Objectives, Postulates.",
+          "Process of Communication: Stimulus, Sender, Encoding, Message, Medium, Channel, Receiver, Decoding, Feedback.",
+          "Methods of Communication: Verbal (Written & Spoken), Non-verbal cues perceived through the five senses.",
+          "Barriers to Communication: Mechanical, Physical, Semantic & Linguistic, Psychological, Socio-cultural.",
+          "Organisational Communication: Formal (Upward, Downward, Horizontal), Informal (Grapevine)."
+        ]
+      },
+      {
+        "moduleName": "Developing Basic Listening Skills",
+        "subTopics": [
+          "Concepts of Active Listening: Listening for Details, Listening for Gist, Listening for Inference.",
+          "Enhancing Listening Proficiency Using Language Labs or on Open Source Platforms."
+        ]
+      },
+      {
+        "moduleName": "Developing Basic Speaking Skills",
+        "subTopics": [
+          "Conversational Activities - Monologues: Introducing yourself, Introducing others, One-minute impromptu speeches, Scaffolded story telling.",
+          "Conversational Activities - Dialogues: Role plays on everyday interactions, Interviews, Information Gap Activities, Picture descriptions and feedback, Situational conversations.",
+          "Conversational Activities: Pronunciation, Stress & Rhythm, Intonation, Neutralisation of accent, Word stress, Rhythm & Pauses, Tonal variations/inflections."
+        ]
+      },
+      {
+        "moduleName": "Developing Basic Reading Skills",
+        "subTopics": [
+          "Verbal Aptitude: Root Words, Meanings, Word Forms, Synonyms, Antonyms, Collocations, Prefixes, Suffixes.",
+          "Grammar: Identifying Common Errors (Subject-verb agreement, Articles, Prepositions, Misplaced modifiers and Punctuations), Redundancies, Idioms, Cliches.",
+          "Techniques to Improve Reading Fluency and Comprehension: Intensive Reading, Extensive Reading, Skimming, Scanning, SQ5R Method.",
+          "Reading & Summarisation Skills: Summarising text to Graphic Organisers (GO) and visa-versa, Summarising text in point form, Summarising text in one-sentence central idea."
+        ]
+      },
+      {
+        "moduleName": "Developing Basic Writing Skills",
+        "subTopics": [
+          "Coherence & Cohesion in Writing: Basic Units of Writing, Coherence, Cohesive Devices, Structure of a Paragraph.",
+          "Seven Cs of Business Writing: Completeness, Conciseness, Concreteness, Clarity, Consideration, Courtesy, Correctness.",
+          "Format & Types of Formal Letters: Parts of a Formal Letter in Complete Block Style, Request/Permission Letter, Claim and Adjustment Letter, Sales Letter, E-mails.",
+          "Writing User Instructions: Styles of Instruction Presentation, Describing general function/purpose, Drawing labelled diagrams, Describing labelled parts, Writing User Instructions, Writing Special Notices.",
+          "Content Creation for Social Media and e-Commerce Platforms: Blogs, Poetry, Keynote speeches, Podcast titles, Landing pages, Social media posts, YouTube video description, Screenwriting/Script Writing."
+        ]
+      },
+      {
+        "moduleName": "Ethical and Managerial Skills for Engineers",
+        "subTopics": [
+          "Team building: Five stages of Team (Forming, Storming, Norming, Performing and Adjourning).",
+          "Goal setting: SMART goals – short term and long-term goals.",
+          "Ethical Considerations for Professional Integrity: Fairness and Honesty, Difference between Values and Ethics, Ethical principles, Ethical use of AI Tools, Plagiarism and copyright infringement, Ethical-dilemma case studies."
+        ]
+      }
+    ]
+  },
+  {
+    "courseCode": "VSEC102",
+    "subjectName": "C Programming",
+    "modules": [
+      {
+        "moduleName": "Fundamentals of C-Programming",
+        "subTopics": [
+          "Character Set, Identifiers and keywords, Data types, Constants, Variables.",
+          "Operators - Arithmetic, Relational and logical, Assignment, Unary, Conditional, Bitwise, Comma, other operators.",
+          "Expression, statements, Library Functions, Preprocessor.",
+          "Data Input and Output - getchar(), putchar(), scanf(), printf(), gets(), puts(), Structure of C program."
+        ]
+      },
+      {
+        "moduleName": "Control Structures",
+        "subTopics": [
+          "Branching - If statement, If-else Statement, Multiway decision.",
+          "Looping - while, do-while, for.",
+          "Nested control structure - Switch statement, Continue statement, Break statement, Goto statement."
+        ]
+      },
+      {
+        "moduleName": "Functions and Parameter",
+        "subTopics": [
+          "Function - Introduction of Function, Function Main, defining a Function, accessing a Function, Function Prototype, Passing Arguments to a Function, Recursion.",
+          "Storage Classes - Auto, Extern, Static, Register."
+        ]
+      },
+      {
+        "moduleName": "Arrays, String Structure",
+        "subTopics": [
+          "Array - Concepts, Declaration, Definition, Accessing array element, One-dimensional and Multidimensional array.",
+          "String - Basic of String, Array of String, Functions in String.h.",
+          "Structure - Declaration, Initialization, structure within structure, Operation on structures, Array of Structure."
+        ]
+      },
+      {
+        "moduleName": "Pointer",
+        "subTopics": [
+          "Pointer: Introduction, Definition and uses of Pointers, Address Operator, Pointer Variables, Dereferencing Pointer.",
+          "Void Pointer, Pointer Arithmetic, Pointers to Pointers, Pointers and Array."
+        ]
+      },
+      {
+        "moduleName": "Files",
+        "subTopics": [
+          "Files: File operation Opening, Closing, Creating, Reading, Processing File."
+        ]
+      }
+    ]
+  },
+  {
+    "courseCode": "CC101",
+    "subjectName": "Induction cum Universal Human Values",
+    "modules": [
+      {
+        "moduleName": "Introduction - Need, Basic Guidelines, Content and Process for Value Education",
+        "subTopics": [
+          "Purpose and motivation for the course, Self-Exploration, Continuous Happiness and Prosperity- the basic Human Aspirations.",
+          "Right understanding, Relationship and Physical Facility- the basic requirements for fulfilment of aspirations.",
+          "Understanding Happiness and Prosperity correctly- A critical appraisal of the current scenario.",
+          "Method to fulfil the above human aspirations."
+        ]
+      },
+      {
+        "moduleName": "Understanding Harmony in the Human Being",
+        "subTopics": [
+          "Understanding human being as a co-existence of the sentient 'I' and the material 'Body'.",
+          "Understanding the needs of Self ('I') and 'Body' - happiness and physical facility.",
+          "The Body as an instrument of 'I', characteristics and activities of 'I' and harmony in 'I', harmony of I with the Body: Self-regulation and Health.",
+          "Correct appraisal of Physical needs, meaning of Prosperity in detail, Programs to ensure Self-regulation and Health."
+        ]
+      },
+      {
+        "moduleName": "Understanding Harmony in the Family",
+        "subTopics": [
+          "Understanding values in human-human relationship and program for its fulfilment to ensure mutual happiness.",
+          "Trust and Respect as the foundational values of relationship, the other salient values in relationship."
+        ]
+      },
+      {
+        "moduleName": "Understanding Harmony in the Society",
+        "subTopics": [
+          "Understanding the harmony in the society (society being an extension of family).",
+          "Resolution, Prosperity, fearlessness (trust) and co-existence as comprehensive Human Goals.",
+          "Visualizing a universal harmonious order in society- Undivided Society, Universal Order- from family to world family."
+        ]
+      },
+      {
+        "moduleName": "Understanding Harmony in the Nature and Existence",
+        "subTopics": [
+          "Understanding the harmony in the Nature, Interconnectedness and mutual fulfilment among the four orders of nature.",
+          "Cyclability and self-regulation in nature.",
+          "Understanding Existence as Co-existence of mutually interacting units in all pervasive space.",
+          "Holistic perception of harmony at all levels of existence."
+        ]
+      },
+      {
+        "moduleName": "Implications of Holistic Understanding on Professional Ethics",
+        "subTopics": [
+          "Natural acceptance of human values, Definitiveness of Ethical Human Conduct, Basis for Humanistic Education, Humanistic Constitution and Humanistic Universal Order.",
+          "Competence in professional ethics: Ability to utilize the professional competence for augmenting universal human order and identify the scope and characteristics of people friendly and eco-friendly production systems.",
+          "Ability to identify and develop appropriate technologies and management patterns for above production systems.",
+          "Case studies of typical holistic technologies, management models and production systems, Strategy for transition from the present state to Universal Human Order."
+        ]
+      }
+    ]
+  }
+]

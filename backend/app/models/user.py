@@ -52,6 +52,9 @@ class CustomUserBase(BaseModel):
     name: str
     username: str
     grade_level: Optional[str] = Field(default="middle school")
+    hobby: Optional[str] = None
+    course_code: Optional[str] = None
+    year: Optional[int] = None
 
 
 class CustomUserCreate(CustomUserBase):

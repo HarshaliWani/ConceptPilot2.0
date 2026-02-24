@@ -41,6 +41,9 @@ class UserUpdateSchema(BaseModel):
     username: Optional[str] = None
     email: Optional[EmailStr] = None
     grade_level: Optional[str] = None
+    hobby: Optional[str] = None
+    course_code: Optional[str] = None
+    year: Optional[int] = None
 
 
 class UserResponseSchema(BaseModel):
@@ -50,6 +53,9 @@ class UserResponseSchema(BaseModel):
     name: str
     username: str
     grade_level: Optional[str] = Field(default="middle school")
+    hobby: Optional[str] = None
+    course_code: Optional[str] = None
+    year: Optional[int] = None
     interests: List[UserInterestResponseSchema] = Field(default_factory=list)
     topic_proficiency: Optional[dict] = Field(default_factory=dict)
 

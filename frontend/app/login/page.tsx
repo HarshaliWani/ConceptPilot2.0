@@ -44,7 +44,8 @@ export default function LoginPage() {
       // After registering, log in automatically
       const data = await login(email, password)
       saveAuth(data.access_token, data.user)
-      router.push('/')
+      // Redirect to profile tab to complete onboarding
+      router.push('/?tab=profile')
     } catch (err: any) {
       const detail = err?.response?.data?.detail
       const msg = typeof detail === 'string' ? detail : Array.isArray(detail) ? detail.map((d: any) => d.msg).join(', ') : 'Registration failed. Please try again.'

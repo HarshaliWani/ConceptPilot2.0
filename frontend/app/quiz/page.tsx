@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { getQuiz, submitQuiz, QuizData, QuizResult } from '../../src/services/api';
 import QuizCard from '../../src/components/QuizCard';
 import QuizResults from '../../src/components/QuizResults';
 import { getUserId } from '../../src/lib/auth';
 
-const QuizPage = () => {
+const QuizPageContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const quizId = searchParams.get('id');
@@ -285,5 +285,13 @@ const QuizPage = () => {
     </div>
   );
 };
+
+function QuizPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading quiz...</div>}>
+      <QuizPageContent />
+    </Suspense>
+  );
+}
 
 export default QuizPage;

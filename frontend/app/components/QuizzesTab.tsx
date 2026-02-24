@@ -5,7 +5,7 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Brain, Clock, CheckCircle, Play, Loader2 } from 'lucide-react'
-import { listQuizzes, getUserAttempts, QuizListItem, QuizAttemptItem } from '@/src/services/api'
+import { listQuizzes, getUserAttempts, generateQuiz, QuizListItem, QuizAttemptItem } from '@/src/services/api'
 import { getUserId } from '@/src/lib/auth'
 
 const QuizzesTab: React.FC = () => {
@@ -13,6 +13,7 @@ const QuizzesTab: React.FC = () => {
   const [availableQuizzes, setAvailableQuizzes] = useState<QuizListItem[]>([])
   const [completedAttempts, setCompletedAttempts] = useState<QuizAttemptItem[]>([])
   const [loading, setLoading] = useState(true)
+  const [generatingQuiz, setGeneratingQuiz] = useState<string | null>(null)
   const router = useRouter()
 
   useEffect(() => {
@@ -30,6 +31,24 @@ const QuizzesTab: React.FC = () => {
         console.error('Failed to load quizzes:', err)
       } finally {
         setLoading(false)
+      }
+
+      // Auto-generate quiz if coming from syllabus
+      const pendingTopic = sessionStorage.getItem('pending_quiz_topic')
+      if (pendingTopic) {
+        sessionStorage.removeItem('pending_quiz_topic')
+        setGeneratingQuiz(pendingTopic)
+        try {
+          const quiz = await generateQuiz({
+            topic: pendingTopic,
+            topic_description: pendingTopic,
+            user_id: getUserId(),
+          })
+          router.push(`/quiz?id=${quiz._id}`)
+        } catch (err) {
+          console.error('Failed to auto-generate quiz:', err)
+          setGeneratingQuiz(null)
+        }
       }
     }
     load()
@@ -50,6 +69,16 @@ const QuizzesTab: React.FC = () => {
     if (diffDays === 1) return 'Yesterday'
     if (diffDays < 7) return `${diffDays} days ago`
     return d.toLocaleDateString()
+  }
+
+  if (generatingQuiz) {
+    return (
+      <div className="p-6 flex flex-col items-center justify-center h-64 gap-4">
+        <Loader2 className="w-10 h-10 text-blue-500 animate-spin" />
+        <p className="text-lg font-medium text-gray-700">Generating quiz on &quot;{generatingQuiz}&quot;...</p>
+        <p className="text-sm text-gray-500">This may take a few seconds</p>
+      </div>
+    )
   }
 
   if (loading) {

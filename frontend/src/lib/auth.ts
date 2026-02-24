@@ -7,6 +7,9 @@ export interface AuthUser {
   name: string;
   username: string;
   grade_level?: string;
+  hobby?: string;
+  course_code?: string;
+  year?: number;
   topic_proficiency?: Record<string, number>;
 }
 
@@ -20,6 +23,14 @@ const AUTH_KEY = 'conceptpilot_auth';
 export function saveAuth(token: string, user: AuthUser): void {
   const data: AuthData = { token, user };
   localStorage.setItem(AUTH_KEY, JSON.stringify(data));
+}
+
+export function updateUser(updates: Partial<AuthUser>): void {
+  const auth = getAuth();
+  if (auth) {
+    auth.user = { ...auth.user, ...updates };
+    localStorage.setItem(AUTH_KEY, JSON.stringify(auth));
+  }
 }
 
 export function getAuth(): AuthData | null {

@@ -1,6 +1,6 @@
 // frontend/src/services/api.ts
 import axios from 'axios';
-import { getToken } from '../lib/auth';
+import { getToken, clearAuth } from '../lib/auth';
 
 const baseURL = 'http://localhost:8000/api/v1';
 
@@ -17,6 +17,18 @@ apiClient.interceptors.request.use((config) => {
   }
   return config;
 });
+
+// Redirect to login on 401 (missing or invalid token)
+apiClient.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (typeof window !== 'undefined' && error?.response?.status === 401) {
+      clearAuth();
+      window.location.replace('/login');
+    }
+    return Promise.reject(error);
+  }
+);
 
 
 // ========== Auth API Functions ==========
@@ -54,6 +66,20 @@ export async function register(payload: RegisterPayload) {
 
 export async function fetchCurrentUser() {
   const response = await apiClient.get('/auth/me');
+  return response.data;
+}
+
+export async function updateProfile(updates: Partial<{
+  name: string;
+  email: string;
+  username: string;
+  password: string;
+  grade_level: string;
+  hobby: string;
+  course_code: string;
+  year: number;
+}>) {
+  const response = await apiClient.put('/auth/me', updates);
   return response.data;
 }
 
@@ -253,3 +279,75 @@ export async function getUserAttempts(userId: string, skip = 0, limit = 50): Pro
   });
   return response.data;
 }
+
+
+// ========== Flashcard API Functions ==========
+
+export interface Flashcard {
+  _id: string;
+  user_id: string;
+  topic: string;
+  front: string;
+  back: string;
+  difficulty: 'easy' | 'medium' | 'hard';
+  explanation?: string;
+  confidence: number;
+  ease_factor: number;
+  interval: number;
+  repetitions: number;
+  next_review_date: string;
+  last_reviewed?: string;
+  created_at: string;
+}
+
+export interface FlashcardTopic {
+  topic: string;
+  count: number;
+}
+
+export async function generateFlashcards(topic: string, isCustomTopic: boolean = false): Promise<Flashcard[]> {
+  const response = await apiClient.post<Flashcard[]>('/flashcards/generate', {
+    topic,
+    is_custom_topic: isCustomTopic
+  });
+  return response.data;
+}
+
+export async function getFlashcards(filters?: {
+  topic?: string;
+  difficulty?: string;
+  due_for_review?: boolean;
+}): Promise<Flashcard[]> {
+  const response = await apiClient.get<Flashcard[]>('/flashcards/', { params: filters });
+  return response.data;
+}
+
+export async function getFlashcardTopics(): Promise<FlashcardTopic[]> {
+  const response = await apiClient.get<FlashcardTopic[]>('/flashcards/topics');
+  return response.data;
+}
+
+export async function getFlashcard(id: string): Promise<Flashcard> {
+  const response = await apiClient.get<Flashcard>(`/flashcards/${id}`);
+  return response.data;
+}
+
+export async function reviewFlashcard(id: string, confidence: number): Promise<Flashcard> {
+  const response = await apiClient.put<Flashcard>(`/flashcards/${id}/review`, { confidence });
+  return response.data;
+}
+
+export async function updateFlashcard(id: string, updates: {
+  front?: string;
+  back?: string;
+  difficulty?: string;
+  explanation?: string;
+}): Promise<Flashcard> {
+  const response = await apiClient.put<Flashcard>(`/flashcards/${id}`, updates);
+  return response.data;
+}
+
+export async function deleteFlashcard(id: string): Promise<void> {
+  await apiClient.delete(`/flashcards/${id}`);
+}
+

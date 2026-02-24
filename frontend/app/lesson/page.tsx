@@ -1,7 +1,7 @@
 // frontend/src/app/lesson/page.tsx
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation'; // NEW IMPORT
 import { useLessonStore } from '@/src/store/lessonStore';
 import { fetchTestLesson, fetchLesson, LessonData, generateQuiz } from '@/src/services/api';
@@ -165,4 +165,10 @@ const LessonPlayer: React.FC = () => {
   );
 };
 
-export default LessonPlayer;
+export default function LessonPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading lesson...</div>}>
+      <LessonPlayer />
+    </Suspense>
+  );
+}
