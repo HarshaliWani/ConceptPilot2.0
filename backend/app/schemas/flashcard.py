@@ -1,17 +1,22 @@
 # backend/app/schemas/flashcard.py
 from datetime import datetime
 from typing import Optional
+
 from pydantic import BaseModel, Field
 
 
 class FlashcardGenerateRequestSchema(BaseModel):
     """Request to generate flashcards"""
+
     topic: str = Field(..., min_length=3, max_length=500)
-    is_custom_topic: bool = False  # True if user typed custom topic, False if from syllabus
+    is_custom_topic: bool = (
+        False  # True if user typed custom topic, False if from syllabus
+    )
 
 
 class FlashcardCreateSchema(BaseModel):
     """Schema for creating a single flashcard"""
+
     topic: str
     front: str
     back: str
@@ -21,6 +26,7 @@ class FlashcardCreateSchema(BaseModel):
 
 class FlashcardResponseSchema(BaseModel):
     """Response schema for flashcard"""
+
     id: str = Field(alias="_id")
     user_id: str
     topic: str
@@ -42,6 +48,7 @@ class FlashcardResponseSchema(BaseModel):
 
 class FlashcardUpdateSchema(BaseModel):
     """Schema for updating flashcard content"""
+
     front: Optional[str] = None
     back: Optional[str] = None
     difficulty: Optional[str] = None
@@ -50,10 +57,13 @@ class FlashcardUpdateSchema(BaseModel):
 
 class FlashcardReviewSchema(BaseModel):
     """Schema for reviewing flashcard (spaced repetition)"""
+
     confidence: int = Field(..., ge=1, le=5)  # 1-5 stars
 
 
 class FlashcardTopicSchema(BaseModel):
     """Schema for unique topics"""
+
     topic: str
+    count: int  # Number of flashcards for this topic
     count: int  # Number of flashcards for this topic

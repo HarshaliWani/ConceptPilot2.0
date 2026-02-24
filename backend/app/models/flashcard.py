@@ -1,6 +1,7 @@
 # backend/app/models/flashcard.py
 from datetime import datetime
 from typing import Optional
+
 from pydantic import BaseModel, Field
 
 
@@ -18,6 +19,7 @@ class FlashcardCreate(FlashcardBase):
 
 class Flashcard(FlashcardBase):
     """Flashcard document in MongoDB"""
+
     id: str = Field(alias="_id")
     user_id: str
     confidence: int = 0  # 0-5 rating
@@ -41,4 +43,6 @@ class FlashcardUpdate(BaseModel):
 
 class FlashcardReview(BaseModel):
     """Update flashcard after review with confidence rating"""
+
+    confidence: int  # 1-5 stars
     confidence: int  # 1-5 stars

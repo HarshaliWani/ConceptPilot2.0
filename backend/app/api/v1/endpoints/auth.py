@@ -1,20 +1,25 @@
 """Authentication endpoints: register and login."""
+
 from datetime import datetime
-
 from typing import Optional
-from fastapi import APIRouter, Depends, HTTPException, status, Header
-from bson import ObjectId
 
+from app.core.database import get_database
+from app.core.security import (
+    create_access_token,
+    decode_access_token,
+    get_password_hash,
+    verify_password,
+)
+from app.db.mongodb import MongoDBOperations
 from app.schemas.user import (
-    UserRegisterSchema,
+    TokenSchema,
     UserLoginSchema,
+    UserRegisterSchema,
     UserResponseSchema,
     UserUpdateSchema,
-    TokenSchema,
 )
-from app.core.security import get_password_hash, verify_password, create_access_token, decode_access_token
-from app.db.mongodb import MongoDBOperations
-from app.core.database import get_database
+from bson import ObjectId
+from fastapi import APIRouter, Depends, Header, HTTPException, status
 
 router = APIRouter()
 
@@ -30,7 +35,9 @@ def _normalize_user(doc: dict) -> dict:
     return doc
 
 
-@router.post("/register", response_model=UserResponseSchema, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/register", response_model=UserResponseSchema, status_code=status.HTTP_201_CREATED
+)
 async def register(payload: UserRegisterSchema, db=Depends(get_database)):
     """Register a new user."""
     ops = MongoDBOperations(db, "users")
@@ -93,7 +100,9 @@ async def login(payload: UserLoginSchema, db=Depends(get_database)):
 
 
 @router.get("/me", response_model=UserResponseSchema)
-async def get_current_user(authorization: Optional[str] = Header(None), db=Depends(get_database)):
+async def get_current_user(
+    authorization: Optional[str] = Header(None), db=Depends(get_database)
+):
     """Get current user from JWT token."""
     if not authorization:
         raise HTTPException(status_code=401, detail="Authorization header missing")

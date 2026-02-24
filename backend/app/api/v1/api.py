@@ -1,7 +1,8 @@
 """API router aggregation for version 1."""
+
 from fastapi import APIRouter
 
-from .endpoints import lessons, auth, quizzes, flashcards
+from .endpoints import auth, flashcards, lessons, quizzes
 
 api_router = APIRouter()
 

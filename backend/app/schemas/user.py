@@ -1,11 +1,13 @@
 """User request/response schemas."""
 
-from typing import Optional, List
+from typing import List, Optional
+
 from pydantic import BaseModel, EmailStr, Field
 
 
 class UserInterestSchema(BaseModel):
     """User interest schema."""
+
     interest_category: str
     specific_interest: str
     proficiency_level: str
@@ -13,15 +15,18 @@ class UserInterestSchema(BaseModel):
 
 class UserInterestResponseSchema(UserInterestSchema):
     """User interest response."""
+
     id: Optional[str] = Field(alias="_id")
 
     class Config:
         """Pydantic config."""
+
         populate_by_name = True
 
 
 class UserRegisterSchema(BaseModel):
     """User registration request."""
+
     email: EmailStr
     name: str
     username: str
@@ -31,12 +36,14 @@ class UserRegisterSchema(BaseModel):
 
 class UserLoginSchema(BaseModel):
     """User login request."""
+
     email: EmailStr
     password: str
 
 
 class UserUpdateSchema(BaseModel):
     """User update request."""
+
     name: Optional[str] = None
     username: Optional[str] = None
     email: Optional[EmailStr] = None
@@ -48,6 +55,7 @@ class UserUpdateSchema(BaseModel):
 
 class UserResponseSchema(BaseModel):
     """User response schema."""
+
     id: Optional[str] = Field(alias="_id")
     email: str
     name: str
@@ -61,11 +69,13 @@ class UserResponseSchema(BaseModel):
 
     class Config:
         """Pydantic config."""
+
         populate_by_name = True
 
 
 class TokenSchema(BaseModel):
     """JWT token response."""
+
     access_token: str
     token_type: str = "bearer"
     user: Optional[UserResponseSchema] = None
@@ -73,4 +83,6 @@ class TokenSchema(BaseModel):
 
 class TokenDataSchema(BaseModel):
     """Token payload data."""
+
+    email: Optional[str] = None
     email: Optional[str] = None
