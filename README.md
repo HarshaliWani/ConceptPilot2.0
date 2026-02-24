@@ -216,3 +216,200 @@ This project is licensed under the MIT License.
 - Built with FastAPI and Next.js
 - Powered by Groq LLM and Deepgram TTS
 - Spaced repetition algorithm based on SM-2
+
+---
+
+## 🎯 Core Features Implementation
+
+### 1. **Auto-Trigger Learning Flow**
+**Seamless syllabus-to-content generation with zero friction**
+
+**User Journey:**
+1. Navigate to **Syllabus Dashboard** → Select subject → module → topic
+2. Click **"Start Learning"** → Automatically generates AI lesson on selected topic
+3. Click **"Take Quiz"** → Automatically generates personalized quiz
+
+**Technical Implementation:**
+- **Session Storage**: Temporary topic storage (`prefilled_topic`, `pending_quiz_topic`)
+- **Auto-Navigation**: Instant tab switching and content generation
+- **State Management**: Seamless flow between syllabus selection and content creation
+- **Loading States**: Smooth transitions with progress indicators
+
+**Files Involved:**
+- `ProgressTab.tsx` - Syllabus navigation with auto-trigger buttons
+- `ChatInterface.tsx` - Auto-generates lessons from stored topics
+- `QuizzesTab.tsx` - Auto-generates quizzes from stored topics
+
+### 2. **Smart Flashcard System**
+**AI-generated flashcards with advanced spaced repetition**
+
+**Key Features:**
+- **LLM Generation**: Groq-powered flashcard creation with varied difficulty levels
+- **3D Flip Animation**: Smooth CSS 3D transforms with backface visibility
+- **Confidence Rating**: 5-star rating system (red→orange→yellow→lime→green gradient)
+- **Spaced Repetition**: SM-2 algorithm for optimal review scheduling
+- **Card Transitions**: Fade animations when navigating between cards
+
+**User Experience:**
+- Generate 10 flashcards per topic with one click
+- Interactive flip animation (click anywhere on card)
+- Rate confidence after revealing answer
+- Smooth transitions prevent answer flashing during navigation
+- Visual difficulty indicators and progress tracking
+
+**Technical Details:**
+- **Animation States**: `isFlipped`, `isAnimating`, `isTransitioning`
+- **CSS 3D**: `perspective: 1000px`, `transform-style: preserve-3d`
+- **Interaction Prevention**: Disabled states during animations
+- **MongoDB Integration**: Async operations with proper error handling
+
+### 3. **Authentication & User Management**
+**Secure, seamless authentication with automatic session handling**
+
+**Security Features:**
+- **JWT Authentication**: Token-based auth with automatic refresh
+- **Global Interceptors**: 401 response handling across all API calls
+- **Login Guards**: Automatic redirects for unauthenticated users
+- **Session Persistence**: Remember login state across browser sessions
+
+**User Flow:**
+1. **Registration** → Profile onboarding (hobbies, course, year)
+2. **Auto-login** → Seamless access to personalized dashboard
+3. **Token Expiry** → Automatic logout and redirect to login
+4. **Profile Updates** → Real-time user data synchronization
+
+**Technical Implementation:**
+- **Frontend Guards**: `isLoggedIn()` checks on app initialization
+- **API Interceptors**: Axios response interceptors for 401 handling
+- **Backend Validation**: `Optional[str] = Header(None)` with 401 responses
+- **State Management**: Centralized auth state with clearAuth() functionality
+
+### 4. **Syllabus-Driven Learning**
+**Structured curriculum navigation with intelligent content generation**
+
+**Navigation Hierarchy:**
+```
+Subjects (8 engineering courses)
+├── Modules (topics within subject)
+    ├── Subtopics (specific learning objectives)
+        ├── "Start Learning" → AI Lesson Generation
+        └── "Take Quiz" → Adaptive Quiz Creation
+```
+
+**Personalization:**
+- **Course-Based**: Content tailored to user's engineering course
+- **Year-Specific**: Appropriate difficulty for academic year
+- **Interest-Aligned**: Hobby-based content recommendations
+- **Progress Tracking**: Learning analytics and completion tracking
+
+**Integration Points:**
+- **Lesson Generation**: Topics fed to Groq LLM for visual teaching boards
+- **Quiz Creation**: Adaptive questions based on syllabus depth
+- **Flashcard Topics**: Automatic topic extraction for spaced repetition
+- **Progress Analytics**: Completion tracking across all content types
+
+### 5. **AI-Powered Content Generation**
+**Multi-modal learning content with advanced AI integration**
+
+**Content Types:**
+- **Visual Lessons**: Teaching boards with diagrams and explanations
+- **Adaptive Quizzes**: Personalized questions with instant feedback
+- **Smart Flashcards**: AI-generated Q&A pairs with difficulty scaling
+- **Progress Analytics**: Learning insights and recommendations
+
+**AI Integration:**
+- **Groq LLM**: Fast inference for content generation (`llama-3.3-70b-versatile`)
+- **Prompt Engineering**: Structured prompts for consistent output quality
+- **Error Handling**: Robust fallbacks for API failures
+- **Rate Limiting**: Efficient API usage with caching strategies
+
+**Technical Architecture:**
+- **Async Processing**: Non-blocking content generation
+- **State Management**: Loading states and error boundaries
+- **Data Persistence**: MongoDB storage with proper indexing
+- **Real-time Updates**: Live progress tracking and notifications
+
+---
+
+## 🚀 Development Session - February 24, 2026
+
+### Recent Fixes & Improvements
+
+This session focused on bug fixes, UI/UX enhancements, and system stability improvements.
+
+#### 🔧 **VSCode Tasks & Environment Fixes**
+- **Fixed command duplication** in `tasks.json` - removed redundant command/args combinations
+- **Corrected venv paths** - standardized to use root `.venv` directory
+- **Updated MongoDB task** - fixed path to `D:\sarthak\tools\mongoDBServer\bin\mongod.exe`
+- **Parallel task execution** - all compound tasks now run simultaneously with `dependsOrder: "parallel"`
+
+#### 🎨 **Frontend Build & Error Fixes**
+- **Removed dead code** - cleaned up 316 lines of duplicate component code in `FlashcardsTab.tsx`
+- **Fixed Suspense boundaries** - added `<Suspense>` wrappers to prevent `useSearchParams()` errors in:
+  - `app/page.tsx`
+  - `app/quiz/page.tsx`
+  - `app/lesson/page.tsx`
+  - `src/app/lesson/page.tsx`
+
+#### 🔐 **Authentication System**
+- **Implemented auth guards** - added login redirects for unauthenticated users
+- **Global 401 interceptor** - automatic logout and redirect on expired tokens
+- **Backend auth validation** - fixed `Header(...)` to `Optional[str] = Header(None)` with proper 401 responses
+- **Frontend auth state** - added `isLoggedIn()` checks and token management
+
+#### ⚡ **Auto-Trigger Features**
+- **Syllabus integration** - "Start Learning" automatically generates and navigates to lessons
+- **Quiz auto-generation** - "Take Quiz" creates quizzes from selected topics
+- **Session storage** - temporary topic storage for seamless navigation flow
+
+#### 🧠 **Flashcard System Fixes**
+- **Backend LLM integration** - fixed `langchain_core.prompts` import and model configuration
+- **API key resolution** - corrected `settings.groq_api_key` attribute access
+- **MongoDB operations** - replaced `insert_one()` with `create()` method
+- **Response handling** - proper ID extraction from MongoDB operations
+
+#### 🎴 **Flashcard UI/UX Improvements**
+- **3D Flip Animation** - replaced broken Tailwind classes with proper CSS `transform-style: preserve-3d`
+- **Smooth transitions** - increased duration to 700ms with `ease-in-out` easing
+- **Text selection prevention** - added `select-none` to prevent accidental text highlighting
+- **Double-click prevention** - animation state management prevents rapid clicking
+- **Rating colors** - improved star rating colors (red→orange→yellow→lime→green gradient)
+
+#### 🎭 **Card Transition Animations**
+- **Smooth navigation** - added fade transitions when changing cards (350ms opacity animation)
+- **State management** - `isTransitioning` state prevents interactions during card changes
+- **Visual feedback** - navigation buttons disabled during transitions
+- **Emoji cleanup** - removed lightbulb emoji (ðŸ’¡) from flashcard explanations
+
+#### 🏗️ **System Stability**
+- **Error handling** - comprehensive error boundaries and loading states
+- **State synchronization** - proper cleanup and state resets
+- **Performance** - optimized animations and prevented unnecessary re-renders
+- **Build verification** - all changes tested with successful `npm run build`
+
+### Files Modified
+```
+frontend/app/components/FlashcardsTab.tsx    # Major UI/UX improvements
+frontend/app/page.tsx                       # Auth guard + Suspense
+frontend/app/quiz/page.tsx                  # Suspense boundary
+frontend/app/lesson/page.tsx                # Suspense boundary
+frontend/src/app/lesson/page.tsx            # Suspense boundary
+frontend/src/services/api.ts                # 401 interceptor
+frontend/app/components/ChatInterface.tsx   # Auto-trigger logic
+frontend/app/components/ProgressTab.tsx     # Session storage integration
+frontend/app/components/QuizzesTab.tsx      # Auto-quiz generation
+backend/app/api/v1/endpoints/flashcards.py  # MongoDB operations fix
+backend/app/api/v1/endpoints/auth.py        # Auth validation
+backend/app/services/flashcard_generator.py # LLM configuration
+.vscode/tasks.json                          # Task configuration fixes
+```
+
+### Key Technical Achievements
+- ✅ **Zero build errors** - all TypeScript and Python code compiles cleanly
+- ✅ **Smooth animations** - professional-grade card flip and transition effects
+- ✅ **Robust auth flow** - seamless login/logout with proper error handling
+- ✅ **Auto-learning flow** - one-click lesson and quiz generation from syllabus
+- ✅ **Enhanced UX** - prevented common interaction issues (double-clicks, text selection)
+- ✅ **System reliability** - comprehensive error handling and state management
+
+All changes maintain backward compatibility and follow existing code patterns and conventions.
