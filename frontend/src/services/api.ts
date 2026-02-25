@@ -95,6 +95,47 @@ export interface LessonData {
   created_at: string;
   tailored_to_interest: string;
   raw_llm_output: Record<string, any>;
+  word_timestamps?: Array<{ word: string; start: number; end: number }>;
+  board_actions_synced?: Array<{ timestamp: number; type: string; [key: string]: any }>;
+  // Batch/playlist metadata
+  batch_id?: string;
+  batch_index?: number;
+  batch_total?: number;
+}
+
+
+// ========== Streaming Audio & Timestamps API Functions ==========
+
+/**
+ * Get the streaming audio URL for a lesson.
+ * This endpoint streams audio chunks in real-time, reducing latency from 60s to <3s.
+ */
+export function getStreamingAudioUrl(lessonId: string): string {
+  return `${baseURL}/lessons/${lessonId}/audio/stream`;
+}
+
+/**
+ * Fetch word-level timestamps for a lesson using Groq Whisper.
+ * Enables perfect synchronization between audio and canvas animations.
+ */
+export interface TimestampsResponse {
+  lesson_id: string;
+  audio_url: string;
+  duration: number;
+  word_count: number;
+  word_timestamps: Array<{ word: string; start: number; end: number }>;
+  board_actions_synced: Array<{ timestamp: number; type: string; [key: string]: any }>;
+  message: string;
+}
+
+export async function fetchWordTimestamps(lessonId: string): Promise<TimestampsResponse> {
+  try {
+    const response = await apiClient.get<TimestampsResponse>(`/lessons/${lessonId}/timestamps`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching timestamps for lesson ${lessonId}:`, error);
+    throw error;
+  }
 }
 
 
@@ -141,6 +182,123 @@ export async function generateLesson(payload: GenerateLessonPayload): Promise<Le
     console.error('Error generating lesson:', error);
     throw error;
   }
+}
+
+// Generate batch of lessons for playlist
+export interface BatchLessonResponse {
+  batch_id: string;
+  total_lessons: number;
+  lessons: LessonData[];
+  playlist_order: string[];
+}
+
+export async function generateBatchLessons(
+  topics: string[],
+  user_interest: string,
+  proficiency_level: string = 'beginner',
+  grade_level: string = 'middle school'
+): Promise<BatchLessonResponse> {
+  try {
+    // Batch generation can take 5-10 minutes per lesson with TTS
+    // Set timeout to 30 minutes for up to ~10 lessons
+    const response = await apiClient.post<BatchLessonResponse>(
+      '/lessons/generate/batch',
+      {
+        topics,
+        user_interest,
+        proficiency_level,
+        grade_level,
+      },
+      {
+        timeout: 1800000, // 30 minutes
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error generating batch lessons:', error);
+    throw error;
+  }
+}
+
+// Generate batch lessons with progressive streaming (SSE)
+export interface BatchStreamCallbacks {
+  onLesson: (lesson: LessonData, index: number) => void;
+  onComplete: (batchId: string, total: number) => void;
+  onError: (topic: string, error: string) => void;
+}
+
+export function generateBatchLessonsStream(
+  topics: string[],
+  user_interest: string,
+  proficiency_level: string = 'beginner',
+  grade_level: string = 'middle school',
+  callbacks: BatchStreamCallbacks
+): () => void {
+  const token = getToken();
+  
+  // Build query string
+  const params = new URLSearchParams({
+    topics: topics.join(','),
+    user_interest,
+    proficiency_level,
+    grade_level,
+  });
+  
+  const url = `${baseURL}/lessons/generate/batch/stream?${params}`;
+  
+  console.log('[SSE] Connecting to batch stream:', url);
+  
+  // Create EventSource connection
+  const eventSource = new EventSource(url, {
+    withCredentials: false,
+  });
+  
+  // Handle lesson events
+  eventSource.addEventListener('lesson', (event) => {
+    try {
+      const lesson = JSON.parse(event.data) as LessonData;
+      console.log('[SSE] Received lesson:', lesson.title);
+      callbacks.onLesson(lesson, lesson.batch_index || 0);
+    } catch (e) {
+      console.error('[SSE] Failed to parse lesson data:', e);
+    }
+  });
+  
+  // Handle completion event
+  eventSource.addEventListener('complete', (event) => {
+    try {
+      const data = JSON.parse(event.data);
+      console.log(`[SSE] Batch complete: ${data.total}/${data.requested} lessons`);
+      callbacks.onComplete(data.batch_id, data.total);
+      eventSource.close();
+    } catch (e) {
+      console.error('[SSE] Failed to parse completion data:', e);
+    }
+  });
+  
+  // Handle error events
+  eventSource.addEventListener('error', (event: any) => {
+    // Check if this is a server error with data (not a connection error)
+    if (event.data) {
+      try {
+        const data = JSON.parse(event.data);
+        console.error('[SSE] Generation error for topic:', data.topic, data.error);
+        callbacks.onError(data.topic, data.error);
+      } catch (e) {
+        console.error('[SSE] Failed to parse error data:', e);
+      }
+    } else {
+      // Connection/network error - close stream
+      console.log('[SSE] Connection closed or error occurred');
+      eventSource.close();
+    }
+  });
+  
+  // Return cleanup function
+  return () => {
+    console.log('[SSE] Closing connection');
+    eventSource.close();
+  };
 }
 
 // ========== Quiz API Functions ==========

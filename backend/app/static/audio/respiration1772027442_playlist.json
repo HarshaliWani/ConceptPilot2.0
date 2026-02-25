@@ -1,0 +1,20 @@
+{
+  "lesson_id": "respiration1772027442",
+  "total_duration": 204.628,
+  "chunk_count": 2,
+  "pause_duration": 0.7,
+  "chunks": [
+    {
+      "index": 0,
+      "file": "/static/audio/respiration1772027442_chunk_0.mp3",
+      "duration": 125.184,
+      "start_time": 0.0
+    },
+    {
+      "index": 1,
+      "file": "/static/audio/respiration1772027442_chunk_1.mp3",
+      "duration": 78.744,
+      "start_time": 125.884
+    }
+  ]
+}

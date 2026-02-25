@@ -1,6 +1,6 @@
 """Lesson request/response schemas."""
 
-from typing import Optional, List, Any, Dict
+from typing import Optional, List, Any, Dict, Union
 from datetime import datetime
 from pydantic import BaseModel, Field
 
@@ -47,6 +47,14 @@ class LessonGenerateSchema(BaseModel):
     grade_level: str = "middle school"
 
 
+class BatchLessonGenerateSchema(BaseModel):
+    """Batch lesson generation request for multiple topics."""
+    topics: List[str]  # List of topics to generate lessons for
+    user_interest: str
+    proficiency_level: str = "beginner"
+    grade_level: str = "middle school"
+
+
 class LessonResponseSchema(BaseModel):
     """Lesson response schema."""
     id: Optional[str] = Field(alias="_id")
@@ -59,10 +67,21 @@ class LessonResponseSchema(BaseModel):
     board_actions: List[Dict[str, Any]] = Field(default_factory=list)
     created_at: datetime
     raw_llm_output: Optional[Dict[str, Any]] = None
+    batch_id: Optional[str] = None  # Groups lessons generated together
+    batch_index: Optional[int] = None  # Position in batch (0, 1, 2...)
+    batch_total: Optional[int] = None  # Total lessons in batch
 
     class Config:
         """Pydantic config."""
         populate_by_name = True
+
+
+class BatchLessonResponseSchema(BaseModel):
+    """Response for batch lesson generation."""
+    batch_id: str
+    total_lessons: int
+    lessons: List[LessonResponseSchema]
+    playlist_order: List[str]  # List of lesson IDs in order
 
 
 class LessonListSchema(BaseModel):

@@ -75,7 +75,9 @@ class CustomUser(CustomUserBase):
 
     id: Optional[PyObjectId] = Field(alias="_id")
     created_at: datetime = Field(default_factory=datetime.utcnow)
+    # NOTE: interests field is deprecated - use hobby field instead for personalization
     interests: List[UserInterest] = Field(default_factory=list)
+    topic_proficiency: dict = Field(default_factory=dict)  # Stores quiz performance by topic
 
     class Config:
         """Pydantic config."""

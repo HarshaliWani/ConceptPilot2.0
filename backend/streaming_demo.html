@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming Audio Demo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: white;
+            color: #667eea;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .lesson-id {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid white;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 16px;
+        }
+        .lesson-id::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .status.success { background: rgba(46, 213, 115, 0.3); }
+        .status.error { background: rgba(235, 77, 75, 0.3); }
+        .status.info { background: rgba(52, 172, 224, 0.3); }
+        .progress {
+            width: 100%;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+            width: 0%;
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        audio {
+            width: 100%;
+            margin: 20px 0;
+        }
+        .timestamps-container {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+        }
+        .timestamp-item {
+            padding: 8px;
+            margin: 5px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Courier New', monospace;
+        }
+        .timestamp-time {
+            color: #00d2ff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Streaming Audio Demo</h1>
+        
+        <div>
+            <label>Lesson ID:</label>
+            <input 
+                type="text" 
+                id="lessonId" 
+                class="lesson-id" 
+                placeholder="Enter lesson ID (e.g., 67c1234567890abcdef12345)"
+            >
+        </div>
+        
+        <div class="controls">
+            <button onclick="generateLesson()">🎓 Generate New Lesson</button>
+            <button onclick="streamAudio()">▶️ Stream Audio</button>
+            <button onclick="getTimestamps()">🎯 Get Timestamps</button>
+            <button onclick="downloadAudio()">💾 Download Audio</button>
+        </div>
+        
+        <div id="status" class="status" style="display: none;"></div>
+        
+        <div class="progress" id="progressContainer" style="display: none;">
+            <div class="progress-bar" id="progressBar">0%</div>
+        </div>
+        
+        <div class="stats" id="stats" style="display: none;">
+            <div class="stat-card">
+                <div class="stat-label">Time to First Chunk</div>
+                <div class="stat-value" id="firstChunkTime">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Chunks Received</div>
+                <div class="stat-value" id="chunkCount">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Size</div>
+                <div class="stat-value" id="totalSize">0 KB</div>
+            </div>
+        </div>
+        
+        <audio id="audioPlayer" controls style="display: none;"></audio>
+        
+        <div class="timestamps-container" id="timestampsContainer">
+            <h3>📝 Word Timestamps</h3>
+            <div id="timestampsList"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8000/api/v1';
+        
+        function showStatus(message, type = 'info') {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${type}`;
+            status.style.display = 'block';
+        }
+        
+        async function generateLesson() {
+            showStatus('🎓 Generating lesson...', 'info');
+            
+            try {
+                const response = await fetch(`${API_BASE}/lessons/generate`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        topic: 'Photosynthesis',
+                        user_interest: 'biology',
+                        proficiency_level: 'beginner',
+                        grade_level: 'middle school'
+                    })
+                });
+                
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                
+                const lesson = await response.json();
+                document.getElementById('lessonId').value = lesson._id;
+                showStatus(`✅ Lesson created: ${lesson.title}`, 'success');
+                
+            } catch (error) {
+                showStatus(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+        
+        async function streamAudio() {
+            const lessonId = document.getElementById('lessonId').value;
+            if (!lessonId) {
+                showStatus('⚠️ Please enter a lesson ID', 'error');
+                return;
+            }
+            
+            showStatus('🎵 Starting audio stream...', 'info');
+            document.getElementById('progressContainer').style.display = 'block';
+            document.getElementById('stats').style.display = 'grid';
+            
+            const startTime = Date.now();
+            let firstChunkTime = null;
+            let chunkCount = 0;
+            let totalBytes = 0;
+            const chunks = [];
+            
+            try {
+                const response = await fetch(`${API_BASE}/lessons/${lessonId}/audio/stream`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${await response.text()}`);
+                }
+                
+                const reader = response.body.getReader();
+                
+                while (true) {
+                    const { done, value } = await reader.read();
+                    
+                    if (done) break;
+                    
+                    chunkCount++;
+                    totalBytes += value.length;
+                    chunks.push(value);
+                    
+                    // Record first chunk time
+                    if (firstChunkTime === null) {
+                        firstChunkTime = ((Date.now() - startTime) / 1000).toFixed(2);
+                        document.getElementById('firstChunkTime').textContent = `${firstChunkTime}s`;
+                        showStatus('🎉 First chunk received! Audio can start playing...', 'success');
+                    }
+                    
+                    // Update stats
+                    document.getElementById('chunkCount').textContent = chunkCount;
+                    document.getElementById('totalSize').textContent = `${(totalBytes / 1024).toFixed(1)} KB`;
+                    
+                    // Update progress (mock progress based on chunks)
+                    const progress = Math.min((totalBytes / (100 * 1024)) * 100, 95);
+                    document.getElementById('progressBar').style.width = `${progress}%`;
+                    document.getElementById('progressBar').textContent = `${progress.toFixed(0)}%`;
+                }
+                
+                // Complete
+                document.getElementById('progressBar').style.width = '100%';
+                document.getElementById('progressBar').textContent = '100%';
+                
+                // Create blob and play audio
+                const blob = new Blob(chunks, { type: 'audio/mpeg' });
+                const audioUrl = URL.createObjectURL(blob);
+                const player = document.getElementById('audioPlayer');
+                player.src = audioUrl;
+                player.style.display = 'block';
+                player.play();
+                
+                const totalTime = ((Date.now() - startTime) / 1000).toFixed(2);
+                showStatus(`✅ Streaming complete in ${totalTime}s!`, 'success');
+                
+            } catch (error) {
+                showStatus(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+        
+        async function downloadAudio() {
+            const lessonId = document.getElementById('lessonId').value;
+            if (!lessonId) {
+                showStatus('⚠️ Please enter a lesson ID', 'error');
+                return;
+            }
+            
+            const url = `${API_BASE}/lessons/${lessonId}/audio/stream`;
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `lesson_${lessonId}.mp3`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            
+            showStatus('💾 Download started...', 'success');
+        }
+        
+        async function getTimestamps() {
+            const lessonId = document.getElementById('lessonId').value;
+            if (!lessonId) {
+                showStatus('⚠️ Please enter a lesson ID', 'error');
+                return;
+            }
+            
+            showStatus('🎯 Extracting word timestamps with Groq Whisper...', 'info');
+            
+            try {
+                const startTime = Date.now();
+                const response = await fetch(`${API_BASE}/lessons/${lessonId}/timestamps`);
+                
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.detail || `HTTP ${response.status}`);
+                }
+                
+                const data = await response.json();
+                const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+                
+                // Show success message
+                showStatus(`✅ Extracted ${data.word_count} timestamps in ${elapsed}s!`, 'success');
+                
+                // Display timestamps
+                const container = document.getElementById('timestampsContainer');
+                const list = document.getElementById('timestampsList');
+                
+                container.style.display = 'block';
+                
+                // Create summary
+                let html = `
+                    <div style="margin-bottom: 15px; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 5px;">
+                        <strong>Summary:</strong><br>
+                        📊 Total Words: ${data.word_count}<br>
+                        ⏱️ Duration: ${data.duration.toFixed(1)}s<br>
+                        🎤 Words/second: ${(data.word_count / data.duration).toFixed(2)}<br>
+                        ${data.message ? `<br>💡 ${data.message}` : ''}
+                    </div>
+                    <div style="margin-bottom: 10px;"><strong>First 20 words:</strong></div>
+                `;
+                
+                // Show first 20 words
+                const wordsToShow = data.word_timestamps.slice(0, 20);
+                wordsToShow.forEach((word, index) => {
+                    const duration = (word.end - word.start).toFixed(2);
+                    html += `
+                        <div class="timestamp-item">
+                            <span>${index + 1}. <strong>"${word.word}"</strong></span>
+                            <span class="timestamp-time">${word.start.toFixed(2)}s - ${word.end.toFixed(2)}s (${duration}s)</span>
+                        </div>
+                    `;
+                });
+                
+                if (data.word_count > 20) {
+                    html += `<div style="text-align: center; margin-top: 10px; opacity: 0.7;">... and ${data.word_count - 20} more words</div>`;
+                }
+                
+                list.innerHTML = html;
+                
+                // If audio player is visible, enable timestamp highlighting
+                const audioPlayer = document.getElementById('audioPlayer');
+                if (audioPlayer.src) {
+                    audioPlayer.addEventListener('timeupdate', () => {
+                        highlightCurrentWord(data.word_timestamps, audioPlayer.currentTime);
+                    });
+                    
+                    showStatus('✅ Timestamps loaded! Audio will highlight words in sync.', 'success');
+                }
+                
+            } catch (error) {
+                showStatus(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+        
+        function highlightCurrentWord(timestamps, currentTime) {
+            // Find current word
+            const currentWord = timestamps.find(
+                w => w.start <= currentTime && w.end >= currentTime
+            );
+            
+            if (currentWord) {
+                // Highlight in the list (simple implementation)
+                const items = document.querySelectorAll('.timestamp-item');
+                items.forEach((item, index) => {
+                    if (timestamps[index] && timestamps[index].word === currentWord.word) {
+                        item.style.background = 'rgba(0, 210, 255, 0.3)';
+                        item.style.transform = 'scale(1.05)';
+                    } else {
+                        item.style.background = 'rgba(255, 255, 255, 0.1)';
+                        item.style.transform = 'scale(1)';
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

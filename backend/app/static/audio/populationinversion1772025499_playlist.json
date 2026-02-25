@@ -1,0 +1,20 @@
+{
+  "lesson_id": "populationinversion1772025499",
+  "total_duration": 143.596,
+  "chunk_count": 2,
+  "pause_duration": 0.7,
+  "chunks": [
+    {
+      "index": 0,
+      "file": "/static/audio/populationinversion1772025499_chunk_0.mp3",
+      "duration": 121.368,
+      "start_time": 0.0
+    },
+    {
+      "index": 1,
+      "file": "/static/audio/populationinversion1772025499_chunk_1.mp3",
+      "duration": 21.528,
+      "start_time": 122.068
+    }
+  ]
+}

@@ -53,6 +53,9 @@ class LessonBase(BaseModel):
     tailored_to_interest: Optional[str] = None
     audio_url: Optional[str] = None
     board_actions: List[Dict[str, Any]] = Field(default_factory=list)
+    batch_id: Optional[str] = None  # Groups lessons generated together
+    batch_index: Optional[int] = None  # Position in batch (0, 1, 2...)
+    batch_total: Optional[int] = None  # Total lessons in batch
 
 
 class LessonCreate(LessonBase):

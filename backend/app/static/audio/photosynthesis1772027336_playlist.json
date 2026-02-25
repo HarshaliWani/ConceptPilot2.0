@@ -1,0 +1,20 @@
+{
+  "lesson_id": "photosynthesis1772027336",
+  "total_duration": 211.87599999999998,
+  "chunk_count": 2,
+  "pause_duration": 0.7,
+  "chunks": [
+    {
+      "index": 0,
+      "file": "/static/audio/photosynthesis1772027336_chunk_0.mp3",
+      "duration": 122.448,
+      "start_time": 0.0
+    },
+    {
+      "index": 1,
+      "file": "/static/audio/photosynthesis1772027336_chunk_1.mp3",
+      "duration": 88.728,
+      "start_time": 123.148
+    }
+  ]
+}

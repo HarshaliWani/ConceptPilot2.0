@@ -1,0 +1,20 @@
+{
+  "lesson_id": "resonantcavity1772025590",
+  "total_duration": 142.516,
+  "chunk_count": 2,
+  "pause_duration": 0.7,
+  "chunks": [
+    {
+      "index": 0,
+      "file": "/static/audio/resonantcavity1772025590_chunk_0.mp3",
+      "duration": 121.728,
+      "start_time": 0.0
+    },
+    {
+      "index": 1,
+      "file": "/static/audio/resonantcavity1772025590_chunk_1.mp3",
+      "duration": 20.088,
+      "start_time": 122.428
+    }
+  ]
+}

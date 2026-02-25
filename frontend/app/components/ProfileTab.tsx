@@ -142,16 +142,18 @@ export default function ProfileTab() {
           {/* Hobby */}
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Hobby / Interest
+              Hobby / Interest {!hobby && <span className="text-gray-400 font-normal">(Not set)</span>}
             </label>
             <input
               type="text"
               value={hobby}
               onChange={(e) => setHobby(e.target.value)}
-              placeholder="e.g., Basketball, Guitar, Reading..."
+              placeholder="e.g., Basketball, Guitar, Reading, Photography..."
               className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <p className="text-xs text-gray-500 mt-1">This helps personalize your lessons!</p>
+            <p className="text-xs text-gray-500 mt-1">
+              💡 This helps us create lessons with examples related to your interests!
+            </p>
           </div>
 
           {/* Course Code */}

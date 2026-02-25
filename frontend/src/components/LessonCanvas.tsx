@@ -12,8 +12,12 @@ const LessonCanvas: React.FC = () => {
       return;
     }
 
+    // Use synced board actions if available (with real audio timestamps)
+    // Otherwise fall back to original board actions
+    const boardActions = (lessonData as any).board_actions_synced || lessonData.board_actions;
+
     // Filter actions where timestamp <= currentTime
-    let filtered = lessonData.board_actions.filter(
+    let filtered = boardActions.filter(
       (action: any) => action.timestamp !== undefined && action.timestamp <= currentTime
     );
 

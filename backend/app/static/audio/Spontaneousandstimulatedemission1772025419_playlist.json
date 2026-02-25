@@ -1,0 +1,20 @@
+{
+  "lesson_id": "Spontaneousandstimulatedemission1772025419",
+  "total_duration": 160.012,
+  "chunk_count": 2,
+  "pause_duration": 0.7,
+  "chunks": [
+    {
+      "index": 0,
+      "file": "/static/audio/Spontaneousandstimulatedemission1772025419_chunk_0.mp3",
+      "duration": 132.336,
+      "start_time": 0.0
+    },
+    {
+      "index": 1,
+      "file": "/static/audio/Spontaneousandstimulatedemission1772025419_chunk_1.mp3",
+      "duration": 26.976,
+      "start_time": 133.036
+    }
+  ]
+}

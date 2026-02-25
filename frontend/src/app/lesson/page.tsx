@@ -4,7 +4,7 @@
 import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useLessonStore } from '@/src/store/lessonStore';
-import { fetchTestLesson, fetchLesson, LessonData } from '@/src/services/api'; // Import LessonData
+import { fetchTestLesson, fetchLesson, LessonData, fetchWordTimestamps } from '@/src/services/api'; // Added fetchWordTimestamps
 import LessonCanvas from '@/src/components/LessonCanvas';
 import AudioController from '@/src/components/AudioController';
 
@@ -29,6 +29,23 @@ const LessonPlayer: React.FC = () => {
           data = await fetchTestLesson();
         }
         setLessonData(data);
+
+        // Fetch timestamps and synced board actions if lesson has an ID
+        if (data._id) {
+          try {
+            const timestampData = await fetchWordTimestamps(data._id);
+            if (timestampData.board_actions_synced) {
+              // Merge synced board actions into lesson data
+              setLessonData({
+                ...data,
+                board_actions_synced: timestampData.board_actions_synced,
+              } as any);
+            }
+          } catch (timestampError) {
+            console.warn('Failed to load timestamps, using original timing:', timestampError);
+            // Not critical - lesson can still play with original timestamps
+          }
+        }
       } catch (err) {
         setError('Failed to load lesson. Please try again.');
         console.error('Error loading lesson:', err);

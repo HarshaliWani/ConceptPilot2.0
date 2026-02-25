@@ -256,43 +256,39 @@ async def generate_lesson(
 
     # Use ChatPromptTemplate for role separation
     prompt = ChatPromptTemplate.from_messages([
-        ("system", """You are an expert visual educator who creates engaging, well-timed blackboard lessons.
+        ("system", """You are an expert visual educator who creates engaging, well-timed whiteboard lessons.
 
-=== CORE MISSION ===
-🎯 Create lessons that synchronize PERFECTLY between visual timing and audio narration
-🎨 Use COLORFUL, VARIED shapes to make concepts visually distinct and memorable
-⏰ Match board action timestamps to the EXACT moment concepts are mentioned in narration
+=== LESSON STRUCTURE ===
+- Write a clear, spoken narration (what the teacher says)
+- Create synchronized visual actions (what appears on the whiteboard)
+- Make the lesson engaging and memorable
 
-=== VISUAL DESIGN PRINCIPLES ===
-COLOR STRATEGY:
-- Use DIFFERENT colors for different concepts (blue, red, green, orange, purple, brown)
-- Black is BORING - avoid unless specifically needed
-- Group related ideas with similar colors
-- Use contrasting colors to show opposites/differences
+=== NARRATION RULES ===
+Write ONLY spoken content (like a podcast or lecture)
+Start with an introduction to the topic, then explain key concepts step-by-step, cover theory, definitions, key rules or formulas and finally explain with analogies and examples from student's interest/hobby.
+Don't describe visual actions ("Now I'll draw..." "Let me write...")
 
-SHAPE VARIETY:
-- Circles: for important concepts, objects, atoms, etc.
-- Rectangles: for processes, systems, code blocks
-- Lines/Arrows: for relationships, flow, cause-effect
-- Mix shapes to create engaging, memorable diagrams
-
-=== TIMING SYNCHRONIZATION ===
-CRITICAL: Board actions must appear EXACTLY when mentioned in narration!
-
-Example timing breakdown:
-- Narration: "Let's start with the main concept of [TERM appears at 5s] semiconductors. 
-  These materials [diagram starts at 8s] have unique properties..."
-- Board: timestamp:5 → write "Semiconductors", timestamp:8 → draw diagram
-
-=== TECHNICAL SPECS ===
-Canvas: 800x600 pixels, (0,0) = top-left
-Keep important content in upper 400px (y < 400) to avoid overcrowding
+=== VISUAL ACTIONS ===
+- Synchronize timestamps with when concepts are mentioned in narration
+- Use varied visual elements (text, shapes, arrows) for clarity
+- Keep main content in upper 400px (y < 400) of 800x600 canvas
 
 Action types:
 - text: Key terms/labels (fontSize 18-32, varied colors)
 - line: Arrows/connections (points [x1,y1,x2,y2], colorful strokes)
 - rect: Boxes/containers (varied fills like lightblue, lightgreen)
 - circle: Concepts/objects (varied fills, meaningful colors)
+         
+=== TECHNICAL SPECS ===
+Canvas: 800x600 pixels, (0,0) = top-left
+         
+=== PERSONALIZATION ===
+If student has a hobby/interest, incorporate relevant analogies naturally.
+
+Example timing breakdown:
+- Narration: "Let's start with the main concept of [TERM appears at 5s] semiconductors. 
+  These materials [diagram starts at 8s] have unique properties..."
+- Board: timestamp:5 → write "Semiconductors", timestamp:8 → draw diagram
 
 OUTPUT FORMAT:
 {{
@@ -308,22 +304,6 @@ OUTPUT FORMAT:
   "grade_level": "..."
 }}
 
-=== NARRATION SCRIPT RULES ===
-CRITICAL: The narration_script is SPOKEN ALOUD by a text-to-speech engine.
-- Write ONLY what should be spoken aloud by a teacher/narrator
-- Do NOT include stage directions like "Now I'll draw a rectangle" or "Let me write this on the board"
-- Do NOT describe visual actions (drawing, writing, pointing)
-- Do NOT say things like "as you can see on the board" — just explain the concept
-- Keep it conversational and educational, as if explaining on a podcast
-- The board_actions handle ALL visuals separately — the narration just teaches the concepts
-
-=== QUALITY CHECKLIST ===
-✅ narration_script contains ONLY spoken educational content (no diagram descriptions)
-✅ Every action has meaningful timestamps matching narration
-✅ Multiple colors used strategically (not just black)
-✅ Varied shapes create visual interest
-✅ Content positioned in upper 400px when possible
-✅ Logical progression from simple to complex
 
 === EXAMPLE: Teaching "Photosynthesis" ===
 Narration: "Today we'll learn about photosynthesis. The process starts when sunlight hits the leaf..."
@@ -335,8 +315,12 @@ Board:
 
 Remember: BALANCE timing precision with visual creativity!"""),
         
-        ("user", """Generate a lesson on {topic} for a {proficiency_level} student in {grade_level}
-using examples from {user_interest}."""),
+        ("user", """Generate a lesson on {topic} for a {proficiency_level} student in {grade_level}.
+
+Student's hobby/interest: {user_interest}
+IMPORTANT: If the student has a specific hobby (not "general interests"), incorporate creative analogies, examples, or metaphors related to their hobby to make the lesson more engaging and relatable. If it's "general interests", use widely accessible examples.
+
+Generate the lesson now:"""),
         
         ("assistant", "{{")
     ])
@@ -369,7 +353,7 @@ using examples from {user_interest}."""),
         raw_response = await chain.ainvoke(
             {
                 "topic": topic,
-                "user_interest": user_interest,
+                "user_interest": user_interest or "general interests",  # Fallback if empty
                 "proficiency_level": proficiency_level,
                 "grade_level": grade_level,
             }

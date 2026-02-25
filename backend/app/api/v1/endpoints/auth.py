@@ -62,7 +62,9 @@ async def register(payload: UserRegisterSchema, db=Depends(get_database)):
         "username": payload.username,
         "password_hash": password_hash,
         "grade_level": payload.grade_level,
-        "interests": [],
+        "hobby": payload.hobby,  # Optional hobby for personalization
+        "interests": [],  # Deprecated field, kept for backward compatibility
+        "topic_proficiency": {},  # Will be populated by quiz results
         "created_at": datetime.utcnow(),
     }
 

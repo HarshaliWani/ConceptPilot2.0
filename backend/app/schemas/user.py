@@ -32,6 +32,7 @@ class UserRegisterSchema(BaseModel):
     username: str
     password: str
     grade_level: Optional[str] = Field(default="middle school")
+    hobby: Optional[str] = None  # Optional: capture during registration for better personalization
 
 
 class UserLoginSchema(BaseModel):
@@ -64,8 +65,9 @@ class UserResponseSchema(BaseModel):
     hobby: Optional[str] = None
     course_code: Optional[str] = None
     year: Optional[int] = None
+    # NOTE: interests field is deprecated - keeping for backward compatibility only
     interests: List[UserInterestResponseSchema] = Field(default_factory=list)
-    topic_proficiency: Optional[dict] = Field(default_factory=dict)
+    topic_proficiency: Optional[dict] = Field(default_factory=dict)  # Quiz performance by topic
 
     class Config:
         """Pydantic config."""
