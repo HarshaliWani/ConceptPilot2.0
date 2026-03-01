@@ -1,0 +1,1627 @@
+{
+  "evaluation_metadata": {
+    "total_lessons": 100,
+    "topics_covered": 20,
+    "evaluation_date": "2026-02-26T21:43:50.589160",
+    "topic_categories": [
+      "Mathematics",
+      "Physics",
+      "Circuits"
+    ]
+  },
+  "performance_metrics": {
+    "total_lessons_generated": 100,
+    "success_rate": 100.0,
+    "average_generation_time": 32.1522874379158,
+    "median_generation_time": 12.286401629447937,
+    "min_generation_time": 0.44170522689819336,
+    "max_generation_time": 92.19695019721985,
+    "average_validation_score": 87.67,
+    "validation_score_std": 10.849340155888829,
+    "topic_performance": {
+      "Quadratic Equations": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 85.0
+      },
+      "Calculus Derivatives": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 89.8
+      },
+      "Probability Theory": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 91.6
+      },
+      "Linear Algebra": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 91.675
+      },
+      "Trigonometry": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 88.66
+      },
+      "Statistics and Data Analysis": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 87.2
+      },
+      "Geometry Proofs": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 86.41428571428571
+      },
+      "Newton's Laws of Motion": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 86.9875
+      },
+      "Electromagnetic Induction": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 87.36666666666666
+      },
+      "Wave Properties and Interference": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 87.19
+      },
+      "Thermodynamics First Law": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 86.47272727272727
+      },
+      "Quantum Mechanics Basics": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 86.45
+      },
+      "Optics and Refraction": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 86.68461538461538
+      },
+      "Energy Conservation": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 86.88571428571429
+      },
+      "Ohm's Law Applications": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 87.06
+      },
+      "AC vs DC Current": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 87.2125
+      },
+      "Capacitors and Inductors": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 87.34705882352941
+      },
+      "Digital Logic Gates": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 87.46666666666667
+      },
+      "Transistor Operation": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 87.57368421052631
+      },
+      "Circuit Analysis Methods": {
+        "successes": 5,
+        "failures": 0,
+        "avg_score": 87.67
+      }
+    }
+  },
+  "sample_lessons": [
+    {
+      "id": 1,
+      "parameters": {
+        "topic": "Quadratic Equations",
+        "user_interest": "video games",
+        "proficiency": "beginner",
+        "grade": "middle school"
+      },
+      "lesson": {
+        "topic": "Quadratic Equations",
+        "title": "Quadratic Equations in Video Games",
+        "narration_script": "Welcome! Today we'll explore quadratic equations, the kind of math that can help you predict the arc of a jumping character in video games. A quadratic equation is any equation that can be written in the form a x squared plus b x plus c equals zero, where a, b, and c are numbers and a is not zero. \n\nImagine Mario needs to jump over a pit. The height of his jump follows a parabola described by y equals negative five x squared plus twelve x plus two. Here a equals negative five makes the curve open downward, b equals twelve controls the slope, and c equals two is the starting height. To find out where Mario lands we set y to zero and solve negative five x squared plus twelve x plus two equals zero. \n\nWe use the quadratic formula: x equals negative b plus or minus the square root of b squared minus four a c, all over two a. Plugging in the numbers gives a discriminant of twelve squared minus four times negative five times two, which is one hundred forty\u2011four plus forty, so one hundred eighty\u2011four. The square root of one hundred eighty\u2011four is about thirteen point six. Therefore x equals negative twelve plus or minus thirteen point six divided by negative ten. The two results are approximately negative zero point sixteen, which we discard because time can\u2019t be negative, and about two point five six seconds. That means Mario lands after roughly two and a half seconds. \n\nThe highest point of any parabola occurs at x equals negative b divided by two a. For Mario that is negative twelve divided by two times negative five, which is one point two seconds. Substituting back gives a maximum height of about nine point two units. \n\nAnother familiar example is the Angry Birds slingshot. The bird\u2019s flight path follows y equals negative four point nine t squared plus v t sin theta plus h, which is again a quadratic in time. Changing the launch angle or speed changes the coefficients and reshapes the curve, but the underlying math stays the same. \n\nSo remember: a quadratic equation models any arching motion, the coefficients a, b, and c decide the shape, and you can always solve for the important points with the quadratic formula or by finding the vertex. With this toolbox you can predict where a game character will land, how high it will go, and even design your own perfect jump. Happy gaming and happy solving!",
+        "board_actions": [
+          {
+            "timestamp": 0.0,
+            "type": "text",
+            "content": "Quadratic Equations in Video Games",
+            "x": 180.0,
+            "y": 30.0,
+            "fontSize": 30.0,
+            "fill": "darkblue"
+          },
+          {
+            "timestamp": 5.0,
+            "type": "text",
+            "content": "ax\u00b2 + bx + c = 0",
+            "x": 120.0,
+            "y": 100.0,
+            "fontSize": 24.0,
+            "fill": "darkred"
+          },
+          {
+            "timestamp": 8.0,
+            "type": "rect",
+            "x": 100.0,
+            "y": 80.0,
+            "width": 260.0,
+            "height": 50.0,
+            "stroke": "gray",
+            "strokeWidth": 2.0,
+            "fill": "lightyellow"
+          },
+          {
+            "timestamp": 12.0,
+            "type": "text",
+            "content": "a \u2260 0",
+            "x": 380.0,
+            "y": 110.0,
+            "fontSize": 20.0,
+            "fill": "green"
+          },
+          {
+            "timestamp": 20.0,
+            "type": "circle",
+            "x": 150.0,
+            "y": 300.0,
+            "radius": 20.0,
+            "stroke": "black",
+            "strokeWidth": 2.0,
+            "fill": "red"
+          },
+          {
+            "timestamp": 22.0,
+            "type": "line",
+            "points": [
+              150.0,
+              300.0,
+              250.0,
+              200.0
+            ],
+            "stroke": "orange",
+            "strokeWidth": 3.0
+          },
+          {
+            "timestamp": 24.0,
+            "type": "line",
+            "points": [
+              250.0,
+              200.0,
+              350.0,
+              300.0
+            ],
+            "stroke": "orange",
+            "strokeWidth": 3.0
+          },
+          {
+            "timestamp": 26.0,
+            "type": "text",
+            "content": "y = -5x\u00b2 + 12x + 2",
+            "x": 380.0,
+            "y": 250.0,
+            "fontSize": 22.0,
+            "fill": "purple"
+          },
+          {
+            "timestamp": 30.0,
+            "type": "text",
+            "content": "a = -5,  b = 12,  c = 2",
+            "x": 380.0,
+            "y": 280.0,
+            "fontSize": 20.0,
+            "fill": "blue"
+          },
+          {
+            "timestamp": 35.0,
+            "type": "text",
+            "content": "Set y = 0 \u2192 -5x\u00b2 + 12x + 2 = 0",
+            "x": 100.0,
+            "y": 340.0,
+            "fontSize": 20.0,
+            "fill": "brown"
+          },
+          {
+            "timestamp": 40.0,
+            "type": "text",
+            "content": "Quadratic formula: x = [-b \u00b1 \u221a(b\u00b2\u20114ac)]/(2a)",
+            "x": 80.0,
+            "y": 380.0,
+            "fontSize": 20.0,
+            "fill": "darkgreen"
+          },
+          {
+            "timestamp": 45.0,
+            "type": "text",
+            "content": "\u0394 = b\u00b2\u20114ac = 184",
+            "x": 80.0,
+            "y": 410.0,
+            "fontSize": 20.0,
+            "fill": "orange"
+          },
+          {
+            "timestamp": 50.0,
+            "type": "text",
+            "content": "\u221a184 \u2248 13.6",
+            "x": 80.0,
+            "y": 440.0,
+            "fontSize": 20.0,
+            "fill": "red"
+          },
+          {
+            "timestamp": 55.0,
+            "type": "text",
+            "content": "x = (-12 \u00b1 13.6)/\u201110",
+            "x": 80.0,
+            "y": 470.0,
+            "fontSize": 20.0,
+            "fill": "blue"
+          },
+          {
+            "timestamp": 60.0,
+            "type": "text",
+            "content": "Solutions: x \u2248 2.56 s (landing time)",
+            "x": 80.0,
+            "y": 500.0,
+            "fontSize": 20.0,
+            "fill": "darkpurple"
+          },
+          {
+            "timestamp": 69.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 70.0,
+            "type": "text",
+            "content": "Vertex x = -b/(2a)",
+            "x": 80.0,
+            "y": 100.0,
+            "fontSize": 22.0,
+            "fill": "darkorange"
+          },
+          {
+            "timestamp": 73.0,
+            "type": "text",
+            "content": "For Mario: x = -12/(2\u00b7-5) = 1.2 s",
+            "x": 80.0,
+            "y": 130.0,
+            "fontSize": 20.0,
+            "fill": "green"
+          },
+          {
+            "timestamp": 75.0,
+            "type": "circle",
+            "x": 250.0,
+            "y": 200.0,
+            "radius": 8.0,
+            "stroke": "black",
+            "strokeWidth": 1.0,
+            "fill": "orange"
+          },
+          {
+            "timestamp": 78.0,
+            "type": "text",
+            "content": "Maximum height y \u2248 9.2 units",
+            "x": 80.0,
+            "y": 160.0,
+            "fontSize": 20.0,
+            "fill": "brown"
+          },
+          {
+            "timestamp": 85.0,
+            "type": "text",
+            "content": "Angry Birds trajectory:",
+            "x": 420.0,
+            "y": 100.0,
+            "fontSize": 22.0,
+            "fill": "darkblue"
+          },
+          {
+            "timestamp": 86.0,
+            "type": "text",
+            "content": "y = -4.9t\u00b2 + v t sin\u03b8 + h",
+            "x": 420.0,
+            "y": 130.0,
+            "fontSize": 20.0,
+            "fill": "purple"
+          },
+          {
+            "timestamp": 88.0,
+            "type": "line",
+            "points": [
+              460.0,
+              300.0,
+              560.0,
+              200.0
+            ],
+            "stroke": "orange",
+            "strokeWidth": 3.0
+          },
+          {
+            "timestamp": 90.0,
+            "type": "line",
+            "points": [
+              560.0,
+              200.0,
+              660.0,
+              300.0
+            ],
+            "stroke": "orange",
+            "strokeWidth": 3.0
+          },
+          {
+            "timestamp": 92.0,
+            "type": "text",
+            "content": "Same quadratic shape!",
+            "x": 460.0,
+            "y": 340.0,
+            "fontSize": 20.0,
+            "fill": "red"
+          },
+          {
+            "timestamp": 100.0,
+            "type": "text",
+            "content": "Key Takeaways",
+            "x": 300.0,
+            "y": 30.0,
+            "fontSize": 26.0,
+            "fill": "darkgreen"
+          },
+          {
+            "timestamp": 102.0,
+            "type": "text",
+            "content": "- Quadratics model arches in games",
+            "x": 260.0,
+            "y": 70.0,
+            "fontSize": 20.0,
+            "fill": "blue"
+          },
+          {
+            "timestamp": 104.0,
+            "type": "text",
+            "content": "- Coefficients shape the curve",
+            "x": 260.0,
+            "y": 100.0,
+            "fontSize": 20.0,
+            "fill": "orange"
+          },
+          {
+            "timestamp": 106.0,
+            "type": "text",
+            "content": "- Solve with formula or vertex",
+            "x": 260.0,
+            "y": 130.0,
+            "fontSize": 20.0,
+            "fill": "purple"
+          }
+        ],
+        "duration": 141.384,
+        "tailored_to_interest": "Students who enjoy video games; examples from Mario and Angry Birds make abstract algebra concrete and fun.",
+        "grade_level": "Middle School (Grades 7\u20118)",
+        "audio_url": "/static/audio/QuadraticEquations1772119224.mp3"
+      },
+      "validation": {
+        "success": true,
+        "generation_time": 77.53431224822998,
+        "validation_time": 0.0019965171813964844,
+        "overall_score": 94.0,
+        "structure": {
+          "has_required_fields": true,
+          "field_errors": [],
+          "structure_score": 100
+        },
+        "board_actions": {
+          "valid_format": true,
+          "action_count": 29,
+          "timing_errors": [],
+          "visual_diversity_score": 100,
+          "action_types": [
+            "text",
+            "clear",
+            "rect",
+            "line",
+            "circle"
+          ],
+          "colors_used": [
+            "brown",
+            "blue",
+            "purple",
+            "darkpurple",
+            "darkblue",
+            "darkgreen",
+            "darkred",
+            "darkorange",
+            "green",
+            "gray",
+            "red",
+            "lightyellow",
+            "black",
+            "orange"
+          ]
+        },
+        "narration": {
+          "word_count": 418,
+          "educational_quality_score": 80,
+          "clarity_issues": [],
+          "sentence_count": 21
+        }
+      },
+      "timestamp": "2026-02-26T20:51:32.734470"
+    },
+    {
+      "id": 2,
+      "parameters": {
+        "topic": "Quadratic Equations",
+        "user_interest": "sports",
+        "proficiency": "intermediate",
+        "grade": "high school"
+      },
+      "lesson": {
+        "topic": "Quadratic Equations",
+        "title": "Generated Lesson: Quadratic Equations",
+        "narration_script": "{\n  \"topic\": \"Quadratic Equations\",\n  \"title\": \"Quadratic Equations in Sports\",\n  \"narration_script\": \"Welcome! Today we\u2019ll explore quadratic equations using sports examples. A quadratic equation is written in the standard form a x squared plus b x plus c equals zero, where a, b, and c are constants and a is not zero. When you graph a quadratic you get a parabola that opens upward if a is positive or downward if a is negative. \\nLet's look at a basketball shot. The height of the ball over time can be modeled by h of t equals negative 4.9 t squared plus 8 t plus 2, where the terms represent gravity, the initial upward speed, and the release height. Here a is negative 4.9, b is 8, and c is 2. The vertex of the parabola gives the maximum height, and it occurs at t equals negative b divided by two a. The discriminant, b squared minus four a c, tells us how many times the ball touches the ground. In this case the discriminant is positive, so the ball lands twice: once at launch and once when it hits the floor. \\nNow consider a soccer kick. The horizontal distance the ball travels can be approximated by d of t equals negative 0.2 t squared plus 12 t. Setting d of t equal to zero tells us when the ball reaches the goal line. Solving the quadratic gives two times: t equals zero at the kick and t equals sixty seconds when the ball arrives. \\nA baseball home run follows a similar pattern. Its height might be h of t equals negative 5 t squared plus 30 t plus 1. The time of peak height is again found with the vertex formula, giving three seconds, and plugging that back in yields the maximum height. \\nTo solve any quadratic, follow these steps: write the equation in standard form, identify a, b, and c, compute the discriminant, and then apply the quadratic formula if the roots are not obvious. \\nPractice these ideas with your favorite sport, and you\u2019ll see how mathematics describes the motion of balls, athletes, and more. Keep experimenting, and the curves will start to make sense. Happy solving!\",\n  \"board_actions\": [\n    { \"timestamp\": 0, \"type\": \"text\", \"content\": \"Quadratic Equations in Sports\", \"x\": 220, \"y\": 50, \"fontSize\": 30, \"fill\": \"darkblue\" },\n    { \"timestamp\": 5, \"type\": \"text\", \"content\": \"Standard form: ax\u00b2 + bx + c = 0\", \"x\": 100, \"y\": 100, \"fontSize\": 24, \"fill\": \"darkred\" },\n    { \"timestamp\": 12, \"type\": \"rect\", \"x\": 80, \"y\": 150, \"width\": 340, \"height\": 200, \"stroke\": \"gray\", \"strokeWidth\": 2, \"fill\": \"none\" },\n    { \"timestamp\": 15, \"type\": \"line\", \"points\": [120, 340, 250, 180], \"stroke\": \"purple\", \"strokeWidth\": 2 },\n    { \"timestamp\": 18, \"type\": \"line\", \"points\": [250, 180, 380, 340], \"stroke\": \"purple\", \"strokeWidth\": 2 },\n    { \"timestamp\": 20, \"type\": \"text\", \"content\": \"Basketball shot: h(t)= -4.9t\u00b2 + 8t + 2\", \"x\": 50, \"y\": 120, \"fontSize\": 20, \"fill\": \"orange\" },\n    { \"timestamp\": 25, \"type\": \"circle\", \"x\": 150, \"y\": 300, \"radius\": 20, \"stroke\": \"red\", \"strokeWidth\": 3, \"fill\": \"lightcoral\" },\n    { \"timestamp\": 30, \"type\": \"text\", \"content\": \"a = -4.9,  b = 8,  c = 2\", \"x\": 420, \"y\": 120, \"fontSize\": 20, \"fill\": \"green\" },\n    { \"timestamp\": 35, \"type\": \"text\", \"content\": \"Vertex (max height) at t = -b/(2a)\", \"x\": 50, \"y\": 200, \"fontSize\": 18, \"fill\": \"blue\" },\n    { \"timestamp\": 40, \"type\": \"circle\", \"x\": 260, \"y\": 200, \"radius\": 5, \"stroke\": \"yellow\", \"strokeWidth\": 2, \"fill\": \"yellow\" },\n    { \"timestamp\": 45, \"type\": \"text\", \"content\": \"Discriminant \u0394 = b\u00b2 \u2013 4ac\", \"x\": 50, \"y\": 250, \"fontSize\": 18, \"fill\": \"red\" },\n    { \"timestamp\": 50, \"type\": \"text\", \"content\": \"\u0394 = 8\u00b2 \u2013 4(-4.9)(2) = 64 + 39.2 = 103.2 > 0\", \"x\": 50, \"y\": 280, \"fontSize\": 18, \"fill\": \"brown\" },\n    { \"timestamp\": 55, \"type\": \"text\", \"content\": \"Soccer kick: d(t)= -0.2t\u00b2 + 12t\", \"x\": 50, \"y\": 320, \"fontSize\": 20, \"fill\": \"darkgreen\" },\n    { \"timestamp\": 60, \"type\": \"circle\", \"x\": 200, \"y\": 350, \"radius\": 15, \"stroke\": \"green\", \"strokeWidth\": 2, \"fill\": \"lightgreen\" },\n    { \"timestamp\": 65, \"type\": \"text\", \"content\": \"When does the ball hit the goal? Solve d(t)=0\", \"x\": 50, \"y\": 380, \"fontSize\": 18, \"fill\": \"purple\" },\n    { \"timestamp\": 70, \"type\": \"text\", \"content\": \"a = -0.2,  b = 12,  c = 0\", \"x\": 420, \"y\": 320, \"fontSize\": 18, \"fill\": \"orange\" },\n    { \"timestamp\": 75, \"type\": \"text\", \"content\": \"Roots: t = [ -b \u00b1 \u221a(b\u00b2-4ac) ] / (2a)\", \"x\": 50, \"y\": 420, \"fontSize\": 16, \"fill\": \"darkred\" },\n    { \"timestamp\": 80, \"type\": \"text\", \"content\": \"t = 0 s (kick) and t = 60 s (goal)\", \"x\": 50, \"y\": 450, \"fontSize\": 16, \"fill\": \"darkblue\" },\n    { \"timestamp\": 85, \"type\": \"text\", \"content\": \"Baseball home run: h(t)= -5t\u00b2 + 30t + 1\", \"x\": 50, \"y\": 480, \"fontSize\": 20, \"fill\": \"maroon\" },\n    { \"timestamp\": 90, \"type\": \"circle\", \"x\": 260, \"y\": 500, \"radius\": 10, \"stroke\": \"red\", \"strokeWidth\": 2, \"fill\": \"pink\" },\n    { \"timestamp\": 95, \"type\": \"text\", \"content\": \"Find max height: t = -b/(2a)\", \"x\": 50, \"y\": 530, \"fontSize\": 18, \"fill\": \"teal\" },\n    { \"timestamp\": 100, \"type\": \"text\", \"content\": \"t = -30/(2*-5) = 3 s, h_max = ...\", \"x\": 50, \"y\": 560, \"fontSize\": 18, \"fill\": \"navy\" },\n    { \"timestamp\": 110, \"type\": \"text\", \"content\": \"Key steps to solve:\", \"x\": 50, \"y\": 340, \"fontSize\": 22, \"fill\": \"darkorange\" },\n    { \"timestamp\": 112, \"type\": \"text\", \"content\": \"1\ufe0f\u20e3 Write equation in ax\u00b2+bx+c=0\", \"x\": 80, \"y\": 360, \"fontSize\": 18, \"fill\": \"gray\"",
+        "board_actions": [],
+        "duration": 180.0,
+        "tailored_to_interest": "sports",
+        "raw_llm_output": {
+          "raw": "{\n  \"topic\": \"Quadratic Equations\",\n  \"title\": \"Quadratic Equations in Sports\",\n  \"narration_script\": \"Welcome! Today we\u2019ll explore quadratic equations using sports examples. A quadratic equation is written in the standard form a x squared plus b x plus c equals zero, where a, b, and c are constants and a is not zero. When you graph a quadratic you get a parabola that opens upward if a is positive or downward if a is negative. \\nLet's look at a basketball shot. The height of the ball over time can be modeled by h of t equals negative 4.9 t squared plus 8 t plus 2, where the terms represent gravity, the initial upward speed, and the release height. Here a is negative 4.9, b is 8, and c is 2. The vertex of the parabola gives the maximum height, and it occurs at t equals negative b divided by two a. The discriminant, b squared minus four a c, tells us how many times the ball touches the ground. In this case the discriminant is positive, so the ball lands twice: once at launch and once when it hits the floor. \\nNow consider a soccer kick. The horizontal distance the ball travels can be approximated by d of t equals negative 0.2 t squared plus 12 t. Setting d of t equal to zero tells us when the ball reaches the goal line. Solving the quadratic gives two times: t equals zero at the kick and t equals sixty seconds when the ball arrives. \\nA baseball home run follows a similar pattern. Its height might be h of t equals negative 5 t squared plus 30 t plus 1. The time of peak height is again found with the vertex formula, giving three seconds, and plugging that back in yields the maximum height. \\nTo solve any quadratic, follow these steps: write the equation in standard form, identify a, b, and c, compute the discriminant, and then apply the quadratic formula if the roots are not obvious. \\nPractice these ideas with your favorite sport, and you\u2019ll see how mathematics describes the motion of balls, athletes, and more. Keep experimenting, and the curves will start to make sense. Happy solving!\",\n  \"board_actions\": [\n    { \"timestamp\": 0, \"type\": \"text\", \"content\": \"Quadratic Equations in Sports\", \"x\": 220, \"y\": 50, \"fontSize\": 30, \"fill\": \"darkblue\" },\n    { \"timestamp\": 5, \"type\": \"text\", \"content\": \"Standard form: ax\u00b2 + bx + c = 0\", \"x\": 100, \"y\": 100, \"fontSize\": 24, \"fill\": \"darkred\" },\n    { \"timestamp\": 12, \"type\": \"rect\", \"x\": 80, \"y\": 150, \"width\": 340, \"height\": 200, \"stroke\": \"gray\", \"strokeWidth\": 2, \"fill\": \"none\" },\n    { \"timestamp\": 15, \"type\": \"line\", \"points\": [120, 340, 250, 180], \"stroke\": \"purple\", \"strokeWidth\": 2 },\n    { \"timestamp\": 18, \"type\": \"line\", \"points\": [250, 180, 380, 340], \"stroke\": \"purple\", \"strokeWidth\": 2 },\n    { \"timestamp\": 20, \"type\": \"text\", \"content\": \"Basketball shot: h(t)= -4.9t\u00b2 + 8t + 2\", \"x\": 50, \"y\": 120, \"fontSize\": 20, \"fill\": \"orange\" },\n    { \"timestamp\": 25, \"type\": \"circle\", \"x\": 150, \"y\": 300, \"radius\": 20, \"stroke\": \"red\", \"strokeWidth\": 3, \"fill\": \"lightcoral\" },\n    { \"timestamp\": 30, \"type\": \"text\", \"content\": \"a = -4.9,  b = 8,  c = 2\", \"x\": 420, \"y\": 120, \"fontSize\": 20, \"fill\": \"green\" },\n    { \"timestamp\": 35, \"type\": \"text\", \"content\": \"Vertex (max height) at t = -b/(2a)\", \"x\": 50, \"y\": 200, \"fontSize\": 18, \"fill\": \"blue\" },\n    { \"timestamp\": 40, \"type\": \"circle\", \"x\": 260, \"y\": 200, \"radius\": 5, \"stroke\": \"yellow\", \"strokeWidth\": 2, \"fill\": \"yellow\" },\n    { \"timestamp\": 45, \"type\": \"text\", \"content\": \"Discriminant \u0394 = b\u00b2 \u2013 4ac\", \"x\": 50, \"y\": 250, \"fontSize\": 18, \"fill\": \"red\" },\n    { \"timestamp\": 50, \"type\": \"text\", \"content\": \"\u0394 = 8\u00b2 \u2013 4(-4.9)(2) = 64 + 39.2 = 103.2 > 0\", \"x\": 50, \"y\": 280, \"fontSize\": 18, \"fill\": \"brown\" },\n    { \"timestamp\": 55, \"type\": \"text\", \"content\": \"Soccer kick: d(t)= -0.2t\u00b2 + 12t\", \"x\": 50, \"y\": 320, \"fontSize\": 20, \"fill\": \"darkgreen\" },\n    { \"timestamp\": 60, \"type\": \"circle\", \"x\": 200, \"y\": 350, \"radius\": 15, \"stroke\": \"green\", \"strokeWidth\": 2, \"fill\": \"lightgreen\" },\n    { \"timestamp\": 65, \"type\": \"text\", \"content\": \"When does the ball hit the goal? Solve d(t)=0\", \"x\": 50, \"y\": 380, \"fontSize\": 18, \"fill\": \"purple\" },\n    { \"timestamp\": 70, \"type\": \"text\", \"content\": \"a = -0.2,  b = 12,  c = 0\", \"x\": 420, \"y\": 320, \"fontSize\": 18, \"fill\": \"orange\" },\n    { \"timestamp\": 75, \"type\": \"text\", \"content\": \"Roots: t = [ -b \u00b1 \u221a(b\u00b2-4ac) ] / (2a)\", \"x\": 50, \"y\": 420, \"fontSize\": 16, \"fill\": \"darkred\" },\n    { \"timestamp\": 80, \"type\": \"text\", \"content\": \"t = 0 s (kick) and t = 60 s (goal)\", \"x\": 50, \"y\": 450, \"fontSize\": 16, \"fill\": \"darkblue\" },\n    { \"timestamp\": 85, \"type\": \"text\", \"content\": \"Baseball home run: h(t)= -5t\u00b2 + 30t + 1\", \"x\": 50, \"y\": 480, \"fontSize\": 20, \"fill\": \"maroon\" },\n    { \"timestamp\": 90, \"type\": \"circle\", \"x\": 260, \"y\": 500, \"radius\": 10, \"stroke\": \"red\", \"strokeWidth\": 2, \"fill\": \"pink\" },\n    { \"timestamp\": 95, \"type\": \"text\", \"content\": \"Find max height: t = -b/(2a)\", \"x\": 50, \"y\": 530, \"fontSize\": 18, \"fill\": \"teal\" },\n    { \"timestamp\": 100, \"type\": \"text\", \"content\": \"t = -30/(2*-5) = 3 s, h_max = ...\", \"x\": 50, \"y\": 560, \"fontSize\": 18, \"fill\": \"navy\" },\n    { \"timestamp\": 110, \"type\": \"text\", \"content\": \"Key steps to solve:\", \"x\": 50, \"y\": 340, \"fontSize\": 22, \"fill\": \"darkorange\" },\n    { \"timestamp\": 112, \"type\": \"text\", \"content\": \"1\ufe0f\u20e3 Write equation in ax\u00b2+bx+c=0\", \"x\": 80, \"y\": 360, \"fontSize\": 18, \"fill\": \"gray\"",
+          "source": "groq_unparsed"
+        }
+      },
+      "validation": {
+        "success": true,
+        "generation_time": 9.950252056121826,
+        "validation_time": 0.002999544143676758,
+        "overall_score": 52.0,
+        "structure": {
+          "has_required_fields": true,
+          "field_errors": [],
+          "structure_score": 100
+        },
+        "board_actions": {
+          "valid_format": true,
+          "action_count": 0,
+          "timing_errors": [],
+          "visual_diversity_score": 0,
+          "action_types": [],
+          "colors_used": []
+        },
+        "narration": {
+          "word_count": 877,
+          "educational_quality_score": 40,
+          "clarity_issues": [
+            "Narration too long"
+          ],
+          "sentence_count": 33
+        }
+      },
+      "timestamp": "2026-02-26T20:51:42.687721"
+    },
+    {
+      "id": 3,
+      "parameters": {
+        "topic": "Quadratic Equations",
+        "user_interest": "music",
+        "proficiency": "advanced",
+        "grade": "college"
+      },
+      "lesson": {
+        "topic": "Quadratic Equations",
+        "title": "Quadratic Equations in Music",
+        "narration_script": "Welcome back! Today we\u2019ll explore quadratic equations and see how they pop up in music and audio engineering. A quadratic equation has the standard form a x squared plus b x plus c equals zero, where a, b, and c are real numbers and a is non\u2011zero. The three coefficients control the shape of the parabola when we graph the equation. The key to understanding the roots is the discriminant, delta equals b squared minus four a c. If the discriminant is positive we get two distinct real roots, zero gives a repeated real root, and a negative value produces a complex conjugate pair.\n\nWhen we plot y equals a x squared plus b x plus c on a coordinate grid, the curve is a parabola. Its highest or lowest point is the vertex, located at x equals negative b over two a, and the line x equals that value is the axis of symmetry. The two x\u2011intercepts of the parabola are precisely the roots we just talked about.\n\nNow, how does this relate to music? Consider a simple sinusoidal waveform\u2014what you hear as a pure tone. In many synthesizers the amplitude envelope that shapes how a note fades in and out can be modeled with a quadratic function. For a quick\u2011decay piano note the envelope often looks like a downward\u2011opening parabola: the amplitude starts at a maximum, drops rapidly, and then follows a smooth quadratic curve toward silence.\n\nAnother musical connection comes from string instruments. The fundamental frequency of a vibrating string is inversely proportional to the square of its length. If we rearrange that relationship we obtain a quadratic equation linking length and frequency, which explains why halving a string\u2019s length raises the pitch by an octave.\n\nFinally, low\u2011frequency oscillators (LFOs) used to modulate parameters such as pitch or filter cutoff can be programmed with a quadratic waveform instead of the usual sine or triangle. The resulting modulation has a gentle acceleration and deceleration that feels more natural in many musical contexts.\n\nSo, quadratic equations aren\u2019t just abstract algebra; they provide a powerful language for describing curves that shape sound, from envelopes to pitch relationships. Keep an eye on the discriminant, the vertex, and the axis of symmetry\u2014they\u2019ll help you predict how these musical curves behave.",
+        "board_actions": [
+          {
+            "timestamp": 0.0,
+            "type": "text",
+            "content": "Quadratic Equations in Music",
+            "x": 180.0,
+            "y": 40.0,
+            "fontSize": 30.0,
+            "fill": "darkpurple"
+          },
+          {
+            "timestamp": 5.0,
+            "type": "text",
+            "content": "ax\u00b2 + bx + c = 0",
+            "x": 120.0,
+            "y": 100.0,
+            "fontSize": 26.0,
+            "fill": "darkblue"
+          },
+          {
+            "timestamp": 10.0,
+            "type": "text",
+            "content": "a, b, c \u2013 coefficients",
+            "x": 120.0,
+            "y": 140.0,
+            "fontSize": 20.0,
+            "fill": "green"
+          },
+          {
+            "timestamp": 15.0,
+            "type": "text",
+            "content": "\u0394 = b\u00b2 \u2013 4ac",
+            "x": 120.0,
+            "y": 180.0,
+            "fontSize": 22.0,
+            "fill": "orange"
+          },
+          {
+            "timestamp": 20.0,
+            "type": "circle",
+            "x": 260.0,
+            "y": 260.0,
+            "radius": 8.0,
+            "stroke": "red",
+            "strokeWidth": 2.0,
+            "fill": "lightcoral"
+          },
+          {
+            "timestamp": 20.0,
+            "type": "text",
+            "content": "Root\u202f1",
+            "x": 280.0,
+            "y": 260.0,
+            "fontSize": 16.0,
+            "fill": "red"
+          },
+          {
+            "timestamp": 22.0,
+            "type": "circle",
+            "x": 340.0,
+            "y": 260.0,
+            "radius": 8.0,
+            "stroke": "red",
+            "strokeWidth": 2.0,
+            "fill": "lightcoral"
+          },
+          {
+            "timestamp": 22.0,
+            "type": "text",
+            "content": "Root\u202f2",
+            "x": 360.0,
+            "y": 260.0,
+            "fontSize": 16.0,
+            "fill": "red"
+          },
+          {
+            "timestamp": 30.0,
+            "type": "circle",
+            "x": 300.0,
+            "y": 210.0,
+            "radius": 6.0,
+            "stroke": "green",
+            "strokeWidth": 2.0,
+            "fill": "lightgreen"
+          },
+          {
+            "timestamp": 30.0,
+            "type": "text",
+            "content": "Vertex",
+            "x": 315.0,
+            "y": 210.0,
+            "fontSize": 16.0,
+            "fill": "green"
+          },
+          {
+            "timestamp": 40.0,
+            "type": "line",
+            "x1": 300,
+            "y1": 80,
+            "x2": 300,
+            "y2": 340,
+            "stroke": "purple",
+            "strokeWidth": 2.0
+          },
+          {
+            "timestamp": 50.0,
+            "type": "line",
+            "x1": 80,
+            "y1": 300,
+            "x2": 520,
+            "y2": 300,
+            "stroke": "black",
+            "strokeWidth": 2.0
+          },
+          {
+            "timestamp": 50.0,
+            "type": "line",
+            "x1": 80,
+            "y1": 300,
+            "x2": 80,
+            "y2": 80,
+            "stroke": "black",
+            "strokeWidth": 2.0
+          },
+          {
+            "timestamp": 60.0,
+            "type": "line",
+            "x1": 200,
+            "y1": 340,
+            "x2": 300,
+            "y2": 210,
+            "stroke": "blue",
+            "strokeWidth": 3.0
+          },
+          {
+            "timestamp": 60.0,
+            "type": "line",
+            "x1": 300,
+            "y1": 210,
+            "x2": 400,
+            "y2": 340,
+            "stroke": "blue",
+            "strokeWidth": 3.0
+          },
+          {
+            "timestamp": 69.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 70.0,
+            "type": "rect",
+            "x": 150.0,
+            "y": 340.0,
+            "width": 200.0,
+            "height": 40.0,
+            "stroke": "blue",
+            "strokeWidth": 2.0,
+            "fill": "lightblue"
+          },
+          {
+            "timestamp": 70.0,
+            "type": "text",
+            "content": "Sinusoidal waveform",
+            "x": 160.0,
+            "y": 330.0,
+            "fontSize": 16.0,
+            "fill": "blue"
+          },
+          {
+            "timestamp": 80.0,
+            "type": "line",
+            "x1": 150,
+            "y1": 380,
+            "x2": 250,
+            "y2": 340,
+            "stroke": "orange",
+            "strokeWidth": 2.0
+          },
+          {
+            "timestamp": 80.0,
+            "type": "line",
+            "x1": 250,
+            "y1": 340,
+            "x2": 350,
+            "y2": 340,
+            "stroke": "orange",
+            "strokeWidth": 2.0
+          },
+          {
+            "timestamp": 80.0,
+            "type": "line",
+            "x1": 350,
+            "y1": 340,
+            "x2": 450,
+            "y2": 380,
+            "stroke": "orange",
+            "strokeWidth": 2.0
+          },
+          {
+            "timestamp": 80.0,
+            "type": "text",
+            "content": "Quadratic envelope",
+            "x": 260.0,
+            "y": 320.0,
+            "fontSize": 16.0,
+            "fill": "orange"
+          },
+          {
+            "timestamp": 90.0,
+            "type": "text",
+            "content": "f \u221d 1/L\u00b2  (pitch \u2194 string length)",
+            "x": 120.0,
+            "y": 380.0,
+            "fontSize": 18.0,
+            "fill": "brown"
+          },
+          {
+            "timestamp": 90.0,
+            "type": "line",
+            "x1": 200,
+            "y1": 380,
+            "x2": 400,
+            "y2": 380,
+            "stroke": "brown",
+            "strokeWidth": 4.0
+          },
+          {
+            "timestamp": 100.0,
+            "type": "line",
+            "x1": 200,
+            "y1": 380,
+            "x2": 300,
+            "y2": 340,
+            "stroke": "red",
+            "strokeWidth": 2.0
+          },
+          {
+            "timestamp": 100.0,
+            "type": "line",
+            "x1": 300,
+            "y2": 380,
+            "x2": 400,
+            "stroke": "red",
+            "strokeWidth": 2.0
+          },
+          {
+            "timestamp": 100.0,
+            "type": "text",
+            "content": "Quadratic relation for pitch",
+            "x": 210.0,
+            "y": 360.0,
+            "fontSize": 16.0,
+            "fill": "red"
+          },
+          {
+            "timestamp": 110.0,
+            "type": "text",
+            "content": "\u0394 > 0 \u2192 two real roots",
+            "x": 120.0,
+            "y": 420.0,
+            "fontSize": 18.0,
+            "fill": "darkblue"
+          },
+          {
+            "timestamp": 120.0,
+            "type": "text",
+            "content": "Quadratics shape envelopes, pitch curves, and LFO waveforms in music",
+            "x": 80.0,
+            "y": 460.0,
+            "fontSize": 18.0,
+            "fill": "purple"
+          }
+        ],
+        "duration": 138.144,
+        "tailored_to_interest": "Students studying music theory, audio engineering, sound synthesis, and acoustic physics",
+        "grade_level": "College (Advanced)",
+        "audio_url": "/static/audio/QuadraticEquations1772119312.mp3"
+      },
+      "validation": {
+        "success": true,
+        "generation_time": 76.60622668266296,
+        "validation_time": 0.003001689910888672,
+        "overall_score": 91.0,
+        "structure": {
+          "has_required_fields": true,
+          "field_errors": [],
+          "structure_score": 100
+        },
+        "board_actions": {
+          "valid_format": true,
+          "action_count": 29,
+          "timing_errors": [],
+          "visual_diversity_score": 100,
+          "action_types": [
+            "text",
+            "clear",
+            "rect",
+            "line",
+            "circle"
+          ],
+          "colors_used": [
+            "brown",
+            "blue",
+            "purple",
+            "darkpurple",
+            "darkblue",
+            "green",
+            "lightgreen",
+            "red",
+            "lightcoral",
+            "black",
+            "lightblue",
+            "orange"
+          ]
+        },
+        "narration": {
+          "word_count": 378,
+          "educational_quality_score": 70,
+          "clarity_issues": [],
+          "sentence_count": 19
+        }
+      },
+      "timestamp": "2026-02-26T20:52:59.296950"
+    },
+    {
+      "id": 4,
+      "parameters": {
+        "topic": "Quadratic Equations",
+        "user_interest": "cooking",
+        "proficiency": "beginner",
+        "grade": "middle school"
+      },
+      "lesson": {
+        "topic": "Quadratic Equations",
+        "title": "Cooking Up Quadratics: Solving Equations with Recipes",
+        "narration_script": "Welcome! Today we\u2019ll discover quadratic equations and see how they pop up in the kitchen. A quadratic equation is any expression that looks like a times x squared plus b times x plus c equals zero \u2013 we write that as a\u00b7x\u00b2 + b\u00b7x + c = 0. The letters a, b, and c are numbers, and x is the unknown we want to find.\n\nImagine you\u2019re planning a chocolate cake. The area of a rectangular cake pan can be expressed as length times width. If the length is (x + 2) inches and the width is (2x \u2013 5) inches, the area becomes (x + 2)(2x \u2013 5). When we expand that product we get 2x\u00b2 \u2013 x \u2013 10. Setting the area equal to a target size, say 30 square inches, gives us the quadratic equation 2x\u00b2 \u2013 x \u2013 10 = 30, which simplifies to 2x\u00b2 \u2013 x \u2013 40 = 0.\n\nTo solve a quadratic, one easy way is factoring. We look for two numbers that multiply to a\u00b7c and add to b. For 2x\u00b2 \u2013 x \u2013 40, a\u00b7c is \u201380 and b is \u20131. The pair \u20139 and 8 works because \u20139 plus 8 equals \u20131. Splitting the middle term gives 2x\u00b2 \u2013 9x + 8x \u2013 40. Grouping the terms lets us factor out common pieces: (2x\u00b2 \u2013 9x) + (8x \u2013 40) becomes x(2x \u2013 9) + 8( x \u2013 5). Finally we factor out the shared binomial (2x \u2013 9) and (x \u2013 5) to get (2x + 8)(x \u2013 5) = 0, which simplifies to (x + 4)(x \u2013 5) = 0. So the solutions are x = \u20134 or x = 5. In the kitchen, a negative length doesn\u2019t make sense, so we keep x = 5 inches. That tells us the pan should be 7 inches long (x + 2) and 5 inches wide (2x \u2013 5) to hit our target area.\n\nSometimes a quadratic won\u2019t factor nicely. Then we use the quadratic formula: x = [\u2013b \u00b1 sqrt(b\u00b2 \u2013 4ac)] / (2a). This works for any quadratic, even when the numbers are messy. For example, if we had 3x\u00b2 + 2x \u2013 7 = 0, plugging into the formula gives x = [\u20132 \u00b1 sqrt(4 + 84)] / 6 = [\u20132 \u00b1 sqrt(88)] / 6. The square root of 88 simplifies to 2\u221a22, so the solutions are x = (\u20132 \u00b1 2\u221a22) / 6.\n\nLet\u2019s see another cooking twist. Suppose you want to double a recipe that calls for a mixture of two ingredients in the ratio (x \u2013 1) to (x + 3). The total amount of mixture you need is 20 cups. Setting up the equation (x \u2013 1) + (x + 3) = 20 leads to 2x + 2 = 20, which is linear, but if the recipe required the product of the two parts to equal 36, you\u2019d get (x \u2013 1)(x + 3) = 36. Expanding gives x\u00b2 + 2x \u2013 3 = 36, or x\u00b2 + 2x \u2013 39 = 0. Using the quadratic formula, x = [\u20132 \u00b1 sqrt(4 + 156)] / 2 = [\u20132 \u00b1 sqrt 160] / 2 = [\u20132 \u00b1 4\u221a10] / 2 = \u20131 \u00b1 2\u221a10. Only the positive value makes sense for ingredient amounts, so x \u2248 5.32 cups for the first ingredient and x + 3 \u2248 8.32 cups for the second.\n\nThe key takeaways: a quadratic equation has the form a\u00b7x\u00b2 + b\u00b7x + c = 0, you can often factor it, and the quadratic formula always works. By translating word problems\u2014like sizing a cake pan or balancing ingredient ratios\u2014into quadratics, you turn cooking challenges into solvable math puzzles. Keep practicing with real\u2011world examples, and soon solving quadratics will feel as natural as following a favorite recipe.",
+        "board_actions": [
+          {
+            "timestamp": 0.0,
+            "type": "text",
+            "content": "Quadratic Equations",
+            "x": 250.0,
+            "y": 40.0,
+            "fontSize": 30.0,
+            "fill": "darkblue"
+          },
+          {
+            "timestamp": 5.0,
+            "type": "text",
+            "content": "a\u00b7x\u00b2 + b\u00b7x + c = 0",
+            "x": 300.0,
+            "y": 100.0,
+            "fontSize": 26.0,
+            "fill": "blue"
+          },
+          {
+            "timestamp": 10.0,
+            "type": "text",
+            "content": "Cooking Example: Cake Pan Area",
+            "x": 200.0,
+            "y": 150.0,
+            "fontSize": 22.0,
+            "fill": "green"
+          },
+          {
+            "timestamp": 12.0,
+            "type": "rect",
+            "x": 150.0,
+            "y": 180.0,
+            "width": 200.0,
+            "height": 100.0,
+            "stroke": "green",
+            "strokeWidth": 2.0,
+            "fill": "lightgreen"
+          },
+          {
+            "timestamp": 14.0,
+            "type": "text",
+            "content": "Length = x + 2",
+            "x": 160.0,
+            "y": 200.0,
+            "fontSize": 18.0,
+            "fill": "purple"
+          },
+          {
+            "timestamp": 16.0,
+            "type": "text",
+            "content": "Width = 2x \u2013 5",
+            "x": 160.0,
+            "y": 230.0,
+            "fontSize": 18.0,
+            "fill": "purple"
+          },
+          {
+            "timestamp": 18.0,
+            "type": "line",
+            "points": [
+              350.0,
+              210.0,
+              480.0,
+              210.0
+            ],
+            "stroke": "orange",
+            "strokeWidth": 2.0
+          },
+          {
+            "timestamp": 20.0,
+            "type": "text",
+            "content": "Area = (x+2)(2x-5)",
+            "x": 500.0,
+            "y": 200.0,
+            "fontSize": 20.0,
+            "fill": "red"
+          },
+          {
+            "timestamp": 22.0,
+            "type": "text",
+            "content": "\u2192 2x\u00b2 \u2013 x \u2013 10 = 30",
+            "x": 500.0,
+            "y": 230.0,
+            "fontSize": 20.0,
+            "fill": "red"
+          },
+          {
+            "timestamp": 24.0,
+            "type": "text",
+            "content": "Simplify \u2192 2x\u00b2 \u2013 x \u2013 40 = 0",
+            "x": 300.0,
+            "y": 280.0,
+            "fontSize": 20.0,
+            "fill": "darkred"
+          },
+          {
+            "timestamp": 30.0,
+            "type": "text",
+            "content": "Factoring Steps",
+            "x": 300.0,
+            "y": 320.0,
+            "fontSize": 22.0,
+            "fill": "brown"
+          },
+          {
+            "timestamp": 32.0,
+            "type": "text",
+            "content": "2x\u00b2 \u2013 x \u2013 40",
+            "x": 200.0,
+            "y": 350.0,
+            "fontSize": 20.0,
+            "fill": "blue"
+          },
+          {
+            "timestamp": 34.0,
+            "type": "text",
+            "content": "= (x+4)(x\u20135)",
+            "x": 200.0,
+            "y": 380.0,
+            "fontSize": 20.0,
+            "fill": "blue"
+          },
+          {
+            "timestamp": 36.0,
+            "type": "circle",
+            "x": 250.0,
+            "y": 365.0,
+            "radius": 30.0,
+            "stroke": "red",
+            "strokeWidth": 3.0,
+            "fill": "lightcoral"
+          },
+          {
+            "timestamp": 38.0,
+            "type": "text",
+            "content": "Solutions: x = \u20134 or x = 5",
+            "x": 300.0,
+            "y": 420.0,
+            "fontSize": 20.0,
+            "fill": "darkgreen"
+          },
+          {
+            "timestamp": 44.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 45.0,
+            "type": "text",
+            "content": "Quadratic Formula",
+            "x": 300.0,
+            "y": 460.0,
+            "fontSize": 24.0,
+            "fill": "purple"
+          },
+          {
+            "timestamp": 48.0,
+            "type": "text",
+            "content": "x = [\u2013b \u00b1 \u221a(b\u00b2 \u2013 4ac)] / (2a)",
+            "x": 200.0,
+            "y": 500.0,
+            "fontSize": 20.0,
+            "fill": "purple"
+          },
+          {
+            "timestamp": 54.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 55.0,
+            "type": "text",
+            "content": "Example: 3x\u00b2 + 2x \u2013 7 = 0",
+            "x": 250.0,
+            "y": 540.0,
+            "fontSize": 20.0,
+            "fill": "orange"
+          },
+          {
+            "timestamp": 57.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 58.0,
+            "type": "text",
+            "content": "x = (\u20132 \u00b1 \u221a88) / 6",
+            "x": 250.0,
+            "y": 570.0,
+            "fontSize": 20.0,
+            "fill": "orange"
+          },
+          {
+            "timestamp": 65.0,
+            "type": "text",
+            "content": "Cooking Ratio Example",
+            "x": 300.0,
+            "y": 100.0,
+            "fontSize": 22.0,
+            "fill": "darkblue"
+          },
+          {
+            "timestamp": 68.0,
+            "type": "text",
+            "content": "(x\u20131)(x+3) = 36",
+            "x": 250.0,
+            "y": 140.0,
+            "fontSize": 20.0,
+            "fill": "green"
+          },
+          {
+            "timestamp": 70.0,
+            "type": "text",
+            "content": "\u2192 x\u00b2 + 2x \u2013 39 = 0",
+            "x": 250.0,
+            "y": 170.0,
+            "fontSize": 20.0,
+            "fill": "green"
+          },
+          {
+            "timestamp": 73.0,
+            "type": "text",
+            "content": "x = \u20131 \u00b1 2\u221a10",
+            "x": 250.0,
+            "y": 200.0,
+            "fontSize": 20.0,
+            "fill": "green"
+          },
+          {
+            "timestamp": 76.0,
+            "type": "text",
+            "content": "Positive solution \u2248 5.32",
+            "x": 250.0,
+            "y": 230.0,
+            "fontSize": 20.0,
+            "fill": "green"
+          },
+          {
+            "timestamp": 80.0,
+            "type": "text",
+            "content": "Key Takeaways",
+            "x": 300.0,
+            "y": 280.0,
+            "fontSize": 24.0,
+            "fill": "darkred"
+          },
+          {
+            "timestamp": 82.0,
+            "type": "text",
+            "content": "\u2022 Form: a\u00b7x\u00b2 + b\u00b7x + c = 0",
+            "x": 200.0,
+            "y": 320.0,
+            "fontSize": 18.0,
+            "fill": "darkred"
+          },
+          {
+            "timestamp": 84.0,
+            "type": "text",
+            "content": "\u2022 Factoring works when possible",
+            "x": 200.0,
+            "y": 350.0,
+            "fontSize": 18.0,
+            "fill": "darkred"
+          },
+          {
+            "timestamp": 85.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 86.0,
+            "type": "text",
+            "content": "\u2022 Quadratic formula always works",
+            "x": 200.0,
+            "y": 380.0,
+            "fontSize": 18.0,
+            "fill": "darkred"
+          },
+          {
+            "timestamp": 88.0,
+            "type": "text",
+            "content": "\u2022 Real\u2011world problems become solvable",
+            "x": 200.0,
+            "y": 410.0,
+            "fontSize": 18.0,
+            "fill": "darkred"
+          }
+        ],
+        "duration": 161.256,
+        "tailored_to_interest": "Cooking and recipe scaling \u2013 relatable everyday scenarios for middle\u2011school students who love the kitchen.",
+        "grade_level": "Middle School (Grades 6\u20118)",
+        "audio_url": "/static/audio/QuadraticEquations1772119386.mp3"
+      },
+      "validation": {
+        "success": true,
+        "generation_time": 92.19695019721985,
+        "validation_time": 0.002125263214111328,
+        "overall_score": 88.0,
+        "structure": {
+          "has_required_fields": true,
+          "field_errors": [],
+          "structure_score": 100
+        },
+        "board_actions": {
+          "valid_format": true,
+          "action_count": 33,
+          "timing_errors": [],
+          "visual_diversity_score": 100,
+          "action_types": [
+            "text",
+            "clear",
+            "rect",
+            "circle",
+            "line"
+          ],
+          "colors_used": [
+            "brown",
+            "blue",
+            "purple",
+            "darkblue",
+            "darkgreen",
+            "darkred",
+            "green",
+            "lightgreen",
+            "red",
+            "lightcoral",
+            "orange"
+          ]
+        },
+        "narration": {
+          "word_count": 634,
+          "educational_quality_score": 60,
+          "clarity_issues": [
+            "Narration too long"
+          ],
+          "sentence_count": 36
+        }
+      },
+      "timestamp": "2026-02-26T20:54:31.497020"
+    },
+    {
+      "id": 5,
+      "parameters": {
+        "topic": "Quadratic Equations",
+        "user_interest": "art",
+        "proficiency": "intermediate",
+        "grade": "high school"
+      },
+      "lesson": {
+        "topic": "Quadratic Equations",
+        "title": "Quadratic Equations in Art",
+        "narration_script": "Today we\u2019ll explore quadratic equations and see how they appear in works of art. A quadratic equation is written in standard form as a x squared plus b x plus c equals zero. The graph of any quadratic is a parabola, a smooth U\u2011shaped curve. \nFirst example: x squared minus five x plus six equals zero. Factoring gives (x minus four)(x minus one) equals zero, so the solutions are x equals four and x equals one. Those two numbers can be thought of as the positions of three columns in a fresco, where the outer columns sit at the roots and the middle column marks the axis of symmetry. \nThe discriminant, delta equals b squared minus four a c, tells us how many real roots a quadratic has. In our first example delta works out to one, a positive number, meaning we have two distinct real roots. \nSecond example: x squared equals four y. Rearranging gives x squared minus four y equals zero, which we can write as y equals one quarter x squared. The vertex of this parabola sits at the origin, and the focus is at (0,1). That shape matches the graceful arch of a bridge you can see in Monet\u2019s Water Lilies series. \nThird example shows completing the square. Take x squared plus six x plus five equals zero. Adding nine to both sides creates a perfect square: (x plus three) squared equals four, so x plus three equals plus or minus two and the solutions are x equals minus one and x equals minus five. Those two points lie on a painted curve, illustrating how artists embed quadratic relationships in their compositions. \nRemember: the standard form, the discriminant, and the vertex\u2011focus description all give us tools to understand the shape of a parabola. The next time you look at a painting, try to spot the hidden quadratics that give the artwork its elegant curves.",
+        "board_actions": [
+          {
+            "timestamp": 0.0,
+            "type": "text",
+            "content": "Quadratic Equations in Art",
+            "x": 200.0,
+            "y": 30.0,
+            "fontSize": 30.0,
+            "fill": "darkblue"
+          },
+          {
+            "timestamp": 2.0,
+            "type": "text",
+            "content": "Standard form: ax\u00b2 + bx + c = 0",
+            "x": 120.0,
+            "y": 80.0,
+            "fontSize": 24.0,
+            "fill": "blue"
+          },
+          {
+            "timestamp": 5.0,
+            "type": "circle",
+            "x": 400.0,
+            "y": 200.0,
+            "radius": 80.0,
+            "stroke": "green",
+            "strokeWidth": 3.0,
+            "fill": "lightgreen",
+            "label": "Parabola"
+          },
+          {
+            "timestamp": 8.0,
+            "type": "text",
+            "content": "Example 1: x\u00b2 \u2013 5x + 6 = 0",
+            "x": 120.0,
+            "y": 130.0,
+            "fontSize": 22.0,
+            "fill": "blue"
+          },
+          {
+            "timestamp": 10.0,
+            "type": "circle",
+            "x": 300.0,
+            "y": 170.0,
+            "radius": 20.0,
+            "stroke": "red",
+            "strokeWidth": 2.0,
+            "fill": "pink",
+            "label": "Root 4"
+          },
+          {
+            "timestamp": 10.0,
+            "type": "circle",
+            "x": 500.0,
+            "y": 170.0,
+            "radius": 20.0,
+            "stroke": "red",
+            "strokeWidth": 2.0,
+            "fill": "pink",
+            "label": "Root 1"
+          },
+          {
+            "timestamp": 12.0,
+            "type": "text",
+            "content": "Factors: (x\u20114)(x\u20111) = 0 \u2192 roots 4, 1",
+            "x": 120.0,
+            "y": 210.0,
+            "fontSize": 20.0,
+            "fill": "red"
+          },
+          {
+            "timestamp": 15.0,
+            "type": "text",
+            "content": "Art link: Three columns in a fresco",
+            "x": 120.0,
+            "y": 250.0,
+            "fontSize": 20.0,
+            "fill": "orange"
+          },
+          {
+            "timestamp": 18.0,
+            "type": "rect",
+            "x": 350.0,
+            "y": 240.0,
+            "width": 120.0,
+            "height": 80.0,
+            "stroke": "orange",
+            "strokeWidth": 2.0,
+            "fill": "lightyellow",
+            "label": "Fresco sketch"
+          },
+          {
+            "timestamp": 22.0,
+            "type": "text",
+            "content": "Discriminant \u0394 = b\u00b2 \u2013 4ac",
+            "x": 120.0,
+            "y": 300.0,
+            "fontSize": 22.0,
+            "fill": "purple"
+          },
+          {
+            "timestamp": 24.0,
+            "type": "circle",
+            "x": 420.0,
+            "y": 300.0,
+            "radius": 30.0,
+            "stroke": "orange",
+            "strokeWidth": 2.0,
+            "fill": "peachpuff",
+            "label": "\u0394 = 1"
+          },
+          {
+            "timestamp": 28.0,
+            "type": "text",
+            "content": "\u0394 > 0 \u2192 two real roots",
+            "x": 120.0,
+            "y": 340.0,
+            "fontSize": 20.0,
+            "fill": "green"
+          },
+          {
+            "timestamp": 32.0,
+            "type": "text",
+            "content": "Example 2: x\u00b2 = 4y",
+            "x": 120.0,
+            "y": 380.0,
+            "fontSize": 22.0,
+            "fill": "blue"
+          },
+          {
+            "timestamp": 34.0,
+            "type": "text",
+            "content": "Rewrite: x\u00b2 \u2013 4y = 0",
+            "x": 120.0,
+            "y": 410.0,
+            "fontSize": 20.0,
+            "fill": "blue"
+          },
+          {
+            "timestamp": 36.0,
+            "type": "text",
+            "content": "Vertex form: y = (1/4)x\u00b2",
+            "x": 120.0,
+            "y": 440.0,
+            "fontSize": 20.0,
+            "fill": "green"
+          },
+          {
+            "timestamp": 37.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 38.0,
+            "type": "circle",
+            "x": 400.0,
+            "y": 460.0,
+            "radius": 70.0,
+            "stroke": "green",
+            "strokeWidth": 3.0,
+            "fill": "lightgreen",
+            "label": "Parabolic arch"
+          },
+          {
+            "timestamp": 40.0,
+            "type": "text",
+            "content": "Vertex (0,0), focus (0,1)",
+            "x": 120.0,
+            "y": 500.0,
+            "fontSize": 20.0,
+            "fill": "purple"
+          },
+          {
+            "timestamp": 44.0,
+            "type": "line",
+            "x1": 400,
+            "y1": 460,
+            "x2": 400,
+            "y2": 380,
+            "stroke": "red",
+            "strokeWidth": 2.0,
+            "label": "Axis & focus line"
+          },
+          {
+            "timestamp": 47.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 48.0,
+            "type": "text",
+            "content": "Art link: Bridge arch in Monet\u2019s Water Lilies",
+            "x": 120.0,
+            "y": 540.0,
+            "fontSize": 20.0,
+            "fill": "orange"
+          },
+          {
+            "timestamp": 51.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 52.0,
+            "type": "rect",
+            "x": 350.0,
+            "y": 540.0,
+            "width": 120.0,
+            "height": 80.0,
+            "stroke": "orange",
+            "strokeWidth": 2.0,
+            "fill": "lightblue",
+            "label": "Bridge sketch"
+          },
+          {
+            "timestamp": 57.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 58.0,
+            "type": "text",
+            "content": "Completing the square",
+            "x": 120.0,
+            "y": 640.0,
+            "fontSize": 22.0,
+            "fill": "blue"
+          },
+          {
+            "timestamp": 59.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 60.0,
+            "type": "text",
+            "content": "x\u00b2 + 6x + 9 = (x+3)\u00b2",
+            "x": 120.0,
+            "y": 670.0,
+            "fontSize": 20.0,
+            "fill": "red"
+          },
+          {
+            "timestamp": 61.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 62.0,
+            "type": "text",
+            "content": "Example 3: x\u00b2 + 6x + 5 = 0",
+            "x": 120.0,
+            "y": 700.0,
+            "fontSize": 22.0,
+            "fill": "blue"
+          },
+          {
+            "timestamp": 63.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 64.0,
+            "type": "text",
+            "content": "Add 9 \u2192 (x+3)\u00b2 = 4 \u2192 x = \u20131, \u20135",
+            "x": 120.0,
+            "y": 730.0,
+            "fontSize": 20.0,
+            "fill": "red"
+          },
+          {
+            "timestamp": 67.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 68.0,
+            "type": "text",
+            "content": "Roots appear as points on a painted curve",
+            "x": 120.0,
+            "y": 760.0,
+            "fontSize": 20.0,
+            "fill": "orange"
+          },
+          {
+            "timestamp": 69.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 70.0,
+            "type": "circle",
+            "x": 400.0,
+            "y": 780.0,
+            "radius": 10.0,
+            "stroke": "green",
+            "strokeWidth": 2.0,
+            "fill": "lightgreen",
+            "label": "Point \u20131"
+          },
+          {
+            "timestamp": 69.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 70.0,
+            "type": "circle",
+            "x": 460.0,
+            "y": 780.0,
+            "radius": 10.0,
+            "stroke": "green",
+            "strokeWidth": 2.0,
+            "fill": "lightgreen",
+            "label": "Point \u20135"
+          },
+          {
+            "timestamp": 73.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 74.0,
+            "type": "text",
+            "content": "Key takeaways:",
+            "x": 120.0,
+            "y": 820.0,
+            "fontSize": 24.0,
+            "fill": "darkblue"
+          },
+          {
+            "timestamp": 75.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 76.0,
+            "type": "text",
+            "content": "\u2022 Standard form\n\u2022 Discriminant tells root type\n\u2022 Vertex & focus shape curves\n\u2022 Artists often use parabolic forms",
+            "x": 140.0,
+            "y": 860.0,
+            "fontSize": 20.0,
+            "fill": "black"
+          },
+          {
+            "timestamp": 79.0,
+            "type": "clear",
+            "fade_duration": 0.5
+          },
+          {
+            "timestamp": 80.0,
+            "type": "text",
+            "content": "Next time you view a painting, spot the hidden quadratics!",
+            "x": 120.0,
+            "y": 910.0,
+            "fontSize": 22.0,
+            "fill": "purple"
+          }
+        ],
+        "duration": 125.736,
+        "tailored_to_interest": "Uses visual art examples (fresco columns, Monet\u2019s bridge, painted curves) to connect quadratic concepts to a student who enjoys art.",
+        "grade_level": "10-11 (Intermediate High School)",
+        "audio_url": "/static/audio/QuadraticEquations1772119479.mp3"
+      },
+      "validation": {
+        "success": true,
+        "generation_time": 68.43033790588379,
+        "validation_time": 0.002976655960083008,
+        "overall_score": 100.0,
+        "structure": {
+          "has_required_fields": true,
+          "field_errors": [],
+          "structure_score": 100
+        },
+        "board_actions": {
+          "valid_format": true,
+          "action_count": 43,
+          "timing_errors": [],
+          "visual_diversity_score": 100,
+          "action_types": [
+            "text",
+            "clear",
+            "rect",
+            "line",
+            "circle"
+          ],
+          "colors_used": [
+            "blue",
+            "purple",
+            "darkblue",
+            "green",
+            "lightgreen",
+            "red",
+            "peachpuff",
+            "lightyellow",
+            "black",
+            "lightblue",
+            "pink",
+            "orange"
+          ]
+        },
+        "narration": {
+          "word_count": 318,
+          "educational_quality_score": 100,
+          "clarity_issues": [],
+          "sentence_count": 19
+        }
+      },
+      "timestamp": "2026-02-26T20:55:39.931333"
+    }
+  ]
+}

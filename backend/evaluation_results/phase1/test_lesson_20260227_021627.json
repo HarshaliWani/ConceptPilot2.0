@@ -1,0 +1,547 @@
+{
+  "test_timestamp": "2026-02-26T20:46:27.815089",
+  "parameters": {
+    "topic": "Quadratic Equations",
+    "user_interest": "video games",
+    "proficiency": "beginner",
+    "grade": "high school"
+  },
+  "lesson": {
+    "topic": "Quadratic Equations",
+    "title": "Quadratic Equations in Video\u2011Game Worlds",
+    "narration_script": "Welcome! Today we\u2019ll explore quadratic equations, the math behind many video\u2011game mechanics. A quadratic equation is any equation that can be written in the form a times x squared plus b times x plus c equals zero. The letters a, b, and c are numbers, and a can\u2019t be zero. \n\nOne of the most familiar shapes that comes from a quadratic is a parabola \u2013 a U\u2011shaped curve that opens either up or down. The graph of y equals a x squared plus b x plus c is a parabola. The highest or lowest point of that curve is called the vertex, and the points where the curve crosses the x\u2011axis are called the roots. \n\nLet\u2019s see how this shows up in games. When Mario jumps, his vertical position follows a parabola: he starts on the ground, speeds upward, slows, stops at the peak, then speeds back down. The equation that describes his height over time is a quadratic. \n\nIf the quadratic can be factored, we can find the roots quickly. For example, (x\u202f\u2212\u202f2)(x\u202f\u2212\u202f5)\u202f=\u202f0 gives the roots x equals 2 and x equals 5. Those numbers might represent the times when a projectile hits the ground. \n\nWhen factoring isn\u2019t easy, we use the quadratic formula: x equals negative b plus or minus the square root of b squared minus 4 a c, all over 2 a. The part under the square root, b squared minus 4 a c, is called the discriminant. It tells us how many real roots there are. A positive discriminant means two crossing points \u2013 like a thrown arrow that lands after two moments of height zero. Zero means the curve just touches the ground once \u2013 a perfect lob that lands exactly at its peak. A negative discriminant means the curve never reaches the ground \u2013 think of a spell that stays above a certain height forever. \n\nIn Skyrim, the trajectory of an arrow is modeled by a quadratic. The arrow rises, reaches a peak, then falls, and the times when its height is zero are the roots of the equation. \n\nRPGs often use quadratic\u2011shaped damage curves. Imagine a spell that does low damage at the start, ramps up to a maximum, then tapers off \u2013 that curve is a parabola, and the peak damage occurs at the vertex. \n\nSo, quadratic equations let us predict where and when objects in games will be. By recognizing the standard form, graphing the parabola, and solving for the roots with factoring or the quadratic formula, we can understand and even design game mechanics. That\u2019s the power of quadratics \u2013 from Mario\u2019s jumps to Skyrim\u2019s arrows and beyond. ",
+    "board_actions": [
+      {
+        "timestamp": 0.0,
+        "type": "text",
+        "content": "Quadratic Equations",
+        "x": 250.0,
+        "y": 30.0,
+        "fontSize": 30.0,
+        "fill": "darkblue"
+      },
+      {
+        "timestamp": 5.0,
+        "type": "text",
+        "content": "Standard form: a\u00b7x\u00b2 + b\u00b7x + c = 0",
+        "x": 150.0,
+        "y": 80.0,
+        "fontSize": 24.0,
+        "fill": "darkred"
+      },
+      {
+        "timestamp": 10.0,
+        "type": "rect",
+        "x": 120.0,
+        "y": 110.0,
+        "width": 80.0,
+        "height": 40.0,
+        "stroke": "blue",
+        "strokeWidth": 2.0,
+        "fill": "lightblue",
+        "label": "a"
+      },
+      {
+        "timestamp": 10.0,
+        "type": "rect",
+        "x": 210.0,
+        "y": 110.0,
+        "width": 80.0,
+        "height": 40.0,
+        "stroke": "green",
+        "strokeWidth": 2.0,
+        "fill": "lightgreen",
+        "label": "b"
+      },
+      {
+        "timestamp": 10.0,
+        "type": "rect",
+        "x": 300.0,
+        "y": 110.0,
+        "width": 80.0,
+        "height": 40.0,
+        "stroke": "orange",
+        "strokeWidth": 2.0,
+        "fill": "lightyellow",
+        "label": "c"
+      },
+      {
+        "timestamp": 14.0,
+        "type": "text",
+        "content": "Parabola: y = a\u00b7x\u00b2 + b\u00b7x + c",
+        "x": 150.0,
+        "y": 170.0,
+        "fontSize": 22.0,
+        "fill": "purple"
+      },
+      {
+        "timestamp": 18.0,
+        "type": "line",
+        "points": [
+          120.0,
+          200.0,
+          680.0,
+          200.0
+        ],
+        "stroke": "gray",
+        "strokeWidth": 1.0
+      },
+      {
+        "timestamp": 18.0,
+        "type": "line",
+        "points": [
+          400.0,
+          20.0,
+          400.0,
+          500.0
+        ],
+        "stroke": "gray",
+        "strokeWidth": 1.0
+      },
+      {
+        "timestamp": 20.0,
+        "type": "line",
+        "points": [
+          120.0,
+          400.0,
+          680.0,
+          100.0
+        ],
+        "stroke": "green",
+        "strokeWidth": 3.0
+      },
+      {
+        "timestamp": 22.0,
+        "type": "circle",
+        "x": 400.0,
+        "y": 250.0,
+        "radius": 8.0,
+        "stroke": "red",
+        "strokeWidth": 2.0,
+        "fill": "pink",
+        "label": "Vertex"
+      },
+      {
+        "timestamp": 24.0,
+        "type": "circle",
+        "x": 260.0,
+        "y": 400.0,
+        "radius": 6.0,
+        "stroke": "purple",
+        "strokeWidth": 2.0,
+        "fill": "lavender",
+        "label": "Root 1"
+      },
+      {
+        "timestamp": 24.0,
+        "type": "circle",
+        "x": 540.0,
+        "y": 400.0,
+        "radius": 6.0,
+        "stroke": "purple",
+        "strokeWidth": 2.0,
+        "fill": "lavender",
+        "label": "Root 2"
+      },
+      {
+        "timestamp": 28.0,
+        "type": "rect",
+        "x": 100.0,
+        "y": 420.0,
+        "width": 200.0,
+        "height": 60.0,
+        "stroke": "orange",
+        "strokeWidth": 2.0,
+        "fill": "lightcoral",
+        "label": "Game Example: Mario Jump"
+      },
+      {
+        "timestamp": 35.0,
+        "type": "line",
+        "points": [
+          130.0,
+          470.0,
+          250.0,
+          350.0
+        ],
+        "stroke": "red",
+        "strokeWidth": 3.0
+      },
+      {
+        "timestamp": 35.0,
+        "type": "line",
+        "points": [
+          250.0,
+          350.0,
+          370.0,
+          470.0
+        ],
+        "stroke": "red",
+        "strokeWidth": 3.0
+      },
+      {
+        "timestamp": 39.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 40.0,
+        "type": "text",
+        "content": "(x\u202f\u2212\u202f2)(x\u202f\u2212\u202f5) = 0",
+        "x": 420.0,
+        "y": 420.0,
+        "fontSize": 24.0,
+        "fill": "brown"
+      },
+      {
+        "timestamp": 45.0,
+        "type": "circle",
+        "x": 460.0,
+        "y": 460.0,
+        "radius": 6.0,
+        "stroke": "purple",
+        "strokeWidth": 2.0,
+        "fill": "lavender",
+        "label": "x = 2"
+      },
+      {
+        "timestamp": 45.0,
+        "type": "circle",
+        "x": 560.0,
+        "y": 460.0,
+        "radius": 6.0,
+        "stroke": "purple",
+        "strokeWidth": 2.0,
+        "fill": "lavender",
+        "label": "x = 5"
+      },
+      {
+        "timestamp": 49.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 50.0,
+        "type": "text",
+        "content": "Quadratic Formula",
+        "x": 100.0,
+        "y": 540.0,
+        "fontSize": 26.0,
+        "fill": "brown"
+      },
+      {
+        "timestamp": 54.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 55.0,
+        "type": "text",
+        "content": "x = [\u2011b \u00b1 \u221a(b\u00b2\u00a0\u2011\u00a04ac)] / (2a)",
+        "x": 120.0,
+        "y": 580.0,
+        "fontSize": 22.0,
+        "fill": "brown"
+      },
+      {
+        "timestamp": 59.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 60.0,
+        "type": "text",
+        "content": "Discriminant \u0394 = b\u00b2\u00a0\u2011\u00a04ac",
+        "x": 380.0,
+        "y": 540.0,
+        "fontSize": 24.0,
+        "fill": "orange"
+      },
+      {
+        "timestamp": 64.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 65.0,
+        "type": "circle",
+        "x": 420.0,
+        "y": 580.0,
+        "radius": 8.0,
+        "stroke": "green",
+        "strokeWidth": 2.0,
+        "fill": "lightgreen",
+        "label": "\u0394 > 0 (2 roots)"
+      },
+      {
+        "timestamp": 67.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 68.0,
+        "type": "circle",
+        "x": 540.0,
+        "y": 580.0,
+        "radius": 8.0,
+        "stroke": "blue",
+        "strokeWidth": 2.0,
+        "fill": "lightblue",
+        "label": "\u0394 = 0 (1 root)"
+      },
+      {
+        "timestamp": 70.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 71.0,
+        "type": "circle",
+        "x": 660.0,
+        "y": 580.0,
+        "radius": 8.0,
+        "stroke": "red",
+        "strokeWidth": 2.0,
+        "fill": "lightcoral",
+        "label": "\u0394 < 0 (no real root)"
+      },
+      {
+        "timestamp": 74.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 75.0,
+        "type": "rect",
+        "x": 100.0,
+        "y": 620.0,
+        "width": 200.0,
+        "height": 60.0,
+        "stroke": "purple",
+        "strokeWidth": 2.0,
+        "fill": "plum",
+        "label": "Skyrim Arrow"
+      },
+      {
+        "timestamp": 78.0,
+        "type": "line",
+        "points": [
+          130.0,
+          670.0,
+          250.0,
+          540.0
+        ],
+        "stroke": "green",
+        "strokeWidth": 3.0
+      },
+      {
+        "timestamp": 78.0,
+        "type": "line",
+        "points": [
+          250.0,
+          540.0,
+          370.0,
+          670.0
+        ],
+        "stroke": "green",
+        "strokeWidth": 3.0
+      },
+      {
+        "timestamp": 84.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 85.0,
+        "type": "rect",
+        "x": 340.0,
+        "y": 620.0,
+        "width": 220.0,
+        "height": 60.0,
+        "stroke": "teal",
+        "strokeWidth": 2.0,
+        "fill": "lightseagreen",
+        "label": "RPG Damage Curve"
+      },
+      {
+        "timestamp": 88.0,
+        "type": "line",
+        "points": [
+          360.0,
+          680.0,
+          440.0,
+          560.0
+        ],
+        "stroke": "orange",
+        "strokeWidth": 3.0
+      },
+      {
+        "timestamp": 88.0,
+        "type": "line",
+        "points": [
+          440.0,
+          560.0,
+          520.0,
+          680.0
+        ],
+        "stroke": "orange",
+        "strokeWidth": 3.0
+      },
+      {
+        "timestamp": 91.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 92.0,
+        "type": "circle",
+        "x": 440.0,
+        "y": 560.0,
+        "radius": 8.0,
+        "stroke": "red",
+        "strokeWidth": 2.0,
+        "fill": "pink",
+        "label": "Peak Damage (Vertex)"
+      },
+      {
+        "timestamp": 99.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 100.0,
+        "type": "text",
+        "content": "Key Takeaways",
+        "x": 300.0,
+        "y": 720.0,
+        "fontSize": 28.0,
+        "fill": "darkblue"
+      },
+      {
+        "timestamp": 101.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 102.0,
+        "type": "text",
+        "content": "\u2022 Standard form a\u00b7x\u00b2 + b\u00b7x + c = 0",
+        "x": 120.0,
+        "y": 760.0,
+        "fontSize": 20.0,
+        "fill": "black"
+      },
+      {
+        "timestamp": 103.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 104.0,
+        "type": "text",
+        "content": "\u2022 Graph = parabola (vertex & roots)",
+        "x": 120.0,
+        "y": 790.0,
+        "fontSize": 20.0,
+        "fill": "black"
+      },
+      {
+        "timestamp": 105.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 106.0,
+        "type": "text",
+        "content": "\u2022 Solve by factoring or quadratic formula",
+        "x": 120.0,
+        "y": 820.0,
+        "fontSize": 20.0,
+        "fill": "black"
+      },
+      {
+        "timestamp": 107.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 108.0,
+        "type": "text",
+        "content": "\u2022 Discriminant tells how many real solutions",
+        "x": 120.0,
+        "y": 850.0,
+        "fontSize": 20.0,
+        "fill": "black"
+      },
+      {
+        "timestamp": 109.0,
+        "type": "clear",
+        "fade_duration": 0.5
+      },
+      {
+        "timestamp": 110.0,
+        "type": "text",
+        "content": "\u2022 Used in jumps, projectiles, and damage curves in games",
+        "x": 120.0,
+        "y": 880.0,
+        "fontSize": 20.0,
+        "fill": "black"
+      }
+    ],
+    "duration": 127.584,
+    "tailored_to_interest": "Video\u2011game fans \u2013 examples from Mario, Skyrim, and RPG damage systems make abstract algebra feel concrete and fun.",
+    "grade_level": "9\u201110 (high\u2011school introductory algebra)",
+    "audio_url": "/static/audio/QuadraticEquations1772118915.mp3"
+  },
+  "validation": {
+    "success": true,
+    "generation_time": 86.10277605056763,
+    "validation_time": 0.003565549850463867,
+    "overall_score": 97.0,
+    "structure": {
+      "has_required_fields": true,
+      "field_errors": [],
+      "structure_score": 100
+    },
+    "board_actions": {
+      "valid_format": true,
+      "action_count": 53,
+      "timing_errors": [],
+      "visual_diversity_score": 100,
+      "action_types": [
+        "rect",
+        "circle",
+        "text",
+        "clear",
+        "line"
+      ],
+      "colors_used": [
+        "darkblue",
+        "lightyellow",
+        "black",
+        "pink",
+        "purple",
+        "teal",
+        "red",
+        "blue",
+        "darkred",
+        "orange",
+        "plum",
+        "brown",
+        "lavender",
+        "lightgreen",
+        "gray",
+        "lightseagreen",
+        "lightblue",
+        "green",
+        "lightcoral"
+      ]
+    },
+    "narration": {
+      "word_count": 445,
+      "educational_quality_score": 90,
+      "clarity_issues": [],
+      "sentence_count": 26
+    }
+  }
+}

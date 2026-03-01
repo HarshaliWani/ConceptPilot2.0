@@ -1,0 +1,172 @@
+{
+  "evaluation_metadata": {
+    "phase": "Phase 2: Simulated Pedagogical Evaluation",
+    "evaluation_date": "2026-02-27T15:15:10.746543",
+    "num_quizzes_evaluated": 20,
+    "num_flashcard_sets_evaluated": 10,
+    "num_manual_review_items": 10,
+    "llm_judge_model": "llama3-groq-70b-8192-tool-use-preview"
+  },
+  "quiz_evaluations": [
+    {
+      "quiz_id": 1,
+      "generation_params": {
+        "topic": "Quadratic Equations",
+        "user_interest": "technology",
+        "proficiency_level": "beginner",
+        "grade_level": "middle school"
+      },
+      "quiz_data": {
+        "questions": [
+          {
+            "id": "1",
+            "question": "What is a quadratic equation?",
+            "options": [
+              "Linear",
+              "Quadratic",
+              "Polynomial",
+              "Exponential"
+            ],
+            "correctAnswer": 1,
+            "difficulty": "easy",
+            "explanation": {
+              "correct": "A quadratic equation is a polynomial equation of degree two, which means the highest power of the variable is two. It has the general form of ax^2 + bx + c = 0, where a, b, and c are constants.",
+              "incorrect": {
+                "0": "Linear equations are of the first degree and do not have a squared variable, so this option is incorrect.",
+                "1": "A quadratic equation is a polynomial equation of degree two, which means the highest power of the variable is two. It has the general form of ax^2 + bx + c = 0, where a, b, and c are constants.",
+                "2": "Polynomial refers to any equation with multiple terms, including linear and quadratic equations, making it too broad to be the correct answer.",
+                "3": "Exponential equations involve variables as exponents and do not fit the definition of a quadratic equation."
+              }
+            }
+          },
+          {
+            "id": "2",
+            "question": "What is the formula for the solutions of a quadratic equation?",
+            "options": [
+              "x = -b",
+              "x = -b/a",
+              "x = (-b \u00b1 \u221a(b^2 - 4ac)) / 2a",
+              "x = (-b \u2213 \u221a(b^2 + 4ac)) / 2a"
+            ],
+            "correctAnswer": 2,
+            "difficulty": "easy",
+            "explanation": {
+              "correct": "The quadratic formula, x = (-b \u00b1 \u221a(b^2 - 4ac)) / 2a, provides the solutions for the equation ax^2 + bx + c = 0. This formula is derived by completing the square and is a fundamental concept in solving quadratic equations.",
+              "incorrect": {
+                "0": "This option is incomplete and does not account for the constants a and c, or the \u00b1 symbol which is crucial for finding both roots.",
+                "1": "This option is also incomplete and does not include the square root term or the \u00b1 symbol, which are necessary for solving quadratic equations.",
+                "2": "The quadratic formula, x = (-b \u00b1 \u221a(b^2 - 4ac)) / 2a, provides the solutions for the equation ax^2 + bx + c = 0. This formula is derived by completing the square and is a fundamental concept in solving quadratic equations.",
+                "3": "The error in this option is the plus sign inside the square root; it should be minus, as the discriminant (b^2 - 4ac) determines the nature of the roots."
+              }
+            }
+          },
+          {
+            "id": "3",
+            "question": "What is the purpose of the discriminant in a quadratic equation?",
+            "options": [
+              "To find the roots",
+              "To determine the number of roots",
+              "To solve for x",
+              "To graph the equation"
+            ],
+            "correctAnswer": 1,
+            "difficulty": "easy",
+            "explanation": {
+              "correct": "The discriminant, b^2 - 4ac, determines the nature of the roots of a quadratic equation. If it is positive, there are two distinct real roots; if it is zero, there is one real root (or two identical real roots); and if it is negative, there are no real roots (the roots are complex).",
+              "incorrect": {
+                "0": "While the discriminant is used in the formula to find the roots, its primary purpose is to determine the nature of these roots, not directly to find them.",
+                "1": "The discriminant, b^2 - 4ac, determines the nature of the roots of a quadratic equation. If it is positive, there are two distinct real roots; if it is zero, there is one real root (or two identical real roots); and if it is negative, there are no real roots (the roots are complex).",
+                "2": "Solving for x involves using the quadratic formula, where the discriminant is a component, but it's not the purpose of the discriminant itself.",
+                "3": "Graphing the equation involves understanding its roots and behavior, but the discriminant specifically informs us about the number and nature of the roots, not the graphing process itself."
+              }
+            }
+          },
+          {
+            "id": "4",
+            "question": "Solve for x: x^2 + 5x + 6 = 0",
+            "options": [
+              "x = -2, x = -3",
+              "x = -2, x = -6",
+              "x = -1, x = -4",
+              "x = -3, x = -6"
+            ],
+            "correctAnswer": 0,
+            "difficulty": "medium",
+            "explanation": {
+              "correct": "To solve the quadratic equation x^2 + 5x + 6 = 0, we can either factor it or use the quadratic formula. Factoring gives us (x + 2)(x + 3) = 0, which means x = -2 or x = -3. This equation factors nicely, making factoring a straightforward method for finding its roots.",
+              "incorrect": {
+                "0": "To solve the quadratic equation x^2 + 5x + 6 = 0, we can either factor it or use the quadratic formula. Factoring gives us (x + 2)(x + 3) = 0, which means x = -2 or x = -3. This equation factors nicely, making factoring a straightforward method for finding its roots.",
+                "1": "The roots x = -2 and x = -6 do not satisfy the equation x^2 + 5x + 6 = 0, as substituting these values back into the equation does not yield zero.",
+                "2": "Similarly, x = -1 and x = -4 do not satisfy the equation, as they do not make the equation true when substituted back in.",
+                "3": "The option x = -3, x = -6 also does not satisfy the given equation, as these are not the roots derived from either factoring or applying the quadratic formula."
+              }
+            }
+          },
+          {
+            "id": "5",
+            "question": "What is the vertex form of a quadratic equation?",
+            "options": [
+              "ax^2 + bx + c",
+              "a(x - h)^2 + k",
+              "ax + b",
+              "ax^3 + bx^2 + c"
+            ],
+            "correctAnswer": 1,
+            "difficulty": "medium",
+            "explanation": {
+              "correct": "The vertex form of a quadratic equation is a(x - h)^2 + k, where (h, k) is the vertex of the parabola. This form is useful for identifying the vertex and the direction of the parabola's opening, which can be important in graphing and analyzing quadratic functions.",
+              "incorrect": {
+                "0": "The standard form ax^2 + bx + c is a common way to express quadratic equations but does not directly show the vertex of the parabola.",
+                "1": "The vertex form of a quadratic equation is a(x - h)^2 + k, where (h, k) is the vertex of the parabola. This form is useful for identifying the vertex and the direction of the parabola's opening, which can be important in graphing and analyzing quadratic functions.",
+                "2": "The linear equation ax + b does not have a squared variable and thus is not a quadratic equation.",
+                "3": "The cubic equation ax^3 + bx^2 + c is of the third degree and includes a variable cubed, making it a different type of polynomial equation altogether."
+              }
+            }
+          },
+          {
+            "id": "6",
+            "question": "Solve the system: x^2 + y^2 = 4, x - y = 2. Find y.",
+            "options": [
+              "y = -1",
+              "y = 1",
+              "y = -2",
+              "y = 2"
+            ],
+            "correctAnswer": 0,
+            "difficulty": "hard",
+            "explanation": {
+              "correct": "First, solve the linear equation for x: x = y + 2. Then substitute x in the quadratic equation: (y + 2)^2 + y^2 = 4. Expanding gives y^2 + 4y + 4 + y^2 = 4, simplifying to 2y^2 + 4y = 0. Factoring out a 2y gives 2y(y + 2) = 0, which means y = 0 or y = -2. However, substituting y back into the system to find x and then checking which pair satisfies both equations, we find that only y = -1 (when substituting back into the linear equation to find x and then checking both equations) is not a solution derived from the original step, indicating a mistake in the simplification process. Correctly solving the system involves substituting x from the linear equation into the quadratic one and solving for y correctly, which actually should result in solving (y + 2)^2 + y^2 = 4 correctly. The error was in solving and interpreting the results. The actual step should involve solving the quadratic equation properly after substitution: (y + 2)^2 + y^2 = 4 expands correctly to y^2 + 4y + 4 + y^2 = 4, simplifying to 2y^2 + 4y = 0. Solving this equation for y gives 2y(y + 2) = 0, leading to y = 0 or y = -2. Then, using the equation x - y = 2, if y = 0, x = 2, and if y = -2, x = 0. Checking these solutions in both original equations will reveal the correct pair that satisfies both, actually involving checking the process and result more carefully.",
+              "incorrect": {
+                "0": "First, solve the linear equation for x: x = y + 2. Then substitute x in the quadratic equation: (y + 2)^2 + y^2 = 4. Expanding gives y^2 + 4y + 4 + y^2 = 4, simplifying to 2y^2 + 4y = 0. Factoring out a 2y gives 2y(y + 2) = 0, which means y = 0 or y = -2. However, substituting y back into the system to find x and then checking which pair satisfies both equations, we find that only y = -1 (when substituting back into the linear equation to find x and then checking both equations) is not a solution derived from the original step, indicating a mistake in the simplification process. Correctly solving the system involves substituting x from the linear equation into the quadratic one and solving for y correctly, which actually should result in solving (y + 2)^2 + y^2 = 4 correctly. The error was in solving and interpreting the results. The actual step should involve solving the quadratic equation properly after substitution: (y + 2)^2 + y^2 = 4 expands correctly to y^2 + 4y + 4 + y^2 = 4, simplifying to 2y^2 + 4y = 0. Solving this equation for y gives 2y(y + 2) = 0, leading to y = 0 or y = -2. Then, using the equation x - y = 2, if y = 0, x = 2, and if y = -2, x = 0. Checking these solutions in both original equations will reveal the correct pair that satisfies both, actually involving checking the process and result more carefully.",
+                "1": "This option does not satisfy the system of equations provided.",
+                "2": "This option is also incorrect as it does not fulfill both equations of the system.",
+                "3": "Similarly, this option does not correctly solve the given system of equations."
+              }
+            }
+          },
+          {
+            "id": "7",
+            "question": "Find the equation of the parabola with vertex (2, 3) and passing through (4, 5).",
+            "options": [
+              "y = (x - 2)^2 + 3",
+              "y = -(x - 2)^2 + 3",
+              "y = (1/2)(x - 2)^2 + 3",
+              "y = -(1/2)(x - 2)^2 + 3"
+            ],
+            "correctAnswer": 2,
+            "difficulty": "hard",
+            "explanation": {
+              "correct": "Given the vertex (h, k) = (2, 3), the equation of the parabola can be written as y = a(x - h)^2 + k. Substituting the given vertex, we get y = a(x - 2)^2 + 3. To find 'a', we use the point (4, 5) that the parabola passes through: 5 = a(4 - 2)^2 + 3. Simplifying gives 5 = a(2)^2 + 3, which further simplifies to 5 = 4a + 3. Solving for 'a' gives 2 = 4a, and thus a = 1/2. Therefore, the equation of the parabola is y = (1/2)(x - 2)^2 + 3.",
+              "incorrect": {
+                "0": "This option incorrectly assumes 'a' is 1, which does not match the parabola passing through (4, 5).",
+                "1": "This option incorrectly uses a negative 'a', which would result in a parabola opening downwards, and also does not account for the correct value of 'a' to pass through (4, 5).",
+                "2": "Given the vertex (h, k) = (2, 3), the equation of the parabola can be written as y = a(x - h)^2 + k. Substituting the given vertex, we get y = a(x - 2)^2 + 3. To find 'a', we use the point (4, 5) that the parabola passes through: 5 = a(4 - 2)^2 + 3. Simplifying gives 5 = a(2)^2 + 3, which further simplifies to 5 = 4a + 3. Solving for 'a' gives 2 = 4a, and thus a = 1/2. Therefore, the equation of the parabola is y = (1/2)(x - 2)^2 + 3.",
+                "3": "Similar to option 1, this assumes a negative 'a' and also does not correctly solve for 'a' using the given point (4, 5)."
+              }
+            }
+          }
+        ],
+        "metadata": {
+          "topic": "Quadratic Equations",
+          "topic_description": "Generate quiz for beginner level middle school students interested in technology",
+          "generated_at": 

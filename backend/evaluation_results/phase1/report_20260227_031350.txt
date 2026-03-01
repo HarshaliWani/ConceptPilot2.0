@@ -1,0 +1,44 @@
+LESSON GENERATION SYSTEM EVALUATION REPORT
+==================================================
+
+Evaluation Date: 2026-02-27 03:13:50
+Total Lessons Generated: 100
+
+PERFORMANCE METRICS
+--------------------
+Success Rate: 100.0%
+Average Generation Time: 32.15 seconds
+Median Generation Time: 12.29 seconds
+Generation Time Range: 0.44s - 92.20s
+Average Validation Score: 87.7/100
+Validation Score Std Dev: 10.8
+
+TOPIC PERFORMANCE BREAKDOWN
+------------------------------
+Quadratic Equations: 5 successes, 0 failures, avg score: 85.0
+Calculus Derivatives: 5 successes, 0 failures, avg score: 89.8
+Probability Theory: 5 successes, 0 failures, avg score: 91.6
+Linear Algebra: 5 successes, 0 failures, avg score: 91.7
+Trigonometry: 5 successes, 0 failures, avg score: 88.7
+Statistics and Data Analysis: 5 successes, 0 failures, avg score: 87.2
+Geometry Proofs: 5 successes, 0 failures, avg score: 86.4
+Newton's Laws of Motion: 5 successes, 0 failures, avg score: 87.0
+Electromagnetic Induction: 5 successes, 0 failures, avg score: 87.4
+Wave Properties and Interference: 5 successes, 0 failures, avg score: 87.2
+Thermodynamics First Law: 5 successes, 0 failures, avg score: 86.5
+Quantum Mechanics Basics: 5 successes, 0 failures, avg score: 86.5
+Optics and Refraction: 5 successes, 0 failures, avg score: 86.7
+Energy Conservation: 5 successes, 0 failures, avg score: 86.9
+Ohm's Law Applications: 5 successes, 0 failures, avg score: 87.1
+AC vs DC Current: 5 successes, 0 failures, avg score: 87.2
+Capacitors and Inductors: 5 successes, 0 failures, avg score: 87.3
+Digital Logic Gates: 5 successes, 0 failures, avg score: 87.5
+Transistor Operation: 5 successes, 0 failures, avg score: 87.6
+Circuit Analysis Methods: 5 successes, 0 failures, avg score: 87.7
+
+VALIDATION ANALYSIS
+--------------------
+Average Overall Validation Score: 87.7/100
+Average Structure Score: 100.0/100
+Average Visual Diversity Score: 89.0/100
+Average Educational Quality Score: 69.9/100
