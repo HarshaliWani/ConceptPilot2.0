@@ -1,18 +1,12 @@
 # ConceptPilot 2.0
 
-[![Stars](https://img.shields.io/github/stars/your-org/ConceptPilot2.0?style=social)](https://github.com/your-org/ConceptPilot2.0)
-[![Forks](https://img.shields.io/github/forks/your-org/ConceptPilot2.0?style=social)](https://github.com/your-org/ConceptPilot2.0/network/members)
-
-![Demo GIF](./readable_article.html)
-Live: [https://your-live-url.com](https://your-live-url.com)
-
 ## 🎯 Overview
 
-AI-powered learning platform that generates personalized lessons, quizzes, and flashcards from engineering syllabus topics.
+AI-powered learning platform that generates personalized lessons with hobby/interest based examples, quizzes, and flashcards from engineering syllabus topics.
 
 ## 🚀 Features
 
-- AI lesson generation with visual board + narration
+- AI lesson generation with visual board (canvas) + narration (TTS) + text
 - Smart flashcards generation (10 cards per request)
 - Adaptive quizzes with progress tracking and review flow
 
@@ -25,10 +19,6 @@ AI-powered learning platform that generates personalized lessons, quizzes, and f
 
 - Personalized learning paths across first-year engineering subjects
 - End-to-end flow: onboarding -> lesson -> quiz -> flashcards -> progress
-
-## 🤝 Live | GitHub
-
-[Deploy](https://your-live-url.com) | [Repo Stats](https://github.com/your-org/ConceptPilot2.0)
 
 ## 📋 Setup
 
