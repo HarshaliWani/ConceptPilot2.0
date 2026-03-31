@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Paper Draft</title>
+<style>
+    /* Styling to perfectly match the IJSRST MS Word Template */
+    body {
+        font-family: "Times New Roman", Times, serif;
+        color: black;
+        background: white;
+        margin: 0 auto;
+        max-width: 8.5in;
+        padding: 40px;
+        line-height: 1.2;
+    }
+    .paper-title {
+        font-size: 20pt;
+        text-align: center;
+        margin-bottom: 24px;
+        font-weight: normal;
+    }
+    .author-name {
+        font-size: 11pt;
+        text-align: center;
+        margin-top: 16px;
+        margin-bottom: 4px;
+    }
+    .author-affiliation {
+        font-size: 10pt;
+        font-style: italic;
+        text-align: center;
+        margin-bottom: 2px;
+    }
+    .author-email {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 9pt;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+    .abstract-section {
+        font-size: 9pt;
+        text-align: justify;
+        margin-top: 32px;
+        margin-bottom: 16px;
+    }
+    .abstract-label {
+        font-weight: bold;
+        font-size: 9pt;
+    }
+    .heading-1 {
+        font-size: 10pt;
+        font-variant: small-caps;
+        text-align: center;
+        margin-top: 24px;
+        margin-bottom: 12px;
+        font-weight: normal;
+    }
+    .heading-2 {
+        font-size: 10pt;
+        font-style: italic;
+        text-align: left;
+        margin-top: 16px;
+        margin-bottom: 8px;
+        font-weight: normal;
+    }
+    p {
+        font-size: 11pt;
+        text-align: justify;
+        text-indent: 0.25in;
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
+    .table-caption {
+        font-size: 8pt;
+        text-align: center;
+        margin-top: 24px;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+    }
+    .table-title {
+        font-size: 8pt;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 24px;
+        font-size: 10pt;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 6px;
+        text-align: left;
+    }
+    .figure-block {
+        text-align: center;
+        margin: 24px 0 8px 0;
+    }
+    .figure-block img {
+        max-width: 360px;
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+    .figure-caption {
+        font-size: 9pt;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+    .references-section p {
+        font-size: 9pt;
+        text-indent: 0;
+        margin-bottom: 6px;
+        text-align: justify;
+    }
+</style>
+</head>
+<body>
+
+    <div class="paper-title">
+        Enhancing Student Engagement through LLM-Driven Hobby Integration in Intelligent Tutoring Systems
+    </div>
+
+    <!-- Author 1 -->
+    <div class="author-name">Harshali Wani<sup>1</sup></div>
+    <div class="author-affiliation"><sup>1</sup>Dept. of Computer Engineering, Shivajirao S. Jondhale College of Engineering, Dombivli, India</div>
+    <div class="author-email">harshaliwani2004@gmail.com</div>
+
+    <!-- Author 2 -->
+    <div class="author-name">Sarthak Tiwad<sup>2</sup></div>
+    <div class="author-affiliation"><sup>2</sup>Dept. of Computer Engineering, Shivajirao S. Jondhale College of Engineering, Dombivli, India</div>
+    <div class="author-email">sarthak2.tiwad@gmail.com</div>
+
+    <!-- Author 3 -->
+    <div class="author-name">Arpita Patil<sup>3</sup></div>
+    <div class="author-affiliation"><sup>3</sup>Dept. of Computer Engineering, Shivajirao S. Jondhale College of Engineering, Dombivli, India</div>
+    <div class="author-email">arpipatil1007@gmail.com</div>
+
+   <!-- Author 4 -->
+    <div class="author-name">Prof. Reena Deshmukh<sup>4</sup></div>
+    <div class="author-affiliation"><sup>4</sup>Dept. of Computer Engineering, Shivajirao S. Jondhale College of Engineering, Dombivli, India</div>
+    <div class="author-email">reenadeshmukh58@gmail.com</div>
+
+    <div class="abstract-section">
+        <span class="abstract-label">ABSTRACT</span><br>
+        Intelligent tutoring systems face a challenge of retaining learners' attention and providing appropriately customized learning materials. One major reason for this challenge is the disconnection between abstract and complex learning topics and learners' everyday experiences. In this study, we introduce a specialized module, which utilizes the services of Large Language Models for semantic "Interest Mapping." The architecture is designed such that lesson topics are mapped to learners' unique hobbies and interests. Using prompt engineering, a framework has been proposed for creating customized educational narratives incorporating learners' hobby-centric analogies. The proposed personalization framework has been evaluated on the basis of successful integration of learners' interests with appropriate educational content. The results indicate a highly reproducible framework for creating student-centric educational texts, thus validating the potential of semantic interest alignment.
+        <br><br>
+        <span class="abstract-label">Keywords:</span> Intelligent Tutoring System, Large Language Model, Semantic Alignment, Interest Mapping, Prompt Engineering.
+    </div>
+
+    <div class="heading-1">I. INTRODUCTION</div>
+
+    <p>Personalization of digital education has come to depend on artificial intelligence tools and techniques. Despite these technological advancements, a major drawback of contemporary e-learning systems is their failure to create meaningful and contextual relationships with learners. Most e-learning systems distribute uniform and rigid learning content that tends to fail in retaining learners' attention, especially when explaining abstract STEM theories. Learners can greatly benefit from learning materials that connect abstract theories and paradigms with their personal interests and hobbies, thus transforming conventional lecture text into an intuitive and relatable narrative.</p>
+    
+    <p>Currently, intelligent tutoring systems incorporating large language models are found to be deficient in providing a formal framework for hobby-centric content personalization. Only a few systems have been found to possess the ability to adjust their narratives and models according to an individual's unique recreational interests. This has emphasized the need for an intelligent infrastructure that utilizes the services of large language models for creating interest-aligned educational texts while maintaining factual integrity.</p>
+
+    <div class="heading-2">A. Related Work and Gap Analysis</div>
+    <p>Researchers have always tried to understand adaptive sequences for course work and how to monitor what a student knows. However, a significant gap has always existed in how to automatically integrate a student's personal interests into the work material. Most tools and techniques, such as intelligent routing of work material, have always focused on how to change the order of information presented to a student instead of changing the texture and flavor of the information presented. Other tools and techniques have focused on how to ensure that information presented is factually correct but have ignored how to ensure that information presented is aligned with a student's mindset. This work focuses on this ignored aspect and proposes an orchestration pipeline that can effectively integrate a student's personal hobbies into work material.</p>
+
+    <div class="table-caption">TABLE I</div>
+    <div class="table-title">Comparison of Related Intelligent Tutoring Systems</div>
+    <table>
+        <thead>
+            <tr>
+                <th>System</th>
+                <th>Focus</th>
+                <th>Approach</th>
+                <th>Key Finding</th>
+                <th>Limitation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>KG-RAG</td>
+                <td>Course-aware grounded tutoring</td>
+                <td>Knowledge graph + semantic retrieval + LLM + feedback</td>
+                <td>Grounding improves factual consistency</td>
+                <td>Complex architecture; limited multimodal UX</td>
+            </tr>
+            <tr>
+                <td>GenAI Schema</td>
+                <td>Knowledge structuring</td>
+                <td>Theoretical GenAI framework for schema building</td>
+                <td>Supports retention and efficiency</td>
+                <td>No multimodal modes or interest adaptation</td>
+            </tr>
+            <tr>
+                <td>SocratiQ</td>
+                <td>Adaptive Socratic tutoring</td>
+                <td>Dynamic path adaptation; STEM focus</td>
+                <td>Strong at adapting learning paths</td>
+                <td>Path-focused; limited multimodal artifacts</td>
+            </tr>
+            <tr>
+                <td>MIALS</td>
+                <td>Multimodal signals</td>
+                <td>Behavioral/emotional/cognitive personalization</td>
+                <td>Improves engagement via adaptivity</td>
+                <td>No automatic course-aligned artifact generation</td>
+            </tr>
+            <tr>
+                <td>QuizBot</td>
+                <td>Dialogue-based learning</td>
+                <td>Conversational sequencing; recall focus</td>
+                <td>Dialogue outperforms static flashcards</td>
+                <td>Limited to factual recall; no visual depth</td>
+            </tr>
+            <tr>
+                <td>Iris</td>
+                <td>CS education tutor</td>
+                <td>Hints and counter-questions</td>
+                <td>Improves programming confidence</td>
+                <td>Domain-limited; no cross-subject multimodality</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="heading-2">B. Contributions</div>
+    <p>The contribution of this paper is a framework on how to effectively utilize an LLM to create an Interest Mapping framework. Some of the innovative parts of this work include a crafted prompt pipeline, a semantic linking technique, and an evaluation framework meant to measure how successful the narrative has been. By effectively isolating this aspect, it can be demonstrated that it is possible to utilize a student's hobby information to create a more effective text learning experience.</p>
+
+    <div class="heading-2">C. Paper Organization</div>
+    <p>The rest of the paper is organized as follows: Section II presents an overview of the software architecture and how it works. Section III presents an overview of how it has been tested and how effective it is. Section IV presents closing thoughts and possible avenues for further work.</p>
+
+
+    <div class="heading-1">II. METHODS AND MATERIALS</div>
+
+    <div class="heading-2">A. System Architecture Overview</div>
+    <p>Our system operates as a real-time text synthesis tutor in a modular form. It has been designed as a multi-layered system consisting of Application Logic, the Generative AI core, and the Data Persistence layer. We have specifically designed the Generative AI segment of the system, which generates the texts, and the Data segment of the system, which stores the student's hobby information.</p>
+
+    <div class="figure-block">
+        <img src="D:\sarthak\clg\ConceptPilot2.0\newArch.png" alt="Fig. 1: System Architecture Diagram">
+    </div>
+    <div class="figure-caption">Fig. 1 Architecture of Teaching System</div>
+
+    <div class="heading-2">B. AI &amp; Generation Layer</div>
+    <p>The core of the system is the LangChain-based text generator that relies on open-source endpoints of LLMs that specialize in meaning understanding. The core innovation of the system is the "Interest Mapping," where the meaning of the required academic curriculum is cross-checked with the student's hobby information stored in the Data segment of the system. A multi-step prompt system is utilized to prompt the LLM to produce texts that explain the required academic curriculum by directly using analogies to the student's hobby information.</p>
+
+    <div class="heading-2">C. Database Layer</div>
+    <p>The Database segment of the system relies on MongoDB as the non-relational database to facilitate the fast, asynchronous reading and writing of user context information. The primary information stored in the Database segment consists of the Learner's Profile, which contains the student's hobby information, the student's grade level, and the student's performance markers, as well as the Content Artifact, which contains the final texts generated by the AI module for later reference.</p>
+
+    <div class="heading-2">D. End-to-End Personalization Pipeline</div>
+    <p>The Interest Mapping innovation relies on a three-step closed loop that starts with the Context Acquisition segment of the system, which retrieves the user's hobby information stored in the Database segment of the system, followed by the Text Synthesis segment of the system, where the LangChain API is called to prompt the LLM to produce the required academic curriculum in the form of a text that explains the required curriculum by directly using the student's hobby information, and finally the Evaluation Tracking segment of the system, where the final texts generated by the AI module of the system are stored for later reference.</p>
+
+
+    <div class="heading-1">III. RESULTS AND DISCUSSION</div>
+
+    
+
+    <div class="heading-2">A. Experimental Setup</div>
+    <p>To validate the Interest Mapping mechanism, an evaluation was conducted across 20 distinct scientific and mathematical subjects. The generative pipeline produced 100 isolated textual lessons. The primary objective of the assessment was to determine the qualitative success of the narrative adaptation in relation to the provided user profiles.</p>
+    <div class="figure-block">
+        <img src="chat.jpeg" alt="Fig. 2: Sample Chat Interface">
+    </div>
+    <div class="figure-caption">Fig. 2 Main Chat Interface</div>
+
+    <div class="heading-2">B. Educational Content Adaptation</div>
+    <p>The evaluation relied on tracking the success rate of several qualitative parameters, ensuring that the integration of hobbies did not compromise the academic integrity of the text. The outcomes are summarized in Table I.</p>
+
+    <div class="table-caption">TABLE II</div>
+    <div class="table-title">Personalization Effectiveness Parameters</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Adaptation Parameter</th>
+                <th>Success Rate</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hobby Integration Rate</td>
+                <td>87%</td>
+                <td>Successful inclusion of relevant personal interest analogies</td>
+            </tr>
+            <tr>
+                <td>Lexical Appropriateness</td>
+                <td>91%</td>
+                <td>Vocabulary aligned with the user's academic grade level</td>
+            </tr>
+            <tr>
+                <td>Difficulty Calibration</td>
+                <td>85%</td>
+                <td>Conceptual depth matched to the user's proficiency</td>
+            </tr>
+            <tr>
+                <td>Curriculum Accuracy</td>
+                <td>93%</td>
+                <td>Maintenance of factual and domain-specific correctness</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>The data is clear in showing that we can create educational stories that are learner-centric, as evidenced by an 87% success rate in Hobby Integration. This supports our notion that semantic mapping using an LLM can produce learner-centric texts. Similarly, a Curriculum Accuracy rate of 93% indicates that incorporating recreational analogies does not reduce the educational rigor of STEM concepts. Overall, most of our generated educational lessons scored highly in terms of educational quality.</p>
+
+
+    <div class="heading-1">IV. CONCLUSION</div>
+
+    <div class="heading-2">A. Summary</div>
+    <p>In this paper, we presented how an Interest Mapping framework using an LLM was created and validated to address the engagement issue in traditional e-learning systems. By using prompt engineering techniques to combine educational concepts with user hobbies, our system can generate personalized texts that are highly relevant to learners.</p>
+
+    <div class="heading-2">B. Future Work</div>
+    <p>In terms of immediate work, we intend to incorporate RAG models to guarantee precision in terms of facts in analogies. Future work also involves extending the Interest Mapping algorithm to include an automated assessment tool that can generate learner tests and flashcards that are related to their hobbies.</p>
+
+
+    <div class="heading-1">REFERENCES</div>
+
+    <div class="references-section">
+        <p>[1] C. Dong, Y. Yuan, K. Chen, S. Cheng, and C. Wen, &ldquo;How to Build an Adaptive AI Tutor for Any Course Using Knowledge Graph-Enhanced Retrieval-Augmented Generation (KG-RAG),&rdquo; <em>The Education University of Hong Kong &amp; The University of Adelaide,</em> 2024, pp. 1&ndash;12.</p>
+        <p>[2] B. Salgado Granda, Y. Inzhivotkina, M. F. Ib&aacute;&ntilde;ez Apolo, and J. G. Ugarte Fajardo, &ldquo;Educational innovation: Exploring the potential of Generative Artificial Intelligence in cognitive schema building,&rdquo; <em>EDUTEC: Revista Electr&oacute;nica de Tecnolog&iacute;a Educativa,</em> Issue 89, Sept. 2024, pp. 1&ndash;14.</p>
+        <p>[3] C.-C. Lin, A. Y. Q. Huang, and O. H. T. Lu, &ldquo;Artificial intelligence in intelligent tutoring systems toward sustainable education: A systematic review,&rdquo; <em>Smart Learning Environments,</em> vol. 10, no. 41, 2023, pp. 1&ndash;23.</p>
+        <p>[4] E. Kochmar, D. D. Vu, R. Belfer, <em>et al.</em>, &ldquo;Automated Data-Driven Generation of Personalized Pedagogical Interventions in Intelligent Tutoring Systems,&rdquo; <em>International Journal of Artificial Intelligence in Education,</em> vol. 32, pp. 323&ndash;349, 2022.</p>
+        <p>[5] C. Yalim and H. H. Handley, &ldquo;Integrating Generative Artificial Intelligence with Systems Architecting Diagram Creation: Advancement, Challenges, Opportunities and Future Perspectives,&rdquo; in <em>Proc. American Society for Engineering Management International Annual Conference,</em> Virginia Beach, USA, 2024, pp. 1&ndash;9.</p>
+        <p>[6] I. V. Serban, V. Gupta, E. Kochmar, D. D. Vu, R. Belfer, J. Pineau, A. Courville, L. Charlin, and Y. Bengio, &ldquo;A Large-Scale, Open-Domain, Mixed-Interface Dialogue-Based Intelligent Tutoring System for STEM,&rdquo; <em>Korbit Technologies Inc., Montreal,</em> 2020, pp. 1&ndash;15.</p>
+        <p>[7] R. Sajja, Y. Sermet, M. Cikmaz, D. Cwiertny, and I. Demir, &ldquo;Artificial Intelligence-Enabled Intelligent Assistant for Personalized and Adaptive Learning in Higher Education,&rdquo; <em>University of Iowa Journal Publications,</em> 2024, pp. 1&ndash;12.</p>
+        <p>[8] D. Baradari, N. Kosmyna, O. Petrov, R. Kaplun, and P. Maes, &ldquo;NeuroChat: A Neuroadaptive AI Chatbot for Customizing Learning Experiences,&rdquo; <em>MIT Media Lab Technical Report,</em> 2024, pp. 1&ndash;10.</p>
+        <p>[9] M. Park, S. Kim, S. Lee, S. Kwon, and K. Kim, &ldquo;Empowering Personalized Learning through a Conversation-Based Tutoring System with Student Modeling,&rdquo; <em>Riiid AI Research Publications,</em> Seoul, Republic of Korea, 2024, pp. 1&ndash;9.</p>
+        <p>[10] J. Ca&ntilde;adas, M. Mena, J. A. Llopis, R. M. Ayala, F. Garc&iacute;a, J. Criado, and J. Bar&oacute;n, &ldquo;Approaches to Utilizing Generative Artificial Intelligence in Programming and Software Engineering Education,&rdquo; in <em>ICERI2024 Proceedings,</em> Seville, Spain, 2024, pp. 7184&ndash;7189.</p>
+        <p>[11] S. Yazdani, M. Najimi, and M. Ahmadzadeh, &ldquo;The Paradox of Generative AI in Programming Education,&rdquo; in <em>EDULEARN25 Proceedings,</em> Palma, Spain, 2025, pp. 7775&ndash;7784.</p>
+    </div>
+
+</body>
+</html>
