@@ -464,30 +464,30 @@ async def get_word_timestamps(lesson_id: str, db=Depends(get_database)):
     
     # Extract word timestamps using Groq Whisper
     try:
-        print(f\"[Timestamps] Extracting timestamps from: {audio_path}\")
+        print(f"[Timestamps] Extracting timestamps from: {audio_path}")
         word_timestamps = await extract_word_timestamps(audio_path)
         
         if word_timestamps is None:
             raise HTTPException(
                 status_code=500,
-                detail=\"Failed to extract timestamps. Check Groq API key configuration.\"
+                detail="Failed to extract timestamps. Check Groq API key configuration."
             )
         
         if not word_timestamps:
             raise HTTPException(
                 status_code=500,
-                detail=\"No words found in audio transcription.\"
+                detail="No words found in audio transcription."
             )
         
-        print(f\"[Timestamps] Extracted {len(word_timestamps)} word timestamps\")
+        print(f"[Timestamps] Extracted {len(word_timestamps)} word timestamps")
         
     except HTTPException:
         raise
     except Exception as e:
-        print(f\"[Timestamps] Error extracting timestamps: {str(e)}\")
+        print(f"[Timestamps] Error extracting timestamps: {str(e)}")
         raise HTTPException(
             status_code=500,
-            detail=f\"Timestamp extraction failed: {str(e)}\"
+            detail=f"Timestamp extraction failed: {str(e)}"
         )
     
     # Calculate total duration from timestamps

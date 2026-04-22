@@ -1,0 +1,20 @@
+{
+  "lesson_id": "friction1776804839",
+  "total_duration": 195.772,
+  "chunk_count": 2,
+  "pause_duration": 0.7,
+  "chunks": [
+    {
+      "index": 0,
+      "file": "/static/audio/friction1776804839_chunk_0.mp3",
+      "duration": 123.696,
+      "start_time": 0.0
+    },
+    {
+      "index": 1,
+      "file": "/static/audio/friction1776804839_chunk_1.mp3",
+      "duration": 71.376,
+      "start_time": 124.396
+    }
+  ]
+}

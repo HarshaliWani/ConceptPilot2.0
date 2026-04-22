@@ -2,7 +2,7 @@
 'use client';
 
 import React, { Suspense, useEffect, useState } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation'; // NEW IMPORT
+import { useSearchParams, useRouter } from 'next/navigation';
 import { useLessonStore } from '@/src/store/lessonStore';
 import { fetchTestLesson, fetchLesson, LessonData, generateQuiz } from '@/src/services/api';
 import LessonCanvas from '@/src/components/LessonCanvas';

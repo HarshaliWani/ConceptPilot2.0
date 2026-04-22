@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
-import { Send, Bot, User, Mic, Loader2 } from 'lucide-react'
+import React, { useState, useEffect, useRef, useMemo } from 'react'
+import { Send, Bot, User, Mic, Loader2, MessageCircle } from 'lucide-react'
 import { generateLesson, generateBatchLessonsStream, LessonData } from '@/src/services/api'
 import { getCurrentUser } from '@/src/lib/auth'
 import { useLessonStore } from '@/src/store/lessonStore'
@@ -15,9 +15,10 @@ interface Message {
 
 interface ChatInterfaceProps {
   onLessonGenerated: (lesson: LessonData) => void
+  lessonData?: LessonData | null
 }
 
-const ChatInterface: React.FC<ChatInterfaceProps> = ({ onLessonGenerated }) => {
+const ChatInterface: React.FC<ChatInterfaceProps> = ({ onLessonGenerated, lessonData }) => {
   const [messages, setMessages] = useState<Message[]>([])
   const [inputValue, setInputValue] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
@@ -227,11 +228,34 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onLessonGenerated }) => {
     }
   }
 
+  // Split narration into words for display (no highlighting)
+  const words = useMemo(() => {
+    if (!lessonData?.narration_script) return []
+    return lessonData.narration_script
+  }, [lessonData?.narration_script])
+
   return (
     <div className="flex flex-col h-full">
-      {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto p-6 space-y-6">
-        {messages.map((message) => (
+      {/* Narration Display - 50% height */}
+      {lessonData?.narration_script && (
+        <div className="h-1/2 flex flex-col bg-gradient-to-r from-blue-50 to-purple-50 border-b border-gray-200">
+          <div className="px-6 py-4 flex items-center gap-2 border-b border-gray-200 flex-shrink-0">
+            <MessageCircle className="w-5 h-5 text-blue-600" />
+            <h4 className="font-semibold text-gray-900">Narration</h4>
+          </div>
+          <div className="flex-1 overflow-y-auto px-6 py-4">
+            <p className="text-base leading-relaxed text-gray-800">
+              {words}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Chat Section - 50% height */}
+      <div className={`flex flex-col ${lessonData?.narration_script ? 'h-1/2' : 'h-full'}`}>
+        {/* Chat Messages */}
+        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+          {messages.map((message) => (
           <div
             key={message.id}
             className={`flex items-start space-x-3 ${
@@ -266,6 +290,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onLessonGenerated }) => {
             )}
           </div>
         ))}
+        </div>
       </div>
 
       {/* Input Area */}

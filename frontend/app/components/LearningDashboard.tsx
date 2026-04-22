@@ -49,7 +49,7 @@ const LearningDashboard: React.FC = () => {
 
         {/* Chat Interface */}
         <div className="w-1/2 flex flex-col bg-white border-l border-gray-200">
-          <ChatInterface onLessonGenerated={handleLessonGenerated} />
+          <ChatInterface onLessonGenerated={handleLessonGenerated} lessonData={lessonData} />
         </div>
       </div>
 

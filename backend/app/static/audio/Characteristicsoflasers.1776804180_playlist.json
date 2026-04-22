@@ -1,0 +1,20 @@
+{
+  "lesson_id": "Characteristicsoflasers.1776804180",
+  "total_duration": 227.5,
+  "chunk_count": 2,
+  "pause_duration": 0.7,
+  "chunks": [
+    {
+      "index": 0,
+      "file": "/static/audio/Characteristicsoflasers.1776804180_chunk_0.mp3",
+      "duration": 120.744,
+      "start_time": 0.0
+    },
+    {
+      "index": 1,
+      "file": "/static/audio/Characteristicsoflasers.1776804180_chunk_1.mp3",
+      "duration": 106.056,
+      "start_time": 121.444
+    }
+  ]
+}
